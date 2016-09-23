@@ -10,7 +10,11 @@
 		C508AFBF1D94CF5200852B87 /* MKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFBC1D94CF5200852B87 /* MKAlertView.m */; };
 		C508AFC01D94CF5200852B87 /* UIAlertView+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFBE1D94CF5200852B87 /* UIAlertView+MKExtension.m */; };
 		C508AFC31D94DAA100852B87 /* MKUITools.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFC21D94DAA100852B87 /* MKUITools.m */; };
-		C51317E51D93C97300EA9C9B /* MKToolsKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C51317E41D93C97300EA9C9B /* MKToolsKit.m */; };
+		C508AFCC1D950F4500852B87 /* UIView+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFCB1D950F4500852B87 /* UIView+MKExtension.m */; };
+		C508AFCF1D951C5A00852B87 /* UITabBar+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFCE1D951C5A00852B87 /* UITabBar+MKExtension.m */; };
+		C508AFD31D951C8A00852B87 /* MKBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFD21D951C8A00852B87 /* MKBlurView.m */; };
+		C508AFD81D951D7C00852B87 /* UILabel+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFD51D951D7C00852B87 /* UILabel+MKExtension.m */; };
+		C508AFD91D951D7C00852B87 /* UINavigationController+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFD71D951D7C00852B87 /* UINavigationController+MKExtension.m */; };
 		C51317E61D93C97300EA9C9B /* MKToolsKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C51317E31D93C97300EA9C9B /* MKToolsKit.h */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +38,18 @@
 		C508AFBE1D94CF5200852B87 /* UIAlertView+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+MKExtension.m"; sourceTree = "<group>"; };
 		C508AFC11D94DAA100852B87 /* MKUITools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKUITools.h; sourceTree = "<group>"; };
 		C508AFC21D94DAA100852B87 /* MKUITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKUITools.m; sourceTree = "<group>"; };
+		C508AFCA1D950F4500852B87 /* UIView+MKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MKExtension.h"; sourceTree = "<group>"; };
+		C508AFCB1D950F4500852B87 /* UIView+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MKExtension.m"; sourceTree = "<group>"; };
+		C508AFCD1D951C5A00852B87 /* UITabBar+MKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+MKExtension.h"; sourceTree = "<group>"; };
+		C508AFCE1D951C5A00852B87 /* UITabBar+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+MKExtension.m"; sourceTree = "<group>"; };
+		C508AFD11D951C8A00852B87 /* MKBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBlurView.h; sourceTree = "<group>"; };
+		C508AFD21D951C8A00852B87 /* MKBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBlurView.m; sourceTree = "<group>"; };
+		C508AFD41D951D7C00852B87 /* UILabel+MKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+MKExtension.h"; sourceTree = "<group>"; };
+		C508AFD51D951D7C00852B87 /* UILabel+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+MKExtension.m"; sourceTree = "<group>"; };
+		C508AFD61D951D7C00852B87 /* UINavigationController+MKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MKExtension.h"; sourceTree = "<group>"; };
+		C508AFD71D951D7C00852B87 /* UINavigationController+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MKExtension.m"; sourceTree = "<group>"; };
 		C51317E01D93C97300EA9C9B /* libMKToolsKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMKToolsKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51317E31D93C97300EA9C9B /* MKToolsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKToolsKit.h; sourceTree = "<group>"; };
-		C51317E41D93C97300EA9C9B /* MKToolsKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MKToolsKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +77,25 @@
 		C508AFC81D94F4B900852B87 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C508AFD41D951D7C00852B87 /* UILabel+MKExtension.h */,
+				C508AFD51D951D7C00852B87 /* UILabel+MKExtension.m */,
+				C508AFD61D951D7C00852B87 /* UINavigationController+MKExtension.h */,
+				C508AFD71D951D7C00852B87 /* UINavigationController+MKExtension.m */,
+				C508AFCD1D951C5A00852B87 /* UITabBar+MKExtension.h */,
+				C508AFCE1D951C5A00852B87 /* UITabBar+MKExtension.m */,
+				C508AFCA1D950F4500852B87 /* UIView+MKExtension.h */,
+				C508AFCB1D950F4500852B87 /* UIView+MKExtension.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		C508AFD01D951C8A00852B87 /* MKBlurView */ = {
+			isa = PBXGroup;
+			children = (
+				C508AFD11D951C8A00852B87 /* MKBlurView.h */,
+				C508AFD21D951C8A00852B87 /* MKBlurView.m */,
+			);
+			path = MKBlurView;
 			sourceTree = "<group>";
 		};
 		C51317D71D93C97300EA9C9B = {
@@ -89,8 +119,8 @@
 			children = (
 				C508AFC81D94F4B900852B87 /* Category */,
 				C508AFBA1D94CF5200852B87 /* MKAlertView */,
+				C508AFD01D951C8A00852B87 /* MKBlurView */,
 				C51317E31D93C97300EA9C9B /* MKToolsKit.h */,
-				C51317E41D93C97300EA9C9B /* MKToolsKit.m */,
 				C508AFC11D94DAA100852B87 /* MKUITools.h */,
 				C508AFC21D94DAA100852B87 /* MKUITools.m */,
 			);
@@ -154,9 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C51317E51D93C97300EA9C9B /* MKToolsKit.m in Sources */,
+				C508AFCF1D951C5A00852B87 /* UITabBar+MKExtension.m in Sources */,
+				C508AFD91D951D7C00852B87 /* UINavigationController+MKExtension.m in Sources */,
+				C508AFD81D951D7C00852B87 /* UILabel+MKExtension.m in Sources */,
 				C508AFC31D94DAA100852B87 /* MKUITools.m in Sources */,
 				C508AFC01D94CF5200852B87 /* UIAlertView+MKExtension.m in Sources */,
+				C508AFD31D951C8A00852B87 /* MKBlurView.m in Sources */,
+				C508AFCC1D950F4500852B87 /* UIView+MKExtension.m in Sources */,
 				C508AFBF1D94CF5200852B87 /* MKAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
