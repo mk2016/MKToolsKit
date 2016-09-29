@@ -16,6 +16,10 @@
 		C508AFD81D951D7C00852B87 /* UILabel+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFD51D951D7C00852B87 /* UILabel+MKExtension.m */; };
 		C508AFD91D951D7C00852B87 /* UINavigationController+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFD71D951D7C00852B87 /* UINavigationController+MKExtension.m */; };
 		C51317E61D93C97300EA9C9B /* MKToolsKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C51317E31D93C97300EA9C9B /* MKToolsKit.h */; };
+		C515A5791D9CF24E00D7984E /* NSString+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A5781D9CF24E00D7984E /* NSString+MKExtension.m */; };
+		C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */; };
+		C515A5831D9CF33200D7984E /* NSObject+MKAddProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A57D1D9CF33200D7984E /* NSObject+MKAddProperty.m */; };
+		C515A5851D9CF33200D7984E /* UIImage+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A5811D9CF33200D7984E /* UIImage+MKExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +54,15 @@
 		C508AFD71D951D7C00852B87 /* UINavigationController+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MKExtension.m"; sourceTree = "<group>"; };
 		C51317E01D93C97300EA9C9B /* libMKToolsKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMKToolsKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51317E31D93C97300EA9C9B /* MKToolsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKToolsKit.h; sourceTree = "<group>"; };
+		C515A5761D9CF0A600D7984E /* MKCategoryHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKCategoryHead.h; sourceTree = "<group>"; };
+		C515A5771D9CF24E00D7984E /* NSString+MKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MKExtension.h"; sourceTree = "<group>"; };
+		C515A5781D9CF24E00D7984E /* NSString+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MKExtension.m"; sourceTree = "<group>"; };
+		C515A57A1D9CF33200D7984E /* Foundation+MKLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation+MKLog.h"; sourceTree = "<group>"; };
+		C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+MKLog.m"; sourceTree = "<group>"; };
+		C515A57C1D9CF33200D7984E /* NSObject+MKAddProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MKAddProperty.h"; sourceTree = "<group>"; };
+		C515A57D1D9CF33200D7984E /* NSObject+MKAddProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKAddProperty.m"; sourceTree = "<group>"; };
+		C515A5801D9CF33200D7984E /* UIImage+MKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MKExtension.h"; sourceTree = "<group>"; };
+		C515A5811D9CF33200D7984E /* UIImage+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MKExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +90,15 @@
 		C508AFC81D94F4B900852B87 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C515A5761D9CF0A600D7984E /* MKCategoryHead.h */,
+				C515A57A1D9CF33200D7984E /* Foundation+MKLog.h */,
+				C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */,
+				C515A57C1D9CF33200D7984E /* NSObject+MKAddProperty.h */,
+				C515A57D1D9CF33200D7984E /* NSObject+MKAddProperty.m */,
+				C515A5771D9CF24E00D7984E /* NSString+MKExtension.h */,
+				C515A5781D9CF24E00D7984E /* NSString+MKExtension.m */,
+				C515A5801D9CF33200D7984E /* UIImage+MKExtension.h */,
+				C515A5811D9CF33200D7984E /* UIImage+MKExtension.m */,
 				C508AFD41D951D7C00852B87 /* UILabel+MKExtension.h */,
 				C508AFD51D951D7C00852B87 /* UILabel+MKExtension.m */,
 				C508AFD61D951D7C00852B87 /* UINavigationController+MKExtension.h */,
@@ -185,13 +207,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C508AFCF1D951C5A00852B87 /* UITabBar+MKExtension.m in Sources */,
+				C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */,
 				C508AFD91D951D7C00852B87 /* UINavigationController+MKExtension.m in Sources */,
 				C508AFD81D951D7C00852B87 /* UILabel+MKExtension.m in Sources */,
 				C508AFC31D94DAA100852B87 /* MKUITools.m in Sources */,
 				C508AFC01D94CF5200852B87 /* UIAlertView+MKExtension.m in Sources */,
+				C515A5851D9CF33200D7984E /* UIImage+MKExtension.m in Sources */,
 				C508AFD31D951C8A00852B87 /* MKBlurView.m in Sources */,
 				C508AFCC1D950F4500852B87 /* UIView+MKExtension.m in Sources */,
 				C508AFBF1D94CF5200852B87 /* MKAlertView.m in Sources */,
+				C515A5791D9CF24E00D7984E /* NSString+MKExtension.m in Sources */,
+				C515A5831D9CF33200D7984E /* NSObject+MKAddProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

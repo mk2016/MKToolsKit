@@ -11,10 +11,7 @@
 #import "MKUITools.h"
 #import "MKAlertView.h"
 #import "MKBlurView.h"
-
-
-//category
-#import "UIView+MKExtension.h"
+#import "MKCategoryHead.h"
 
 /** 日志 */
 #ifdef DEBUG
