@@ -10,12 +10,22 @@
 
 #import "MKUITools.h"
 #import "MKAlertView.h"
-
+#import "MKBlurView.h"
 
 
 //category
 #import "UIView+MKExtension.h"
 
+/** 日志 */
+#ifdef DEBUG
+#   define DLog(...) NSLog(@"%s, %d, %@", __func__, __LINE__, [NSString stringWithFormat:__VA_ARGS__])
+#   define ELog(fmt, ...) NSLog((@"[Elog] " fmt), ##__VA_ARGS__);
+#   define DebugStatus YES
+#else
+#   define DLog(...)
+#   define ELog(...)
+#   define DebugStatus NO
+#endif
 
 /** 系统单例 简写 */
 #define MKApplication       [UIApplication sharedApplication]
