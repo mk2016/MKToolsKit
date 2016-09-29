@@ -58,3 +58,8 @@ dispatch_once(&once, ^{\
 sharedInstance = [[self alloc] init];\
 });\
 return sharedInstance;}
+
+/** block */
+typedef void (^MKBlock)(id result);
+typedef void (^MKBoolBlock)(BOOL bRet);
+typedef void (^MKVoidBlock)(void);
