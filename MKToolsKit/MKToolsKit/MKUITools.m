@@ -17,6 +17,7 @@
 }
 
 #pragma mark - ***** current ViewController ******
+/** default include presentedViewController */
 + (UIViewController *)getCurrentViewController{
     return [self getCurrentViewControllerWithWindowLevel:UIWindowLevelNormal includePresentedVC:YES];
 }
