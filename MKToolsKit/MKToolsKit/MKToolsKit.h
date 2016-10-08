@@ -44,10 +44,6 @@
                                                     green:((float)((rgbValue & 0xFF00) >> 8))/255.0f \
                                                     blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0f]
 
-/** 弱引用 */
-#define MKWEAKSELF typeof(self) __weak weakSelf = self;
-#define MKWEAKIFY(var) __weak typeof(var) weak_##var = var;
-
 /** 单例 */
 #define MKImpl_sharedInstance(type) + (instancetype)sharedInstance {\
 static type *sharedInstance = nil;\
@@ -57,7 +53,27 @@ sharedInstance = [[self alloc] init];\
 });\
 return sharedInstance;}
 
+/** 线程 */
+#define MKDispatch_main_sync_safe(block)\
+if ([NSThread isMainThread]) {\
+block();\
+} else {\
+dispatch_sync(dispatch_get_main_queue(), block);\
+}
+
+#define MKDispatch_main_async_safe(block)\
+if ([NSThread isMainThread]) {\
+block();\
+} else {\
+dispatch_async(dispatch_get_main_queue(), block);\
+}
+
+/** 弱引用 */
+#define MKWEAKSELF typeof(self) __weak weakSelf = self;
+#define MKWEAKIFY(var) __weak typeof(var) weak_##var = var;
+
 /** block */
+#define MKBlockExec(block, ...) if (block) { block(__VA_ARGS__); };
 typedef void (^MKBlock)(id result);
 typedef void (^MKBoolBlock)(BOOL bRet);
 typedef void (^MKVoidBlock)(void);
