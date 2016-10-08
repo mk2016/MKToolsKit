@@ -20,6 +20,7 @@
 		C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */; };
 		C515A5831D9CF33200D7984E /* NSObject+MKAddProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A57D1D9CF33200D7984E /* NSObject+MKAddProperty.m */; };
 		C515A5851D9CF33200D7984E /* UIImage+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A5811D9CF33200D7984E /* UIImage+MKExtension.m */; };
+		C5701BF31DA88A2900C4D656 /* MKVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5701BF21DA88A2900C4D656 /* MKVButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,8 @@
 		C515A57D1D9CF33200D7984E /* NSObject+MKAddProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKAddProperty.m"; sourceTree = "<group>"; };
 		C515A5801D9CF33200D7984E /* UIImage+MKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MKExtension.h"; sourceTree = "<group>"; };
 		C515A5811D9CF33200D7984E /* UIImage+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MKExtension.m"; sourceTree = "<group>"; };
+		C5701BF11DA88A2900C4D656 /* MKVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKVButton.h; sourceTree = "<group>"; };
+		C5701BF21DA88A2900C4D656 /* MKVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKVButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,11 +145,21 @@
 				C508AFC81D94F4B900852B87 /* Category */,
 				C508AFBA1D94CF5200852B87 /* MKAlertView */,
 				C508AFD01D951C8A00852B87 /* MKBlurView */,
+				C5701BF01DA88A2900C4D656 /* MKVButton */,
 				C51317E31D93C97300EA9C9B /* MKToolsKit.h */,
 				C508AFC11D94DAA100852B87 /* MKUITools.h */,
 				C508AFC21D94DAA100852B87 /* MKUITools.m */,
 			);
 			path = MKToolsKit;
+			sourceTree = "<group>";
+		};
+		C5701BF01DA88A2900C4D656 /* MKVButton */ = {
+			isa = PBXGroup;
+			children = (
+				C5701BF11DA88A2900C4D656 /* MKVButton.h */,
+				C5701BF21DA88A2900C4D656 /* MKVButton.m */,
+			);
+			path = MKVButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +221,7 @@
 			files = (
 				C508AFCF1D951C5A00852B87 /* UITabBar+MKExtension.m in Sources */,
 				C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */,
+				C5701BF31DA88A2900C4D656 /* MKVButton.m in Sources */,
 				C508AFD91D951D7C00852B87 /* UINavigationController+MKExtension.m in Sources */,
 				C508AFD81D951D7C00852B87 /* UILabel+MKExtension.m in Sources */,
 				C508AFC31D94DAA100852B87 /* MKUITools.m in Sources */,
