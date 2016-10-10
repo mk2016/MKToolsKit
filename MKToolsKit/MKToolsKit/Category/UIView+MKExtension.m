@@ -95,7 +95,7 @@
 
 - (void)setCorner{
     [self.layer setMasksToBounds:YES];
-    [self.layer setCornerRadius:2.0];
+    [self.layer setCornerRadius:4.0];
 }
 
 - (void)setToCircle{
