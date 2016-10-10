@@ -1,5 +1,5 @@
 //
-//  UIImage+MKExtension.h
+//  UIImage+MKAdd.h
 //  MKDevelopSolutions
 //
 //  Created by xiaomk on 16/5/19.

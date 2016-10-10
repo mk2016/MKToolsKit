@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "18ABF9579BF8B0EF655B686775A976F0D159FD7E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "18ABF9579BF8B0EF655B686775A976F0D159FD7E" : 9223372036854775807,
+    "569F68ADB2FA9C8DFA430AB08536DEFD98634575" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "134F4E99-E2D6-4EB2-84E0-917FBF396C6B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "18ABF9579BF8B0EF655B686775A976F0D159FD7E" : "MKToolsKit\/",
+    "569F68ADB2FA9C8DFA430AB08536DEFD98634575" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MKToolsKit",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MKToolsKit\/MKToolsKit.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mk2016\/MKToolsKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "18ABF9579BF8B0EF655B686775A976F0D159FD7E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "192.168.3.74:iOS\/Taoqicar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "569F68ADB2FA9C8DFA430AB08536DEFD98634575"
+    }
+  ]
+}

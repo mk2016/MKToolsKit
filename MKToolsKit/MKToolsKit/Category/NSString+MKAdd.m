@@ -1,12 +1,12 @@
 //
-//  NSString+MKExtension.m
+//  NSString+MKAdd.m
 //  MKDevelopSolutions
 //
 //  Created by xiaomk on 16/9/9.
 //  Copyright © 2016年 xiaomk. All rights reserved.
 //
 
-#import "NSString+MKExtension.h"
+#import "NSString+MKAdd.h"
 
 @implementation NSString(MKExtension)
 

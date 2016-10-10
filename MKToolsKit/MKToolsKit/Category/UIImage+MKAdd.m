@@ -1,12 +1,12 @@
 //
-//  UIImage+MKExtension.m
+//  UIImage+MKAdd.m
 //  MKDevelopSolutions
 //
 //  Created by xiaomk on 16/5/19.
 //  Copyright © 2016年 xiaomk. All rights reserved.
 //
 
-#import "UIImage+MKExtension.h"
+#import "UIImage+MKAdd.h"
 
 @implementation UIImage(MKExtension)
 

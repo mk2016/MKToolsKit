@@ -1,5 +1,5 @@
 //
-//  NSString+MKExtension.h
+//  NSString+MKAdd.h
 //  MKDevelopSolutions
 //
 //  Created by xiaomk on 16/9/9.
