@@ -9,7 +9,7 @@
 #import "UIView+MKAdd.h"
 #import "MKToolsKit.h"
 
-@implementation UIView(MKExtension)
+@implementation UIView(MKAdd)
 
 #pragma mark - ***** Frame ******
 - (CGFloat)x{

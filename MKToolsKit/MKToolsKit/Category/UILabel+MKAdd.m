@@ -8,7 +8,7 @@
 
 #import "UILabel+MKAdd.h"
 
-@implementation UILabel(MKExtension)
+@implementation UILabel(MKAdd)
 
 - (CGSize)mk_contentSizeWithWidth:(CGFloat)width{
     CGSize size = [self.text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)

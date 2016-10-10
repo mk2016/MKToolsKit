@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITabBar(MKExtension)
+@interface UITabBar(MKAdd)
 
 
 /** show small badge */

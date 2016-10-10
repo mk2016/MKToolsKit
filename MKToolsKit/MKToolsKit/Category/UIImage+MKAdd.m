@@ -8,7 +8,7 @@
 
 #import "UIImage+MKAdd.h"
 
-@implementation UIImage(MKExtension)
+@implementation UIImage(MKAdd)
 
 + (UIImage *)mk_resizedImageWithName:(NSString *)name{
     UIImage *image = [self imageNamed:name];

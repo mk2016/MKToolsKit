@@ -1,5 +1,5 @@
 //
-//  UIAlertView+MKExtension.m
+//  UIAlertView+MKAdd.m
 //  MKDevelopSolutions
 //
 //  Created by xiaomk on 16/9/19.
@@ -7,9 +7,9 @@
 //
 
 #import <objc/runtime.h>
-#import "UIAlertView+MKExtension.h"
+#import "UIAlertView+MKAdd.h"
 
-@implementation UIAlertView (MKExtension)
+@implementation UIAlertView (MKAdd)
 
 static char key;
 

@@ -10,7 +10,7 @@
 
 #define MKUITabBarTagBase 900
 
-@implementation UITabBar(MKExtension)
+@implementation UITabBar(MKAdd)
 
 /** 显示小红点 */
 - (void)showSmallBadgeOnItemIndex:(int)index{

@@ -8,7 +8,7 @@
 
 #import "NSString+MKAdd.h"
 
-@implementation NSString(MKExtension)
+@implementation NSString(MKAdd)
 
 /** 是否包含汉字 */
 - (BOOL)isIncludeChinese{

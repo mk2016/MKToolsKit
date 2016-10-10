@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface UILabel(MKExtension)
+@interface UILabel(MKAdd)
 
 - (CGSize)mk_contentSizeWithWidth:(CGFloat)width;
 

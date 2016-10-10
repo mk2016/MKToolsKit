@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString(MKExtension)
+@interface NSString(MKAdd)
 
 /** 是否包含汉字 */
 - (BOOL)isIncludeChinese;

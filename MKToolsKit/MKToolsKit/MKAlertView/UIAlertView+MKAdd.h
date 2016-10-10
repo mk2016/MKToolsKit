@@ -1,5 +1,5 @@
 //
-//  UIAlertView+MKExtension.h
+//  UIAlertView+MKAdd.h
 //  MKDevelopSolutions
 //
 //  Created by xiaomk on 16/9/19.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIAlertView (MKExtension)
+@interface UIAlertView (MKAdd)
 
 - (void)showWithBlock:(void(^)(NSInteger buttonIndex))block;
 

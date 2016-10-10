@@ -8,7 +8,7 @@
 
 #import "UINavigationController+MKAdd.h"
 
-@implementation UINavigationController (MKExtension)
+@implementation UINavigationController (MKAdd)
 
 - (BOOL)popToViewControllerWitnName:(NSString *)vcName animated:(BOOL)animated{
     Class class = NSClassFromString(vcName);

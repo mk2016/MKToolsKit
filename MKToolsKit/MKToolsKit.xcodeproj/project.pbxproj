@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C508AFBF1D94CF5200852B87 /* MKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFBC1D94CF5200852B87 /* MKAlertView.m */; };
-		C508AFC01D94CF5200852B87 /* UIAlertView+MKExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFBE1D94CF5200852B87 /* UIAlertView+MKExtension.m */; };
+		C508AFC01D94CF5200852B87 /* UIAlertView+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFBE1D94CF5200852B87 /* UIAlertView+MKAdd.m */; };
 		C508AFC31D94DAA100852B87 /* MKUITools.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFC21D94DAA100852B87 /* MKUITools.m */; };
 		C508AFCC1D950F4500852B87 /* UIView+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFCB1D950F4500852B87 /* UIView+MKAdd.m */; };
 		C508AFCF1D951C5A00852B87 /* UITabBar+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFCE1D951C5A00852B87 /* UITabBar+MKAdd.m */; };
@@ -39,8 +39,8 @@
 /* Begin PBXFileReference section */
 		C508AFBB1D94CF5200852B87 /* MKAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKAlertView.h; sourceTree = "<group>"; };
 		C508AFBC1D94CF5200852B87 /* MKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKAlertView.m; sourceTree = "<group>"; };
-		C508AFBD1D94CF5200852B87 /* UIAlertView+MKExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+MKExtension.h"; sourceTree = "<group>"; };
-		C508AFBE1D94CF5200852B87 /* UIAlertView+MKExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+MKExtension.m"; sourceTree = "<group>"; };
+		C508AFBD1D94CF5200852B87 /* UIAlertView+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+MKAdd.h"; sourceTree = "<group>"; };
+		C508AFBE1D94CF5200852B87 /* UIAlertView+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+MKAdd.m"; sourceTree = "<group>"; };
 		C508AFC11D94DAA100852B87 /* MKUITools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKUITools.h; sourceTree = "<group>"; };
 		C508AFC21D94DAA100852B87 /* MKUITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKUITools.m; sourceTree = "<group>"; };
 		C508AFCA1D950F4500852B87 /* UIView+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MKAdd.h"; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 			children = (
 				C508AFBB1D94CF5200852B87 /* MKAlertView.h */,
 				C508AFBC1D94CF5200852B87 /* MKAlertView.m */,
-				C508AFBD1D94CF5200852B87 /* UIAlertView+MKExtension.h */,
-				C508AFBE1D94CF5200852B87 /* UIAlertView+MKExtension.m */,
+				C508AFBD1D94CF5200852B87 /* UIAlertView+MKAdd.h */,
+				C508AFBE1D94CF5200852B87 /* UIAlertView+MKAdd.m */,
 			);
 			path = MKAlertView;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				C508AFD91D951D7C00852B87 /* UINavigationController+MKAdd.m in Sources */,
 				C508AFD81D951D7C00852B87 /* UILabel+MKAdd.m in Sources */,
 				C508AFC31D94DAA100852B87 /* MKUITools.m in Sources */,
-				C508AFC01D94CF5200852B87 /* UIAlertView+MKExtension.m in Sources */,
+				C508AFC01D94CF5200852B87 /* UIAlertView+MKAdd.m in Sources */,
 				C515A5851D9CF33200D7984E /* UIImage+MKAdd.m in Sources */,
 				C508AFD31D951C8A00852B87 /* MKBlurView.m in Sources */,
 				C508AFCC1D950F4500852B87 /* UIView+MKAdd.m in Sources */,

@@ -12,7 +12,7 @@
 #import <CoreImage/CoreImage.h>
 #import <Accelerate/Accelerate.h>
 
-@interface UIImage(MKExtension)
+@interface UIImage(MKAdd)
 
 /** 返回九宫格图片 */
 + (UIImage *)mk_resizedImageWithName:(NSString *)name;

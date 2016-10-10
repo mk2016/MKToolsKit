@@ -19,7 +19,7 @@ typedef enum {
     MKBorderDirectionTypeAll      = ~0UL
 }MKBorderDirectionType;
 
-@interface UIView(MKExtension)
+@interface UIView(MKAdd)
 
 - (CGFloat)x;
 - (CGFloat)y;

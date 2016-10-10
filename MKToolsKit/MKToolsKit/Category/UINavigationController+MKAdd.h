@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UINavigationController (MKExtension)
+@interface UINavigationController (MKAdd)
 
 - (BOOL)popToViewControllerWitnName:(NSString *)vcName animated:(BOOL)animated;
 
