@@ -10,6 +10,9 @@
 
 @interface NSString(MKAdd)
 
+/** jsonString 转 dictionary */
+- (NSDictionary *)dictionaryWithJsonString;
+
 /** 是否包含汉字 */
 - (BOOL)isIncludeChinese;
 /** 是否全部为汉字 */

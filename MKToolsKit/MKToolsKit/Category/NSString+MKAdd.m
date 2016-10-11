@@ -10,6 +10,17 @@
 
 @implementation NSString(MKAdd)
 
+- (NSDictionary *)dictionaryWithJsonString{
+    NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    if (error) {
+        NSLog(@"json解析失败:%@",error);
+        return nil;
+    }
+    return dic;
+}
+
 /** 是否包含汉字 */
 - (BOOL)isIncludeChinese{
     for(int i = 0; i < [self length]; i++){
