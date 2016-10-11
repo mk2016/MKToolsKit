@@ -12,7 +12,8 @@
 #import "MKUITools.h"
 #import "MKAlertView.h"
 #import "MKBlurView.h"
-#import "MKVButton/MKVButton.h"
+#import "MKVButton.h"
+#import "MKDeviceHelper.h"
 
 /** 日志 */
 #ifdef DEBUG

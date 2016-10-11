@@ -20,6 +20,8 @@
 		C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */; };
 		C515A5831D9CF33200D7984E /* NSObject+MKAddProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A57D1D9CF33200D7984E /* NSObject+MKAddProperty.m */; };
 		C515A5851D9CF33200D7984E /* UIImage+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A5811D9CF33200D7984E /* UIImage+MKAdd.m */; };
+		C55562A11DACB10300ED675C /* MKDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C55562A01DACB10300ED675C /* MKDeviceHelper.m */; };
+		C55562A91DACB63D00ED675C /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C55562A81DACB63D00ED675C /* SSKeychain.m */; };
 		C5701BF31DA88A2900C4D656 /* MKVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5701BF21DA88A2900C4D656 /* MKVButton.m */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,10 @@
 		C515A57D1D9CF33200D7984E /* NSObject+MKAddProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKAddProperty.m"; sourceTree = "<group>"; };
 		C515A5801D9CF33200D7984E /* UIImage+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MKAdd.h"; sourceTree = "<group>"; };
 		C515A5811D9CF33200D7984E /* UIImage+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MKAdd.m"; sourceTree = "<group>"; };
+		C555629F1DACB10300ED675C /* MKDeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDeviceHelper.h; sourceTree = "<group>"; };
+		C55562A01DACB10300ED675C /* MKDeviceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDeviceHelper.m; sourceTree = "<group>"; };
+		C55562A71DACB63D00ED675C /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		C55562A81DACB63D00ED675C /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		C5701BF11DA88A2900C4D656 /* MKVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKVButton.h; sourceTree = "<group>"; };
 		C5701BF21DA88A2900C4D656 /* MKVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKVButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,15 +148,27 @@
 		C51317E21D93C97300EA9C9B /* MKToolsKit */ = {
 			isa = PBXGroup;
 			children = (
+				C55562A61DACB63D00ED675C /* SSKeychain */,
 				C508AFC81D94F4B900852B87 /* Category */,
 				C508AFBA1D94CF5200852B87 /* MKAlertView */,
 				C508AFD01D951C8A00852B87 /* MKBlurView */,
 				C5701BF01DA88A2900C4D656 /* MKVButton */,
+				C555629F1DACB10300ED675C /* MKDeviceHelper.h */,
+				C55562A01DACB10300ED675C /* MKDeviceHelper.m */,
 				C51317E31D93C97300EA9C9B /* MKToolsKit.h */,
 				C508AFC11D94DAA100852B87 /* MKUITools.h */,
 				C508AFC21D94DAA100852B87 /* MKUITools.m */,
 			);
 			path = MKToolsKit;
+			sourceTree = "<group>";
+		};
+		C55562A61DACB63D00ED675C /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				C55562A71DACB63D00ED675C /* SSKeychain.h */,
+				C55562A81DACB63D00ED675C /* SSKeychain.m */,
+			);
+			path = SSKeychain;
 			sourceTree = "<group>";
 		};
 		C5701BF01DA88A2900C4D656 /* MKVButton */ = {
@@ -226,12 +244,14 @@
 				C508AFD81D951D7C00852B87 /* UILabel+MKAdd.m in Sources */,
 				C508AFC31D94DAA100852B87 /* MKUITools.m in Sources */,
 				C508AFC01D94CF5200852B87 /* UIAlertView+MKAdd.m in Sources */,
+				C55562A11DACB10300ED675C /* MKDeviceHelper.m in Sources */,
 				C515A5851D9CF33200D7984E /* UIImage+MKAdd.m in Sources */,
 				C508AFD31D951C8A00852B87 /* MKBlurView.m in Sources */,
 				C508AFCC1D950F4500852B87 /* UIView+MKAdd.m in Sources */,
 				C508AFBF1D94CF5200852B87 /* MKAlertView.m in Sources */,
 				C515A5791D9CF24E00D7984E /* NSString+MKAdd.m in Sources */,
 				C515A5831D9CF33200D7984E /* NSObject+MKAddProperty.m in Sources */,
+				C55562A91DACB63D00ED675C /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
