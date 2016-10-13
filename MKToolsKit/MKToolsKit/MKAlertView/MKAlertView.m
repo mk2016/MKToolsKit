@@ -15,6 +15,24 @@
 
 @implementation MKAlertView
 
++ (void)alertWithTitle:(NSString *)title
+               message:(NSString *)message
+     cancelButtonTitle:(NSString *)cancelButtonTitle
+    confirmButtonTitle:(NSString *)confirmButtonTitle
+                 block:(void (^)(NSInteger buttonIndex))block{
+    [self alertWithTitle:title message:message cancelButtonTitle:cancelButtonTitle confirmButtonTitle:confirmButtonTitle viewController:nil block:block];
+}
+
++ (void)alertWithTitle:(NSString *)title
+               message:(NSString *)message
+          buttonTitles:(NSArray *)buttonTitles
+                 block:(void (^)(NSInteger buttonIndex))block{
+    [self alertWithTitle:title message:message buttonTitles:buttonTitles onViewController:nil block:block];
+}
+
+
+
+
 + (void)alertWithTitle:(NSString *)title message:(NSString *)message onViewController:(UIViewController *)vc block:(void (^)(NSInteger buttonIndex))block buttonTitles:(NSString *)cancelTitle, ... NS_REQUIRES_NIL_TERMINATION{
     
     NSMutableArray* argsArray = [[NSMutableArray alloc] initWithCapacity:2];
@@ -33,6 +51,18 @@
     
     [self alertWithTitle:title message:message buttonTitles:argsArray onViewController:vc block:block];
         
+}
+
++ (void)alertWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle confirmButtonTitle:(NSString *)confirmButtonTitle viewController:(UIViewController *)vc block:(void (^)(NSInteger buttonIndex))block{
+    
+    NSMutableArray* argsArray = [[NSMutableArray alloc] initWithCapacity:2];
+    if (cancelButtonTitle) {
+        [argsArray addObject:cancelButtonTitle];
+    }
+    if (confirmButtonTitle) {
+        [argsArray addObject:confirmButtonTitle];
+    }
+    [self alertWithTitle:title message:message buttonTitles:argsArray onViewController:vc block:block];
 }
 
 + (void)alertWithTitle:(NSString *)title message:(NSString *)message buttonTitles:(NSArray *)buttonTitles onViewController:(UIViewController *)vc block:(void (^)(NSInteger buttonIndex))block{
@@ -77,20 +107,12 @@
         [alertView addButtonWithTitle:buttonTitle];
     }
     [alertView showWithBlock:^(NSInteger buttonIndex) {
-        block(buttonIndex);
+        if (block) {
+            block(buttonIndex);
+        }
     }];
 }
 
-+ (void)alertWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle confirmButtonTitle:(NSString *)confirmButtonTitle viewController:(UIViewController *)vc block:(void (^)(NSInteger buttonIndex))block{
-    
-    NSMutableArray* argsArray = [[NSMutableArray alloc] initWithCapacity:2];
-    if (cancelButtonTitle) {
-        [argsArray addObject:cancelButtonTitle];
-    }
-    if (confirmButtonTitle) {
-        [argsArray addObject:confirmButtonTitle];
-    }
-    [self alertWithTitle:title message:message buttonTitles:argsArray onViewController:vc block:block];
-}
+
 
 @end
