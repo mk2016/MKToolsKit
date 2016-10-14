@@ -28,6 +28,7 @@
 		C518F4251DAE879F0003ED95 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C518F4241DAE879F0003ED95 /* QuartzCore.framework */; };
 		C518F4271DAE87A80003ED95 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C518F4261DAE87A80003ED95 /* Accelerate.framework */; };
 		C518F4291DAE87EB0003ED95 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C518F4281DAE87EB0003ED95 /* AVFoundation.framework */; };
+		C532B4901DB0792100F79B72 /* MKFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C532B48F1DB0792100F79B72 /* MKFileHelper.m */; };
 		C55562A11DACB10300ED675C /* MKDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C55562A01DACB10300ED675C /* MKDeviceHelper.m */; };
 		C55562A91DACB63D00ED675C /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C55562A81DACB63D00ED675C /* SSKeychain.m */; };
 		C5701BF31DA88A2900C4D656 /* MKVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5701BF21DA88A2900C4D656 /* MKVButton.m */; };
@@ -82,6 +83,8 @@
 		C518F4241DAE879F0003ED95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C518F4261DAE87A80003ED95 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C518F4281DAE87EB0003ED95 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C532B48E1DB0792100F79B72 /* MKFileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKFileHelper.h; sourceTree = "<group>"; };
+		C532B48F1DB0792100F79B72 /* MKFileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKFileHelper.m; sourceTree = "<group>"; };
 		C555629F1DACB10300ED675C /* MKDeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDeviceHelper.h; sourceTree = "<group>"; };
 		C55562A01DACB10300ED675C /* MKDeviceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDeviceHelper.m; sourceTree = "<group>"; };
 		C55562A71DACB63D00ED675C /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				C51317E31D93C97300EA9C9B /* MKToolsKit.h */,
 				C508AFC11D94DAA100852B87 /* MKUITools.h */,
 				C508AFC21D94DAA100852B87 /* MKUITools.m */,
+				C532B48E1DB0792100F79B72 /* MKFileHelper.h */,
+				C532B48F1DB0792100F79B72 /* MKFileHelper.m */,
 			);
 			path = MKToolsKit;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C508AFCF1D951C5A00852B87 /* UITabBar+MKAdd.m in Sources */,
+				C532B4901DB0792100F79B72 /* MKFileHelper.m in Sources */,
 				C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */,
 				C5701BF31DA88A2900C4D656 /* MKVButton.m in Sources */,
 				C508AFD91D951D7C00852B87 /* UINavigationController+MKAdd.m in Sources */,
