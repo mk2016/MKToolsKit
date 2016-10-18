@@ -32,6 +32,7 @@
 		C55562A11DACB10300ED675C /* MKDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C55562A01DACB10300ED675C /* MKDeviceHelper.m */; };
 		C55562A91DACB63D00ED675C /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C55562A81DACB63D00ED675C /* SSKeychain.m */; };
 		C5701BF31DA88A2900C4D656 /* MKVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5701BF21DA88A2900C4D656 /* MKVButton.m */; };
+		C5AF0D461DB6081B00928660 /* UINavigationBar+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AF0D451DB6081B00928660 /* UINavigationBar+MKAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +92,8 @@
 		C55562A81DACB63D00ED675C /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		C5701BF11DA88A2900C4D656 /* MKVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKVButton.h; sourceTree = "<group>"; };
 		C5701BF21DA88A2900C4D656 /* MKVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKVButton.m; sourceTree = "<group>"; };
+		C5AF0D441DB6081B00928660 /* UINavigationBar+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+MKAdd.h"; sourceTree = "<group>"; };
+		C5AF0D451DB6081B00928660 /* UINavigationBar+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+MKAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				C515A5811D9CF33200D7984E /* UIImage+MKAdd.m */,
 				C508AFD41D951D7C00852B87 /* UILabel+MKAdd.h */,
 				C508AFD51D951D7C00852B87 /* UILabel+MKAdd.m */,
+				C5AF0D441DB6081B00928660 /* UINavigationBar+MKAdd.h */,
+				C5AF0D451DB6081B00928660 /* UINavigationBar+MKAdd.m */,
 				C508AFD61D951D7C00852B87 /* UINavigationController+MKAdd.h */,
 				C508AFD71D951D7C00852B87 /* UINavigationController+MKAdd.m */,
 				C508AFCD1D951C5A00852B87 /* UITabBar+MKAdd.h */,
@@ -291,6 +296,7 @@
 				C508AFC31D94DAA100852B87 /* MKUITools.m in Sources */,
 				C508AFC01D94CF5200852B87 /* UIAlertView+MKAdd.m in Sources */,
 				C55562A11DACB10300ED675C /* MKDeviceHelper.m in Sources */,
+				C5AF0D461DB6081B00928660 /* UINavigationBar+MKAdd.m in Sources */,
 				C515A5851D9CF33200D7984E /* UIImage+MKAdd.m in Sources */,
 				C508AFD31D951C8A00852B87 /* MKBlurView.m in Sources */,
 				C508AFCC1D950F4500852B87 /* UIView+MKAdd.m in Sources */,

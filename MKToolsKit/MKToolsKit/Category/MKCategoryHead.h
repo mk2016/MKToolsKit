@@ -12,6 +12,7 @@
 #import "NSString+MKAdd.h"
 #import "UIImage+MKAdd.h"
 #import "UILabel+MKAdd.h"
+#import "UINavigationBar+MKAdd.h"
 #import "UINavigationController+MKAdd.h"
 #import "UITabBar+MKAdd.h"
 #import "UIView+MKAdd.h"

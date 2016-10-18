@@ -10,6 +10,10 @@
 
 @interface UINavigationController (MKAdd)
 
+/** pop 到制定界面 */
 - (BOOL)popToViewControllerWitnName:(NSString *)vcName animated:(BOOL)animated;
+
+/** 设置底部黑线 隐藏 */
+- (void)setBottomLineHidden:(BOOL)hidden;
 
 @end
