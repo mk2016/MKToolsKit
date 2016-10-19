@@ -13,6 +13,7 @@
 /** jsonString 转 dictionary */
 - (NSDictionary *)dictionaryWithJsonString;
 
+#pragma mark - ***** 字符串校验 *****
 /** 是否包含汉字 */
 - (BOOL)isIncludeChinese;
 /** 是否全部为汉字 */
@@ -25,5 +26,10 @@
 /** 简单身份证校验 */
 - (BOOL)validateIdentityCard;
 
-- (NSString *)urlEncode:(NSStringEncoding)encoding;
+#pragma mark - ***** URL Encode Decode *****
+/** 对字符串进行URLEncode */
+- (NSString *)mk_stringByURLEncode;
+
+/** 对字符串进行URLDecode */
+- (NSString *)mk_stringByURLDecode;
 @end
