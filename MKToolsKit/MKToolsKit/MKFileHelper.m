@@ -137,7 +137,7 @@
 
 /** 文件是否存在 */
 + (BOOL)fileIsExecutable:(NSString *)path{
-    return [[NSFileManager defaultManager] isExecutableFileAtPath:path];
+    return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
 /** 创建文件夹 */
