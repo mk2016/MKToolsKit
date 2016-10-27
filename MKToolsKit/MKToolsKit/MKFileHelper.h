@@ -10,12 +10,42 @@
 
 @interface MKFileHelper : NSObject
 
-#pragma mark - ***** NSKeyedUnarchiver 归档 *****
 
-/** 归档 到 文件*/
-+ (void)saveByKeyedUnarchiverWith:(id)data filePath:(NSString*)filePath;
+#pragma mark - ***** 读写 文件 *****
+/** 读写文件 */
++ (BOOL)writeString:(NSString *)string toPath:(NSString *)path;
++ (NSString *)readStringOnPath:(NSString *)path;
 
-/** 从 文件 获取归档信息*/
+/** 归档 解档文件*/
++ (BOOL)saveByKeyedArchiverWithData:(id)data filePath:(NSString *)filePath;
 + (id)getByKeyedUnarchiverWithFilePath:(NSString *)filePath;
++ (id)getByKeyedUnarchiverWithFilePath:(NSString *)filePath andClass:(Class)clazz;
+
+#pragma mark - ***** 文件 缓存 处理 *****
++ (void)clearPath:(NSString *)path;
++ (float)folderSizeAtPath:(NSString *)path;
++ (float)fileSizeAtPath:(NSString *)path;
+
+#pragma mark - ***** base *****
+/** 文件属性 */
++ (NSDictionary *)fileAttriutesWithFilePath:(NSString*)path;
+/** App 路径 */
++ (NSString *)homePath;
+/** 获取Documents目录 */
++ (NSString *)documentPath;
+/** 获取Cache目录 */
++ (NSString *)cachePath;
+/** 获取Tmp目录 */
++ (NSString *)tmpPath;
+/** 判断是否是为目录 */
++ (BOOL)isDir:(NSString *)path;
+/** 文件是否存在 */
++ (BOOL)fileIsExecutable:(NSString *)path;
+/** 创建文件夹 */
++ (void)createDir:(NSString *)dir;
+/** 创建文件 */
++ (BOOL)createFilePath:(NSString *)file;
+/** 删除文件 */
++ (void)deleteFileWithPath:(NSString *)path;
 
 @end
