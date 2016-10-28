@@ -11,6 +11,8 @@
 
 @interface MKUITools : NSObject
 
++ (id)getVCFromStoryboard:(NSString *)storyboard identify:(NSString *)identify;
+
 #pragma mark - ***** top View ******
 + (UIView *)getTopView;
 
@@ -19,5 +21,6 @@
 + (UIViewController *)getCurrentViewControllerIsIncludePresentedVC:(BOOL)isIncludePVC;
 + (UIViewController *)getCurrentViewControllerWithWindowLevel:(CGFloat)windowLevel includePresentedVC:(BOOL)isIncludePVC;
 + (UIViewController *)getPresentedViewController;
+
 
 @end

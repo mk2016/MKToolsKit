@@ -11,6 +11,10 @@
 
 @implementation MKUITools
 
++ (id)getVCFromStoryboard:(NSString *)storyboard identify:(NSString *)identify{
+    return [[UIStoryboard storyboardWithName:storyboard bundle:nil] instantiateViewControllerWithIdentifier:identify];
+}
+
 #pragma mark - ***** top View ******
 + (UIView *)getTopView{
     return [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
