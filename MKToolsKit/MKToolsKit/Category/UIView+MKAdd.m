@@ -137,16 +137,16 @@
     if (isConstraint) {
         [self layoutIfNeeded];  //约束生效
     }
-    if ((direction & MKBorderDirectionTypeTop) == MKBorderDirectionTypeTop) {
+    if (direction & MKBorderDirectionTypeTop) {
         [self addBorderWithFrame:CGRectMake(0, 0, self.frame.size.width, width) color:color];
     }
-    if ((direction & MKBorderDirectionTypeLeft) == MKBorderDirectionTypeLeft){
+    if (direction & MKBorderDirectionTypeLeft){
         [self addBorderWithFrame:CGRectMake(0, 0, width, self.frame.size.height) color:color];
     }
-    if ((direction & MKBorderDirectionTypeBottom) == MKBorderDirectionTypeBottom){
+    if (direction & MKBorderDirectionTypeBottom){
         [self addBorderWithFrame:CGRectMake(0, self.frame.size.height-width, self.frame.size.width, width) color:color];
     }
-    if ((direction & MKBorderDirectionTypeRight) == MKBorderDirectionTypeRight){
+    if (direction & MKBorderDirectionTypeRight){
         [self addBorderWithFrame:CGRectMake(self.frame.size.width-width, 0, width, self.frame.size.height) color:color];
     }
 }

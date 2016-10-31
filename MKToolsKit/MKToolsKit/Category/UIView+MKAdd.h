@@ -12,11 +12,12 @@
 
 typedef enum {
 //    BorderDirectionTypeNone = 0,    //不显示边框
-    MKBorderDirectionTypeTop      = 1 << 0,   //显示上边框
-    MKBorderDirectionTypeLeft     = 1 << 1,   //显示左边框
-    MKBorderDirectionTypeBottom   = 1 << 2,   //显示下边框
-    MKBorderDirectionTypeRight    = 1 << 3,   //显示右边框
-    MKBorderDirectionTypeAll      = ~0UL
+    MKBorderDirectionTypeNone       = 0,
+    MKBorderDirectionTypeTop        = 1 << 1,   //显示上边框
+    MKBorderDirectionTypeLeft       = 1 << 2,   //显示左边框
+    MKBorderDirectionTypeBottom     = 1 << 3,   //显示下边框
+    MKBorderDirectionTypeRight      = 1 << 4,   //显示右边框
+    MKBorderDirectionTypeAll        = ~0UL
 }MKBorderDirectionType;
 
 @interface UIView(MKAdd)
