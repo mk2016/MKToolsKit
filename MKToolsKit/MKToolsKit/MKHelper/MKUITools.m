@@ -51,7 +51,7 @@
     }
     
     UIView *rootView;
-    NSArray* subViews = [topWindow subviews];
+    NSArray *subViews = [topWindow subviews];
     if (subViews.count) {
         rootView = [subViews objectAtIndex:0];
     }else{
@@ -73,6 +73,10 @@
     }else{
         NSAssert(NO, @"MKDevelopSolutions: Could not find a root view controller.");
     }
+    if ([result isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = (UINavigationController *)result;
+        result = nav.topViewController;
+    }
     return result;
 }
 
@@ -83,9 +87,13 @@
     if (appRootVC.presentedViewController) {
         if (![appRootVC.presentedViewController isKindOfClass:[UIAlertController class]] &&
             ![appRootVC.presentedViewController isKindOfClass:[UIImagePickerController class]] &&
-            ![appRootVC.presentedViewController isKindOfClass:[MFMessageComposeViewController class]])
-        {
+            ![appRootVC.presentedViewController isKindOfClass:[MFMessageComposeViewController class]]){
             topVC = appRootVC.presentedViewController;
+            
+            if (topVC && [topVC isKindOfClass:[UINavigationController class]]) {
+                UINavigationController *nav = (UINavigationController *)topVC;
+                topVC = nav.topViewController;
+            }
         }
     }
     return topVC;
