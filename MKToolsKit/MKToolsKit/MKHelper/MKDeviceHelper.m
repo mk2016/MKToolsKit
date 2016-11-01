@@ -78,6 +78,13 @@ static NSString* const kMKToolkitUUIDString             = @"kMKToolkitUUID";
     return NO;
 }
 
++ (BOOL)isSystemIos10Later{
+    if ([self systemVersion] >= 10.0) {
+        return YES;
+    }
+    return NO;
+}
+
 + (NSString *)deviceType{
     NSString *platform = [self devicePlatform];
     

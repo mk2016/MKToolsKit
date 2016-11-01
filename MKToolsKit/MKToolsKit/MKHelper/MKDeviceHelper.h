@@ -32,7 +32,7 @@
 
 + (BOOL)isSystemIos7Later;
 + (BOOL)isSystemIos8Later;
-
++ (BOOL)isSystemIos10Later;
 /** 设备信息对应名称 */
 + (NSString *)deviceType;
 

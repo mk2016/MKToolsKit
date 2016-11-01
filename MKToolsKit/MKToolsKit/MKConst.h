@@ -72,3 +72,5 @@ dispatch_async(dispatch_get_main_queue(), block);\
 typedef void (^MKBlock)(id result);
 typedef void (^MKBoolBlock)(BOOL bRet);
 typedef void (^MKVoidBlock)(void);
+
+#define MKActionSheetDefine
