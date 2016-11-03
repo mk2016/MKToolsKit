@@ -71,7 +71,7 @@
     }else if ([topWindow respondsToSelector:@selector(rootViewController)] && topWindow.rootViewController != nil){
         result = topWindow.rootViewController;
     }else{
-        NSAssert(NO, @"MKDevelopSolutions: Could not find a root view controller.");
+        NSAssert(NO, @"MKToolsKit: Could not find a root view controller.");
     }
     if ([result isKindOfClass:[UINavigationController class]]) {
         UINavigationController *nav = (UINavigationController *)result;

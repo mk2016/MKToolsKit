@@ -1,6 +1,6 @@
 //
 //  UIView+MKAdd.h
-//  MKDevelopSolutions
+//  MKToolsKit
 //
 //  Created by xiaomk on 16/5/19.
 //  Copyright © 2016年 xiaomk. All rights reserved.

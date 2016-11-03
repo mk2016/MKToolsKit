@@ -1,6 +1,6 @@
 //
 //  MKCategoryHead.h
-//  MKDevelopSolutions
+//  MKToolsKit
 //
 //  Created by xiaomk on 16/5/30.
 //  Copyright © 2016年 xiaomk. All rights reserved.

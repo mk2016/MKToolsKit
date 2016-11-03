@@ -1,6 +1,6 @@
 //
 //  MKImagePickerCtrHelper.m
-//  nnhousehold
+//  MKToolsKit
 //
 //  Created by xiaomk on 16/5/28.
 //  Copyright © 2016年 tianchuang. All rights reserved.

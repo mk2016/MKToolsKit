@@ -1,6 +1,6 @@
 //
 //  NSString+MKAdd.h
-//  MKDevelopSolutions
+//  MKToolsKit
 //
 //  Created by xiaomk on 16/9/9.
 //  Copyright © 2016年 xiaomk. All rights reserved.
