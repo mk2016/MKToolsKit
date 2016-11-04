@@ -18,4 +18,5 @@
 #import "MKImagePickerCtrHelper.h"
 
 #import "MKBaseTabBarController.h"
+#import "MKBaseTableViewCell.h"
 #import "MKBaseWindowView.h"
