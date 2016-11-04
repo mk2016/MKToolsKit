@@ -11,7 +11,10 @@
 
 @interface MKBaseWindowView : UIView
 
+@property (nonatomic, copy) MKBlock block;
+
 - (instancetype)initWithBlock:(MKBlock)block;
+
 - (void)setupUI;
 - (void)show;
 - (void)hide;

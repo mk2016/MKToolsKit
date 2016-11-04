@@ -10,7 +10,6 @@
 #import "UIView+MKAdd.h"
 
 @interface MKBaseWindowView()
-@property (nonatomic, copy) MKBlock block;
 @end
 
 @implementation MKBaseWindowView
