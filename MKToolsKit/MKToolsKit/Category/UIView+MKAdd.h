@@ -67,4 +67,7 @@ typedef enum {
 - (UIImage *)mk_screenshot;
 
 
+- (void)mk_showOnWindow;
+- (void)mk_removeFromWindow;
+
 @end

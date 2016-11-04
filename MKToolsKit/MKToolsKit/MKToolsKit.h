@@ -18,3 +18,4 @@
 #import "MKImagePickerCtrHelper.h"
 
 #import "MKBaseTabBarController.h"
+#import "MKBaseWindowView.h"

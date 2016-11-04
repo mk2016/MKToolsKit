@@ -8,6 +8,7 @@
 
 #import "UIView+MKAdd.h"
 #import "MKConst.h"
+#import "MKUITools.h"
 
 @implementation UIView(MKAdd)
 
@@ -186,6 +187,21 @@
     return image;
 }
 
+- (void)mk_showOnWindow{
+    UIWindow *window = [MKUITools getCurrentViewController].view.window;
+    [window addSubview:self];
+    self.alpha = 0;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.alpha = 1;
+    }];
+}
 
+- (void)mk_removeFromWindow{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+}
 
 @end
