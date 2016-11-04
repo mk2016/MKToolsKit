@@ -17,3 +17,4 @@
 #import "MKFileHelper.h"
 #import "MKImagePickerCtrHelper.h"
 
+#import "MKBaseTabBarController.h"
