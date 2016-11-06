@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSString(MKAdd)
 
@@ -32,4 +33,8 @@
 
 /** 对字符串进行URLDecode */
 - (NSString *)mk_stringByURLDecode;
+
+/** 图片转 dataURL */
++ (NSString *)mk_dataURLWithImage:(UIImage *)image;
+
 @end

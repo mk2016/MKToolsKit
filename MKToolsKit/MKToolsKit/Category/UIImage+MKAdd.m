@@ -10,6 +10,14 @@
 
 @implementation UIImage(MKAdd)
 
++ (UIImage *)mk_imageWithDataURL:(NSString *)imgSrc{
+    NSURL *url = [NSURL URLWithString:imgSrc];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData: data];
+    return image;
+}
+
+
 + (UIImage *)mk_resizedImageWithName:(NSString *)name{
     UIImage *image = [self imageNamed:name];
     return [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];

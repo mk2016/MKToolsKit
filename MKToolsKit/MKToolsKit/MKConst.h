@@ -73,4 +73,14 @@ typedef void (^MKBlock)(id result);
 typedef void (^MKBoolBlock)(BOOL bRet);
 typedef void (^MKVoidBlock)(void);
 
+
+#pragma mark - ***** 枚举 *****
+/** tableView 上下拉 刷新 */
+typedef enum {
+    MKTableViewRefreshTypeNone      = 0,            /*!< 不添加刷新 */
+    MKTableViewRefreshTypeHeader    = 1 << 1,       /*!< 头部 */
+    MKTableViewRefreshTypeFooter    = 1 << 2,       /*!< 尾部 */
+    MKTableViewRefreshTypeAll       = ~0UL
+}MKTableViewRefreshType;
+
 #define MKActionSheetDefine
