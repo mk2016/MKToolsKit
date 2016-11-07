@@ -31,6 +31,7 @@
 		C5288D801DC6D6B100B87F48 /* MKFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5288D7A1DC6D6B100B87F48 /* MKFileHelper.m */; };
 		C5288D811DC6D6B100B87F48 /* MKImagePickerCtrHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5288D7C1DC6D6B100B87F48 /* MKImagePickerCtrHelper.m */; };
 		C5288D821DC6D6B100B87F48 /* MKUITools.m in Sources */ = {isa = PBXBuildFile; fileRef = C5288D7E1DC6D6B100B87F48 /* MKUITools.m */; };
+		C52B5FE21DD0F56E003BC011 /* MKDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B5FE11DD0F56E003BC011 /* MKDatePickerView.m */; };
 		C53EFE1A1DCC2B9300EF5C39 /* MKBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE191DCC2B9300EF5C39 /* MKBaseTabBarController.m */; };
 		C53EFE231DCC66CE00EF5C39 /* MKBaseWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE221DCC66CE00EF5C39 /* MKBaseWindowView.m */; };
 		C53EFE401DCC9E9300EF5C39 /* MKBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE3F1DCC9E9300EF5C39 /* MKBaseTableViewCell.m */; };
@@ -98,6 +99,8 @@
 		C5288D7D1DC6D6B100B87F48 /* MKUITools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKUITools.h; sourceTree = "<group>"; };
 		C5288D7E1DC6D6B100B87F48 /* MKUITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKUITools.m; sourceTree = "<group>"; };
 		C5288D831DC6D7C300B87F48 /* MKConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKConst.h; sourceTree = "<group>"; };
+		C52B5FE01DD0F56E003BC011 /* MKDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDatePickerView.h; sourceTree = "<group>"; };
+		C52B5FE11DD0F56E003BC011 /* MKDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDatePickerView.m; sourceTree = "<group>"; };
 		C53EFE181DCC2B9300EF5C39 /* MKBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBaseTabBarController.h; sourceTree = "<group>"; };
 		C53EFE191DCC2B9300EF5C39 /* MKBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBaseTabBarController.m; sourceTree = "<group>"; };
 		C53EFE211DCC66CE00EF5C39 /* MKBaseWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBaseWindowView.h; sourceTree = "<group>"; };
@@ -204,13 +207,14 @@
 		C51317E21D93C97300EA9C9B /* MKToolsKit */ = {
 			isa = PBXGroup;
 			children = (
-				C5288D831DC6D7C300B87F48 /* MKConst.h */,
-				C51317E31D93C97300EA9C9B /* MKToolsKit.h */,
 				C53EFE171DCC2B6700EF5C39 /* BaseClass */,
 				C508AFC81D94F4B900852B87 /* Category */,
 				C508AFBA1D94CF5200852B87 /* MKAlertView */,
 				C508AFD01D951C8A00852B87 /* MKBlurView */,
+				C5288D831DC6D7C300B87F48 /* MKConst.h */,
+				C52B5FDF1DD0F56E003BC011 /* MKDatePickerView */,
 				C5288D761DC6D6B100B87F48 /* MKHelper */,
+				C51317E31D93C97300EA9C9B /* MKToolsKit.h */,
 				C5701BF01DA88A2900C4D656 /* MKVButton */,
 				C55562A61DACB63D00ED675C /* SSKeychain */,
 				C59DECC91DD01D1B00322D42 /* Vendor */,
@@ -248,6 +252,15 @@
 				C5288D7E1DC6D6B100B87F48 /* MKUITools.m */,
 			);
 			path = MKHelper;
+			sourceTree = "<group>";
+		};
+		C52B5FDF1DD0F56E003BC011 /* MKDatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				C52B5FE01DD0F56E003BC011 /* MKDatePickerView.h */,
+				C52B5FE11DD0F56E003BC011 /* MKDatePickerView.m */,
+			);
+			path = MKDatePickerView;
 			sourceTree = "<group>";
 		};
 		C53EFE171DCC2B6700EF5C39 /* BaseClass */ = {
@@ -366,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C52B5FE21DD0F56E003BC011 /* MKDatePickerView.m in Sources */,
 				C59DECD41DD01E5A00322D42 /* NSData+GZIP.m in Sources */,
 				C59DECE91DD045AE00322D42 /* MKDeviceAuthorizationHelper.m in Sources */,
 				C53EFE1A1DCC2B9300EF5C39 /* MKBaseTabBarController.m in Sources */,
