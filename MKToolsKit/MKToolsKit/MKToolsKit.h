@@ -13,6 +13,7 @@
 #import "MKCategoryHead.h"
 
 #import "MKUITools.h"
+#import "MKDeviceAuthorizationHelper.h"
 #import "MKDeviceHelper.h"
 #import "MKFileHelper.h"
 #import "MKImagePickerCtrHelper.h"

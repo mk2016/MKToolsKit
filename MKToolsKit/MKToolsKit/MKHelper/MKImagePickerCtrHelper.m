@@ -7,6 +7,7 @@
 //
 
 #import "MKImagePickerCtrHelper.h"
+#import "MKDeviceAuthorizationHelper.h"
 
 @interface MKImagePickerCtrHelper()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -36,7 +37,7 @@ MKImpl_sharedInstance(MKImagePickerCtrHelper);
         self.sourceType = sourceType;
         self.block = block;
     }
-        
+    
     if (self.sourceType == MKImagePickerType_camera) {
         self.ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
     }else if (self.sourceType == MKImagePickerType_photoLibrary ){
@@ -47,22 +48,32 @@ MKImpl_sharedInstance(MKImagePickerCtrHelper);
         vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     }
     
-    double delayInSeconds = 0.1;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [vc presentViewController:self.ipc animated:YES completion:nil];
-    });
+    MKWEAKSELF
+    [MKDeviceAuthorizationHelper cameraAuthorization:^(BOOL bRet) {
+        if (bRet) {
+            double delayInSeconds = 0.1;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [vc presentViewController:weakSelf.ipc animated:YES completion:nil];
+            });
+        }else{
+            MKBlockExec(block, nil);
+        }
+    }];
+    
+    
+    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     [self.vc dismissViewControllerAnimated:YES completion:nil];
-    
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    if (self.block) {
-        self.block(image);
-    }
+    MKBlockExec(self.block, image);
 }
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self.vc dismissViewControllerAnimated:YES completion:nil];
+    MKBlockExec(self.block, nil);
+}
 
 
 
