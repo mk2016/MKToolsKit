@@ -11,6 +11,7 @@
 @interface MKBaseTableViewCell : UITableViewCell
 
 + (instancetype)cellWithDefaultStyle;
++ (instancetype)cellWithStyle:(UITableViewCellStyle)style;
 + (instancetype)cellWithDefaultStyleAndReuseIdentifier:(NSString *)reuseIdentifier;
 /** init UI */
 - (void)setupUI;

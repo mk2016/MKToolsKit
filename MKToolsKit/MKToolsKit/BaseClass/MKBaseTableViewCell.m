@@ -12,12 +12,16 @@
 
 + (instancetype)cellWithDefaultStyle{
     NSString *reuseIdentifier = NSStringFromClass([self class]);
-//    ELog(@" reuseIdentifier : %@",reuseIdentifier);
     return [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 }
 
 + (instancetype)cellWithDefaultStyleAndReuseIdentifier:(NSString *)reuseIdentifier{
     return [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+}
+
++ (instancetype)cellWithStyle:(UITableViewCellStyle)style{
+    NSString *reuseIdentifier = NSStringFromClass([self class]);
+    return [[self alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
