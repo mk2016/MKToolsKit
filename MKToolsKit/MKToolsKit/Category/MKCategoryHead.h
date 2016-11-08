@@ -10,6 +10,7 @@
 #import "Foundation+MKLog.h"
 #import "NSObject+MKAddProperty.h"
 #import "NSObject+MKJson.h"
+#import "NSObject+MKAdd.h"
 #import "NSString+MKAdd.h"
 #import "UIImage+MKAdd.h"
 #import "UILabel+MKAdd.h"
