@@ -7,10 +7,11 @@
 //
 
 #import "NSString+MKAdd.h"
+#import "UIImage+MKAdd.h"
 
 @implementation NSString(MKAdd)
 
-- (NSDictionary *)dictionaryWithJsonString{
+- (NSDictionary *)mk_dictionaryWithJsonString{
     NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
@@ -100,7 +101,7 @@
 + (NSString *)mk_dataURLWithImage:(UIImage *)image{
     NSData *imageData = nil;
     NSString *mimeType = nil;
-    if ([self imageHasAlpha:image]) {
+    if ([image hasAlpha]) {
         imageData = UIImagePNGRepresentation(image);
         mimeType = @"image/png";
     } else {
@@ -110,12 +111,6 @@
     return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType, [imageData base64EncodedStringWithOptions: 0]];
 }
 
-+ (BOOL)imageHasAlpha:(UIImage *)image{
-    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(image.CGImage);
-    return (alpha == kCGImageAlphaFirst ||
-            alpha == kCGImageAlphaLast ||
-            alpha == kCGImageAlphaPremultipliedFirst ||
-            alpha == kCGImageAlphaPremultipliedLast);
-}
+
 
 @end

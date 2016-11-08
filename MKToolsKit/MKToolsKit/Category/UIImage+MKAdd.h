@@ -23,4 +23,11 @@
 
 - (UIImage *)mk_applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
 
+- (BOOL)hasAlpha;
+/** 压缩图片 */
+- (UIImage *)compressLessThan1M;
+- (UIImage *)compressWithRatio:(CGFloat)ratio;
+- (UIImage *)compressImage;
+
+
 @end

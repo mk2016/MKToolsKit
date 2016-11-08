@@ -169,4 +169,48 @@
     return outputImage;
 }
 
+- (BOOL)hasAlpha{
+    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(self.CGImage);
+    return (alpha == kCGImageAlphaFirst ||
+            alpha == kCGImageAlphaLast ||
+            alpha == kCGImageAlphaPremultipliedFirst ||
+            alpha == kCGImageAlphaPremultipliedLast);
+}
+
+/** 压缩图片 */
+- (UIImage *)compressLessThan1M{
+    NSData *imgData = UIImageJPEGRepresentation(self, 1.0);
+    UIImage *result = [UIImage imageWithData:imgData];
+    while (imgData.length > 1000000) {
+        imgData = UIImageJPEGRepresentation(result, 0.9);
+        result = [UIImage imageWithData:imgData];
+    }
+    return result;
+}
+
+- (UIImage *)compressWithRatio:(CGFloat)ratio{
+    NSData *imgData = UIImageJPEGRepresentation(self, ratio);
+    UIImage *result = [UIImage imageWithData:imgData];
+    return result;
+}
+
+- (UIImage *)compressImage{
+    NSData *imgData = UIImageJPEGRepresentation(self, 1.0);
+    CGFloat ratio = 1;
+    if (imgData.length > 10000000) {
+        ratio = 0.5;
+    }else if (imgData.length > 5000000){
+        ratio = 0.7;
+    }else if (imgData.length > 3000000){
+        ratio = 0.8;
+    }else if (imgData.length > 2000000){
+        ratio = 0.9;
+    }else if (imgData.length > 1000000){
+        ratio = 0.9;
+    }
+    imgData = UIImageJPEGRepresentation(self, ratio);
+    UIImage *result = [UIImage imageWithData:imgData];
+    return result;
+}
+
 @end
