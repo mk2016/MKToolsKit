@@ -32,6 +32,7 @@
 		C5288D811DC6D6B100B87F48 /* MKImagePickerCtrHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5288D7C1DC6D6B100B87F48 /* MKImagePickerCtrHelper.m */; };
 		C5288D821DC6D6B100B87F48 /* MKUITools.m in Sources */ = {isa = PBXBuildFile; fileRef = C5288D7E1DC6D6B100B87F48 /* MKUITools.m */; };
 		C52B5FE21DD0F56E003BC011 /* MKDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B5FE11DD0F56E003BC011 /* MKDatePickerView.m */; };
+		C52B5FE71DD19E85003BC011 /* NSObject+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B5FE61DD19E85003BC011 /* NSObject+MKAdd.m */; };
 		C53EFE1A1DCC2B9300EF5C39 /* MKBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE191DCC2B9300EF5C39 /* MKBaseTabBarController.m */; };
 		C53EFE231DCC66CE00EF5C39 /* MKBaseWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE221DCC66CE00EF5C39 /* MKBaseWindowView.m */; };
 		C53EFE401DCC9E9300EF5C39 /* MKBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE3F1DCC9E9300EF5C39 /* MKBaseTableViewCell.m */; };
@@ -101,6 +102,8 @@
 		C5288D831DC6D7C300B87F48 /* MKConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKConst.h; sourceTree = "<group>"; };
 		C52B5FE01DD0F56E003BC011 /* MKDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDatePickerView.h; sourceTree = "<group>"; };
 		C52B5FE11DD0F56E003BC011 /* MKDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDatePickerView.m; sourceTree = "<group>"; };
+		C52B5FE51DD19E85003BC011 /* NSObject+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MKAdd.h"; sourceTree = "<group>"; };
+		C52B5FE61DD19E85003BC011 /* NSObject+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKAdd.m"; sourceTree = "<group>"; };
 		C53EFE181DCC2B9300EF5C39 /* MKBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBaseTabBarController.h; sourceTree = "<group>"; };
 		C53EFE191DCC2B9300EF5C39 /* MKBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBaseTabBarController.m; sourceTree = "<group>"; };
 		C53EFE211DCC66CE00EF5C39 /* MKBaseWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBaseWindowView.h; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 				C515A5761D9CF0A600D7984E /* MKCategoryHead.h */,
 				C515A57A1D9CF33200D7984E /* Foundation+MKLog.h */,
 				C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */,
+				C52B5FE51DD19E85003BC011 /* NSObject+MKAdd.h */,
+				C52B5FE61DD19E85003BC011 /* NSObject+MKAdd.m */,
 				C515A57C1D9CF33200D7984E /* NSObject+MKAddProperty.h */,
 				C515A57D1D9CF33200D7984E /* NSObject+MKAddProperty.m */,
 				C515A5771D9CF24E00D7984E /* NSString+MKAdd.h */,
@@ -380,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C52B5FE21DD0F56E003BC011 /* MKDatePickerView.m in Sources */,
+				C52B5FE71DD19E85003BC011 /* NSObject+MKAdd.m in Sources */,
 				C59DECD41DD01E5A00322D42 /* NSData+GZIP.m in Sources */,
 				C59DECE91DD045AE00322D42 /* MKDeviceAuthorizationHelper.m in Sources */,
 				C53EFE1A1DCC2B9300EF5C39 /* MKBaseTabBarController.m in Sources */,
