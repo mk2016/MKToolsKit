@@ -72,7 +72,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 typedef void (^MKBlock)(id result);
 typedef void (^MKBoolBlock)(BOOL bRet);
 typedef void (^MKVoidBlock)(void);
-
+typedef void (^MKIntegerBlock)(NSInteger index);
 
 #pragma mark - ***** 枚举 *****
 /** tableView 上下拉 刷新 */
