@@ -32,6 +32,28 @@
     return self;
 }
 
++ (instancetype)cellByNibWith:(UITableView *)tableView{
+    NSString *className = NSStringFromClass([self class]);
+    Class class = NSClassFromString(className);
+    UITableViewCell *cell;
+    if (class) {
+        cell = [tableView dequeueReusableCellWithIdentifier:className];
+    }
+    if (!cell) {
+        static UINib *_nib;
+        if (!_nib) {
+            _nib = [UINib nibWithNibName:className bundle:nil];
+        }
+        
+        if (_nib) {
+            cell = [[_nib instantiateWithOwner:nil options:nil] objectAtIndex:0];
+        }
+    }
+    return cell;
+}
+
+
+
 - (void)setupUI{
 //    self.frame = CGRectMake(0, 0, MKSCREEN_WIDTH, 44);    
 //    UIView* tempView = [[UIView alloc] init];
@@ -45,7 +67,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    [self setupUI];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

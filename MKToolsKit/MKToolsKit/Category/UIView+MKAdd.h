@@ -49,7 +49,7 @@ typedef enum {
 - (void)setCornerValue:(CGFloat)value;
 - (void)setCorner;
 - (void)setToCircle;
-- (void)setCornerWithCorners:(UIRectCorner)corners cornerRadii:(CGSize)size;
+- (void)setCornerWith:(UIRectCorner)corners radii:(CGSize)size;
 
 #pragma mark - ***** 边框 ******
 - (void)setBorder;

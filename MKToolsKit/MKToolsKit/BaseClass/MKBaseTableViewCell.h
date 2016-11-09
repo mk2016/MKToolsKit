@@ -13,6 +13,9 @@
 + (instancetype)cellWithDefaultStyle;
 + (instancetype)cellWithStyle:(UITableViewCellStyle)style;
 + (instancetype)cellWithDefaultStyleAndReuseIdentifier:(NSString *)reuseIdentifier;
+
++ (instancetype)cellByNibWith:(UITableView *)tableView;
+
 /** init UI */
 - (void)setupUI;
 
