@@ -10,18 +10,26 @@
 
 @implementation MKBaseTableViewCell
 
-+ (instancetype)cellWithDefaultStyle{
++ (instancetype)cellWithDefaultStyleTableView:(UITableView *)tableView{
     NSString *reuseIdentifier = NSStringFromClass([self class]);
-    return [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+    return [self cellWithStyle:UITableViewCellStyleDefault resuseIdentifier:reuseIdentifier tableView:tableView];
 }
 
-+ (instancetype)cellWithDefaultStyleAndReuseIdentifier:(NSString *)reuseIdentifier{
-    return [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
++ (instancetype)cellWithDefaultStyleAndReuseIdentifier:(NSString *)reuseIdentifier tableView:(UITableView *)tableView{
+    return [self cellWithStyle:UITableViewCellStyleDefault resuseIdentifier:reuseIdentifier tableView:tableView];
 }
 
-+ (instancetype)cellWithStyle:(UITableViewCellStyle)style{
-    NSString *reuseIdentifier = NSStringFromClass([self class]);
-    return [[self alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
++ (instancetype)cellWithStyle:(UITableViewCellStyle)style tableView:(UITableView *)tableView{
+    NSString *identifier = NSStringFromClass([self class]);
+    return [self cellWithStyle:style resuseIdentifier:identifier tableView:tableView];
+}
+
++ (instancetype)cellWithStyle:(UITableViewCellStyle)style resuseIdentifier:(NSString *)identifier tableView:(UITableView *)tableView{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[self alloc] initWithStyle:style reuseIdentifier:identifier];
+    }
+    return cell;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{

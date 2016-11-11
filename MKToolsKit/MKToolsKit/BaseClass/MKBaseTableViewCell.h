@@ -10,9 +10,9 @@
 
 @interface MKBaseTableViewCell : UITableViewCell
 
-+ (instancetype)cellWithDefaultStyle;
-+ (instancetype)cellWithStyle:(UITableViewCellStyle)style;
-+ (instancetype)cellWithDefaultStyleAndReuseIdentifier:(NSString *)reuseIdentifier;
++ (instancetype)cellWithDefaultStyleTableView:(UITableView *)tableView;
++ (instancetype)cellWithStyle:(UITableViewCellStyle)style tableView:(UITableView *)tableView;
++ (instancetype)cellWithDefaultStyleAndReuseIdentifier:(NSString *)reuseIdentifier tableView:(UITableView *)tableView;
 
 + (instancetype)cellByNibWith:(UITableView *)tableView;
 

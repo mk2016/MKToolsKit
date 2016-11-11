@@ -105,4 +105,64 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 
+/**
+ *  传入模型数组，根据key字段 获取 字母 首拼音
+ *
+ *  @param NSArray model array
+ *
+ *  @return 排序好的 字母数组
+ */
+//传入数组，根据 key 字段 获取字母 首拼音， 返回排序好的字母数组
++ (NSArray *)getNoRepeatSortLetterArray:(NSArray *)array letterKey:(NSString *)letterKey{
+    // 获取字母数组
+    NSArray *tempArray = [array valueForKey:letterKey];
+
+    // 去重 转换为大写
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    for (NSString *letter in tempArray) {
+        if (letter && ![letter isEqual:[NSNull null]]) {
+            [tempDic setObject:letter.uppercaseString forKey:letter.uppercaseString];
+        }
+    }
+    // 排序
+    NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES];
+    NSArray *descArray = [NSArray arrayWithObject:desc];
+    NSArray *sortArray = [tempDic.allValues sortedArrayUsingDescriptors:descArray];
+    
+    return sortArray;
+}
+
++ (NSString *)getChineseNameFirstPinyinWithName:(NSString*)name{
+    return [[self hanziToPinyinWith:name isChineseName:YES] substringToIndex:1];
+}
+
++ (NSString*)hanziToPinyinWith:(NSString *)hanziStr isChineseName:(BOOL)isChineseName{
+    if (hanziStr.length == 0) {
+        return hanziStr;
+    }
+    
+    NSMutableString* ms = [[NSMutableString alloc] initWithString:hanziStr];
+    CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformMandarinLatin, NO);     //转拼音
+    CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO);   //去声调
+    if (isChineseName) {
+        if ([[(NSString*)hanziStr substringToIndex:1] compare:@"长"] == NSOrderedSame) {
+            [ms replaceCharactersInRange:NSMakeRange(0, 5) withString:@"chang"];
+        }
+        if ([[(NSString *)hanziStr substringToIndex:1] compare:@"沈"] == NSOrderedSame){
+            [ms replaceCharactersInRange:NSMakeRange(0, 4)withString:@"shen"];
+        }
+        if ([[(NSString *)hanziStr substringToIndex:1] compare:@"厦"] == NSOrderedSame){
+            [ms replaceCharactersInRange:NSMakeRange(0, 3)withString:@"xia"];
+        }
+        if ([[(NSString *)hanziStr substringToIndex:1] compare:@"地"] == NSOrderedSame){
+            [ms replaceCharactersInRange:NSMakeRange(0, 2)withString:@"di"];
+        }
+        if ([[(NSString *)hanziStr substringToIndex:1] compare:@"重"] == NSOrderedSame){
+            [ms replaceCharactersInRange:NSMakeRange(0, 5) withString:@"chong"];
+        }
+    }
+    
+    return ms;
+}
+
 @end
