@@ -25,7 +25,7 @@
 }
 
 + (instancetype)cellWithStyle:(UITableViewCellStyle)style resuseIdentifier:(NSString *)identifier tableView:(UITableView *)tableView{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    MKBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[self alloc] initWithStyle:style reuseIdentifier:identifier];
     }
@@ -43,7 +43,7 @@
 + (instancetype)cellByNibWith:(UITableView *)tableView{
     NSString *className = NSStringFromClass([self class]);
     Class class = NSClassFromString(className);
-    UITableViewCell *cell;
+    MKBaseTableViewCell *cell;
     if (class) {
         cell = [tableView dequeueReusableCellWithIdentifier:className];
     }
