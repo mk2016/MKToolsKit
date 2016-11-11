@@ -67,6 +67,21 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #define MKWEAKSELF typeof(self) __weak weakSelf = self;
 #define MKWEAKIFY(var) __weak typeof(var) weak_##var = var;
 
+
+///*处理分割线没在最左边问题：ios8以后才有的问题*/\
+#define AddTableViewLineAdjust \
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{\
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {\
+        [tableView setSeparatorInset:UIEdgeInsetsZero];\
+    }\
+    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {\
+        [tableView setLayoutMargins:UIEdgeInsetsZero];\
+    }\
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {\
+        [cell setLayoutMargins:UIEdgeInsetsZero];\
+    }\
+}
+
 /** block */
 #define MKBlockExec(block, ...) if (block) { block(__VA_ARGS__); };
 typedef void (^MKBlock)(id result);

@@ -22,5 +22,5 @@
 + (UIViewController *)getCurrentViewControllerWithWindowLevel:(CGFloat)windowLevel includePresentedVC:(BOOL)isIncludePVC;
 + (UIViewController *)getPresentedViewController;
 
-
++ (void)callTelephone:(NSString *)phone showAlert:(BOOL)showAlert;
 @end

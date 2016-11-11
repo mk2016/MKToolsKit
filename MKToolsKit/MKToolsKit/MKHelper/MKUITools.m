@@ -99,4 +99,10 @@
     return topVC;
 }
 
++ (void)callTelephone:(NSString *)phone showAlert:(BOOL)showAlert{
+    NSString *cmd = showAlert ? @"telprompt" : @"tel";
+    NSString *str = [NSString stringWithFormat:@"%@://%@", cmd, phone];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+}
+
 @end

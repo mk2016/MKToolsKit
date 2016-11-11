@@ -40,11 +40,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:className];
     }
     if (!cell) {
-        static UINib *_nib;
-        if (!_nib) {
-            _nib = [UINib nibWithNibName:className bundle:nil];
-        }
-        
+        UINib *_nib = [UINib nibWithNibName:className bundle:nil];
         if (_nib) {
             cell = [[_nib instantiateWithOwner:nil options:nil] objectAtIndex:0];
         }
