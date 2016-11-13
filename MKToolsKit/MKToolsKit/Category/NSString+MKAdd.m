@@ -98,19 +98,4 @@
     }
 }
 
-+ (NSString *)mk_dataURLWithImage:(UIImage *)image{
-    NSData *imageData = nil;
-    NSString *mimeType = nil;
-    if ([image hasAlpha]) {
-        imageData = UIImagePNGRepresentation(image);
-        mimeType = @"image/png";
-    } else {
-        imageData = UIImageJPEGRepresentation(image, 1.0f);
-        mimeType = @"image/jpeg";
-    }
-    return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType, [imageData base64EncodedStringWithOptions: 0]];
-}
-
-
-
 @end

@@ -15,7 +15,8 @@
 @interface UIImage(MKAdd)
 /** dataURL 转 图片 */
 + (UIImage *)mk_imageWithDataURL:(NSString *)imgSrc;
-
+/** 图片转 dataURL */
+- (NSString *)mk_imageToDataURL;
 /** 返回九宫格图片 */
 + (UIImage *)mk_resizedImageWithName:(NSString *)name;
 

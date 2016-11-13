@@ -17,6 +17,21 @@
     return image;
 }
 
+- (NSString *)mk_imageToDataURL{
+    NSData *imageData = nil;
+    NSString *mimeType = nil;
+    if ([self hasAlpha]) {
+        imageData = UIImagePNGRepresentation(self);
+        mimeType = @"image/png";
+    } else {
+        imageData = UIImageJPEGRepresentation(self, 1.0f);
+        mimeType = @"image/jpeg";
+    }
+    return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType, [imageData base64EncodedStringWithOptions: 0]];
+}
+
+
+
 
 + (UIImage *)mk_resizedImageWithName:(NSString *)name{
     UIImage *image = [self imageNamed:name];
