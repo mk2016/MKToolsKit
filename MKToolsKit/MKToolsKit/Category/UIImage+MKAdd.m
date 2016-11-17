@@ -197,7 +197,7 @@
     NSData *imgData = UIImageJPEGRepresentation(self, 1.0);
     UIImage *result = [UIImage imageWithData:imgData];
     while (imgData.length > 1000000) {
-        imgData = UIImageJPEGRepresentation(result, 0.9);
+        imgData = UIImageJPEGRepresentation(result, 0.5);
         result = [UIImage imageWithData:imgData];
     }
     return result;
