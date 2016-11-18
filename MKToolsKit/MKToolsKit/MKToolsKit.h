@@ -23,8 +23,8 @@
 #import "MKBaseTableViewCell.h"
 #import "MKBaseWindowView.h"
 #import "MKRightImageButton.h"
-
-
+#import "MKImageView/MKImageView.h"
+#import "MKImageView/MKPictureBrowser.h"
 
 /** Verdor */
 #import "GZIP.h"
