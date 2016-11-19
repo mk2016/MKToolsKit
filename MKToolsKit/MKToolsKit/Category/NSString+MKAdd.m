@@ -11,7 +11,7 @@
 
 @implementation NSString(MKAdd)
 
-- (NSDictionary *)mk_dictionaryWithJsonString{
+- (NSDictionary *)mk_jsonString2Dictionary{
     NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
@@ -20,6 +20,10 @@
         return nil;
     }
     return dic;
+}
+
+- (NSDictionary *)mk_dictionaryWithJsonString{
+    return [self mk_jsonString2Dictionary];
 }
 
 /** 是否包含汉字 */
