@@ -46,6 +46,7 @@
 		C59DECD91DD0213A00322D42 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECD81DD0213A00322D42 /* UIView+Toast.m */; };
 		C59DECE91DD045AE00322D42 /* MKDeviceAuthorizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECE81DD045AE00322D42 /* MKDeviceAuthorizationHelper.m */; };
 		C5AF0D461DB6081B00928660 /* UINavigationBar+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AF0D451DB6081B00928660 /* UINavigationBar+MKAdd.m */; };
+		C5EC60291DE2B92500174D93 /* NSDictionary+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EC60281DE2B92500174D93 /* NSDictionary+MKAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -135,6 +136,8 @@
 		C59DECE81DD045AE00322D42 /* MKDeviceAuthorizationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDeviceAuthorizationHelper.m; sourceTree = "<group>"; };
 		C5AF0D441DB6081B00928660 /* UINavigationBar+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+MKAdd.h"; sourceTree = "<group>"; };
 		C5AF0D451DB6081B00928660 /* UINavigationBar+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+MKAdd.m"; sourceTree = "<group>"; };
+		C5EC60271DE2B92500174D93 /* NSDictionary+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MKAdd.h"; sourceTree = "<group>"; };
+		C5EC60281DE2B92500174D93 /* NSDictionary+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MKAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,11 +173,13 @@
 		C508AFC81D94F4B900852B87 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				C515A5761D9CF0A600D7984E /* MKCategoryHead.h */,
 				C515A57A1D9CF33200D7984E /* Foundation+MKLog.h */,
 				C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */,
+				C515A5761D9CF0A600D7984E /* MKCategoryHead.h */,
 				C55E0E621DD6100400FB663A /* NSDate+MKAdd.h */,
 				C55E0E631DD6100400FB663A /* NSDate+MKAdd.m */,
+				C5EC60271DE2B92500174D93 /* NSDictionary+MKAdd.h */,
+				C5EC60281DE2B92500174D93 /* NSDictionary+MKAdd.m */,
 				C52B5FE51DD19E85003BC011 /* NSObject+MKAdd.h */,
 				C52B5FE61DD19E85003BC011 /* NSObject+MKAdd.m */,
 				C515A57C1D9CF33200D7984E /* NSObject+MKAddProperty.h */,
@@ -443,6 +448,7 @@
 				C556C90D1DDEC4A500C90B99 /* MKPictureBrowser.m in Sources */,
 				C515A5831D9CF33200D7984E /* NSObject+MKAddProperty.m in Sources */,
 				C55562A91DACB63D00ED675C /* SSKeychain.m in Sources */,
+				C5EC60291DE2B92500174D93 /* NSDictionary+MKAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
