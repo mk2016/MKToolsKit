@@ -37,8 +37,16 @@
 //}
 
 - (instancetype)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
-    if (self) {
+    if ([super initWithFrame:frame]) {
+        [self setNeedsLayout];
+        [self layoutIfNeeded];
+        self.space = 4;
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super initWithCoder:aDecoder]) {
         [self setNeedsLayout];
         [self layoutIfNeeded];
         self.space = 4;

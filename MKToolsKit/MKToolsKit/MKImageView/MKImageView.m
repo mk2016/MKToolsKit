@@ -27,6 +27,16 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self setUserInteractionEnabled:YES];
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGesture:)];
+        [self addGestureRecognizer:gesture];
+        gesture.delegate = self;
+    }
+    return self;
+}
+
 - (void)tapGesture:(UITapGestureRecognizer *)sender{
     if (self) {
         [MKPictureBrowser showImage:self];
