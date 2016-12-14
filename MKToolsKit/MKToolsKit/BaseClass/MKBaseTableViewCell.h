@@ -21,4 +21,6 @@
 
 - (void)refreshUIWithModel:(id)model;
 
++ (CGFloat)getCellHeight;
+
 @end

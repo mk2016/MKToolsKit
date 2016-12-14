@@ -56,7 +56,9 @@
     return cell;
 }
 
-
++ (CGFloat)getCellHeight{
+    return 44;
+}
 
 - (void)setupUI{
 //    self.frame = CGRectMake(0, 0, MKSCREEN_WIDTH, 44);    
