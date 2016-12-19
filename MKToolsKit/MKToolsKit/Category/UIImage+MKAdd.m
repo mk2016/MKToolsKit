@@ -213,15 +213,15 @@
     NSData *imgData = UIImageJPEGRepresentation(self, 1.0);
     CGFloat ratio = 1;
     if (imgData.length > 10000000) {
-        ratio = 0.5;
+        ratio = 0.2;
     }else if (imgData.length > 5000000){
-        ratio = 0.7;
+        ratio = 0.4;
     }else if (imgData.length > 3000000){
-        ratio = 0.8;
+        ratio = 0.5;
     }else if (imgData.length > 2000000){
-        ratio = 0.9;
+        ratio = 0.6;
     }else if (imgData.length > 1000000){
-        ratio = 0.9;
+        ratio = 0.7;
     }
     imgData = UIImageJPEGRepresentation(self, ratio);
     UIImage *result = [UIImage imageWithData:imgData];
