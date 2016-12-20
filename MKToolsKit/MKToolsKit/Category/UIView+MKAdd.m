@@ -97,6 +97,7 @@
 - (void)setCorner{
     [self.layer setMasksToBounds:YES];
     [self.layer setCornerRadius:4.0];
+//    [self setCornerWith:UIRectCornerAllCorners radii:CGSizeMake(4.f, 0)];
 }
 
 - (void)setToCircle{
@@ -109,10 +110,10 @@
     maskLayer.frame = self.bounds;
     maskLayer.path = maskPath.CGPath;
     self.layer.mask = maskLayer;
-    self.layer.cornerRadius = size.width;
-    self.layer.masksToBounds = YES;
-    self.layer.shouldRasterize = YES;
-    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
+//    self.layer.cornerRadius = size.width;
+//    self.layer.masksToBounds = YES;
+//    self.layer.shouldRasterize = YES;
+//    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
 #pragma mark - ***** 边框 ******
