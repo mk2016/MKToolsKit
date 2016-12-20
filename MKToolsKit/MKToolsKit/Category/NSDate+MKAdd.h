@@ -21,8 +21,8 @@
 - (NSDate *)mk_dateForZeroTime;
 - (NSString *)mk_dateToStringWithFormat:(NSString *)format;
 - (NSString *)mk_dateToStringWithFormatFull;
-
-
+- (NSString *)mk_dateToUTCFormat;
+- (NSDate *)mk_dateWithUTC:(NSString *)utc;
 @end
 
 
@@ -30,5 +30,6 @@
 
 - (NSDate *)mk_stringToDateWithFormat:(NSString *)format;
 - (NSDate *)mk_stringToDateWithFormatFull;
+- (NSString *)mk_UTCFormatToFormatFull;
 
 @end

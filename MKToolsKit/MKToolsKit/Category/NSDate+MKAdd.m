@@ -47,6 +47,16 @@
     return dateStr;
 }
 
+- (NSString *)mk_dateToUTCFormat{
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    NSString *dateString = [dateFormatter stringFromDate:self];
+    return dateString;
+}
+
 - (NSString *)mk_dateToStringWithFormatFull{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -54,7 +64,13 @@
     return dateStr;
 }
 
-
+- (NSDate *)mk_dateWithUTC:(NSString *)utc{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+    NSDate *date = [dateFormatter dateFromString:utc];
+    return date;
+}
 
 @end
 
@@ -73,6 +89,17 @@
     NSDate *date = [dateFormatter dateFromString:self];
     return date;
 }
+
+- (NSString *)mk_UTCFormatToFormatFull{
+    NSDate *date = [[NSDate alloc] mk_dateWithUTC:self];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    return dateString;
+}
+
+
 
 @end
 
