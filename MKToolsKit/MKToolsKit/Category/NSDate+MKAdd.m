@@ -10,27 +10,21 @@
 
 @implementation NSDate (MKAdd)
 
+/** 获取当前时间戳 微秒 13位*/
 + (long long)mk_getCurrentTimeStamp{
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
     long long totalMilliseconds = interval*1000;
     return totalMilliseconds;
 }
 
+/** 获取当前时间戳 秒 10位 */
 + (UInt32)mk_getTimeStamp4Second{
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
     UInt32 totalSeconds = interval;
     return totalSeconds;
 }
 
-+ (NSDate *)mk_dataWithTimeStamp:(long long)timeStamp{
-    if (timeStamp > 10000000000) {
-        timeStamp = timeStamp/1000;
-    }
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
-    return date;
-}
-
-/** 获取指定日期00:00:00的时间 */
+/** 获取指定日期00:00:00的时间 NSDate*/
 - (NSDate *)mk_dateForZeroTime{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd";
@@ -40,6 +34,23 @@
     return [formatter dateFromString:dateStr];
 }
 
+/** 时间戳-> NSDate */
++ (NSDate *)mk_dataWithTimeStamp:(long long)timeStamp{
+    if (timeStamp > 10000000000) {
+        timeStamp = timeStamp/1000;
+    }
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeStamp];
+    return date;
+}
+
+/** 时间戳 -> 全格式String */
++ (NSString *)mk_FormatFullWithTimeStamp:(long long)timeStamp{
+    NSDate *date = [NSDate mk_dataWithTimeStamp:timeStamp];
+    NSString *str = [date mk_dateToStringWithFormatFull];
+    return str;
+}
+
+/** NSDate -> 指定 format */
 - (NSString *)mk_dateToStringWithFormat:(NSString *)format{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:format];
@@ -47,6 +58,16 @@
     return dateStr;
 }
 
+/** NSDate -> 全格式String */
+- (NSString *)mk_dateToStringWithFormatFull{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateStr = [dateFormatter stringFromDate:self];
+    return dateStr;
+}
+
+
+/** NSDate -> UTC */
 - (NSString *)mk_dateToUTCFormat{
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
 
@@ -57,13 +78,7 @@
     return dateString;
 }
 
-- (NSString *)mk_dateToStringWithFormatFull{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *dateStr = [dateFormatter stringFromDate:self];
-    return dateStr;
-}
-
+/** UTC -> NSDate */
 - (NSDate *)mk_dateWithUTC:(NSString *)utc{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
