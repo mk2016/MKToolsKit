@@ -64,9 +64,9 @@ dispatch_async(dispatch_get_main_queue(), block);\
 }
 
 /** 弱引用 */
-#define MKWEAKSELF typeof(self) __weak weakSelf = self;
-#define MKWEAKIFY(var) __weak typeof(var) weak_##var = var;
-
+#define MKWEAKSELF      __weak typeof(self) weakSelf = self;
+#define MKSTRONGSELF    __strong typeof(weakSelf) strongSelf = weakSelf;
+#define MKWEAKIFY(var)  __weak typeof(var) weak_##var = var;
 
 ///*处理分割线没在最左边问题：ios8以后才有的问题*/\
 #define AddTableViewLineAdjust \
