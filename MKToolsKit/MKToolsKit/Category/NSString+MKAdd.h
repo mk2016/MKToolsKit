@@ -35,4 +35,8 @@
 /** 对字符串进行URLDecode */
 - (NSString *)mk_stringByURLDecode;
 
+/** 获取字符串的 Size */
+- (CGSize)mk_getContentSizeWithFont:(UIFont *)font width:(CGFloat)width;
+
 @end
+

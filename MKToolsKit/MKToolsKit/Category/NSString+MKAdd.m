@@ -102,4 +102,14 @@
     }
 }
 
+/** 获取字符串的size */
+- (CGSize)mk_getContentSizeWithFont:(UIFont *)font width:(CGFloat)width{
+    CGSize size = [self boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
+                                          options:NSStringDrawingUsesLineFragmentOrigin
+//  | NSStringDrawingTruncatesLastVisibleLine
+//  | NSStringDrawingUsesFontLeading
+                                       attributes:@{NSFontAttributeName: font}
+                                          context:nil].size;
+    return size;
+}
 @end
