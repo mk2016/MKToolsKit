@@ -17,10 +17,15 @@
 + (UIImage *)mk_imageWithDataURL:(NSString *)imgSrc;
 /** 图片转 dataURL */
 - (NSString *)mk_imageToDataURL;
+
 /** 返回九宫格图片 */
 + (UIImage *)mk_resizedImageWithName:(NSString *)name;
-
+/** 根据颜色生成图片 */
 + (UIImage *)mk_imageWithColor:(UIColor *)color;
+
+/** 生成二维码图片 */
++ (UIImage *)mk_imageWithQRString:(NSString *)str imgWidth:(CGFloat)imgWidth;
+
 
 - (UIImage *)mk_applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
 
@@ -29,6 +34,7 @@
 - (UIImage *)compressLessThan1M;
 - (UIImage *)compressWithRatio:(CGFloat)ratio;
 - (UIImage *)compressImage;
+
 
 
 @end
