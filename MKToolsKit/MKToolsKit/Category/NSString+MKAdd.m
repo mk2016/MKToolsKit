@@ -11,7 +11,7 @@
 
 @implementation NSString(MKAdd)
 
-- (NSDictionary *)mk_jsonString2Dictionary{
+- (id)mk_jsonString2Dictionary{
     NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];

@@ -11,8 +11,8 @@
 
 @interface NSString(MKAdd)
 
-/** jsonString 转 dictionary */
-- (NSDictionary *)mk_jsonString2Dictionary;
+/** jsonString 转 dictionary 或者 NSArray */
+- (id)mk_jsonString2Dictionary;
 - (NSDictionary *)mk_dictionaryWithJsonString;
 
 #pragma mark - ***** 字符串校验 *****
