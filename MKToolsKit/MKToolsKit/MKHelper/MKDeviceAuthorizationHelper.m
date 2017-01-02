@@ -27,12 +27,7 @@
         switch (status) {
             case AVAuthorizationStatusNotDetermined:{   //未授权 发起授权
                 [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-                    if (granted) {  //接受
-                        MKBlockExec(block, YES);
-                        block(YES);
-                    }else{          //拒绝
-                        MKBlockExec(block, NO);
-                    }
+                    MKBlockExec(block, granted);
                 }];
                 break;
             }
