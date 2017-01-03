@@ -43,12 +43,12 @@ static NSString* const kMKToolkitUUIDString             = @"kMKToolkitUUID";
 }
 
 + (int)appIntVersion{
-    NSString* nowShotV = [self appBundleShortVersion];
-    NSArray* numArray = [nowShotV componentsSeparatedByString:@"."];
+    NSString *nowShotV = [self appBundleVersion];
+    NSArray *numArray = [nowShotV componentsSeparatedByString:@"."];
     int versionInt = 0;
     if (numArray.count > 0) {
         for (NSInteger i = 0; i < numArray.count; i++) {
-            NSString* numStr = numArray[i];
+            NSString *numStr = numArray[i];
             versionInt = versionInt*10 + numStr.intValue;
         }
     }
