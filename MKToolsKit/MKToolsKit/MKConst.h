@@ -36,32 +36,32 @@
 #define MKCOLOR_RGB(r, g, b)        [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1]
 #define MKCOLOR_RGBA(r, g, b, a)    [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:(a)]
 #define MKCOLOR_HEX(rgbValue)       [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0f \
-blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0f]
+                                                    green:((float)((rgbValue & 0xFF00) >> 8))/255.0f \
+                                                     blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0f]
 
 /** 单例 */
 #define MKImpl_sharedInstance(type) + (instancetype)sharedInstance {\
-static type *sharedInstance = nil;\
-static dispatch_once_t once;\
-dispatch_once(&once, ^{\
-sharedInstance = [[self alloc] init];\
-});\
-return sharedInstance;}
+    static type *sharedInstance = nil;\
+    static dispatch_once_t once;\
+    dispatch_once(&once, ^{\
+        sharedInstance = [[self alloc] init];\
+    });\
+    return sharedInstance;}
 
 /** 线程 */
 #define MKDispatch_main_sync_safe(block)\
-if ([NSThread isMainThread]) {\
-block();\
-} else {\
-dispatch_sync(dispatch_get_main_queue(), block);\
-}
+    if ([NSThread isMainThread]) {\
+        block();\
+    } else {\
+        dispatch_sync(dispatch_get_main_queue(), block);\
+    }
 
 #define MKDispatch_main_async_safe(block)\
-if ([NSThread isMainThread]) {\
-block();\
-} else {\
-dispatch_async(dispatch_get_main_queue(), block);\
-}
+    if ([NSThread isMainThread]) {\
+        block();\
+    } else {\
+        dispatch_async(dispatch_get_main_queue(), block);\
+    }
 
 /** 弱引用 */
 #define MKWEAKSELF          __weak typeof(self) weakSelf = self;
@@ -69,7 +69,14 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #define MKSTRONGSELF        __strong typeof(weakSelf) strongSelf = weakSelf;
 #define MKSTRONGIFY(var)    __strong typeof(var) strong_##var = var;
 
-///*处理分割线没在最左边问题：ios8以后才有的问题*/\
+/** block */
+#define MKBlockExec(block, ...) if (block) { block(__VA_ARGS__); };
+typedef void (^MKBlock)(id result);
+typedef void (^MKBoolBlock)(BOOL bRet);
+typedef void (^MKVoidBlock)(void);
+typedef void (^MKIntegerBlock)(NSInteger index);
+
+/** 处理分割线没在最左边问题：ios8以后才有的问题 */
 #define AddTableViewLineAdjust \
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{\
     if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {\
@@ -82,13 +89,6 @@ dispatch_async(dispatch_get_main_queue(), block);\
         [cell setLayoutMargins:UIEdgeInsetsZero];\
     }\
 }
-
-/** block */
-#define MKBlockExec(block, ...) if (block) { block(__VA_ARGS__); };
-typedef void (^MKBlock)(id result);
-typedef void (^MKBoolBlock)(BOOL bRet);
-typedef void (^MKVoidBlock)(void);
-typedef void (^MKIntegerBlock)(NSInteger index);
 
 #pragma mark - ***** 枚举 *****
 /** tableView 上下拉 刷新 */

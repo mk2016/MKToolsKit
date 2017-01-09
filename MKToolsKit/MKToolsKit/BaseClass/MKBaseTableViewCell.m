@@ -62,11 +62,12 @@
     return 44;
 }
 
++ (CGFloat)getCellHeightWithModel:(id)model{
+    return 44;
+}
+
 - (void)setupUI{
-//    self.frame = CGRectMake(0, 0, MKSCREEN_WIDTH, 44);    
-//    UIView* tempView = [[UIView alloc] init];
-//    [self setBackgroundView:tempView];
-//    self.backgroundColor = [UIColor clearColor];
+    // implementation in sub class
 }
 
 - (void)refreshUIWithModel:(id)model{

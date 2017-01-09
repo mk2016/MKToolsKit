@@ -74,9 +74,10 @@
     
     NSMutableArray *argsArray = [[NSMutableArray alloc] initWithArray:buttonTitles];
 
+
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
-        
-        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    //iOS 8 之后用 UIAlertController
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
         
         for (int i = 0; i < [argsArray count]; i++) {
             UIAlertActionStyle style = (i == 0) ? UIAlertActionStyleCancel : UIAlertActionStyleDefault;
@@ -98,6 +99,7 @@
         return;
     }
     
+    //iOS 8之前 使用 UIAlertView
     //UIAlertView style
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:argsArray.firstObject otherButtonTitles:nil, nil];
     
