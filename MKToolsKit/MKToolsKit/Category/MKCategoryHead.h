@@ -8,6 +8,8 @@
 
 
 #import "Foundation+MKLog.h"
+#import "NSDate+MKAdd.h"
+#import "NSDictionary+MKAdd.h"
 #import "NSObject+MKAddProperty.h"
 #import "NSObject+MKAdd.h"
 #import "NSString+MKAdd.h"
@@ -17,6 +19,4 @@
 #import "UINavigationController+MKAdd.h"
 #import "UITabBar+MKAdd.h"
 #import "UIView+MKAdd.h"
-#import "NSDate+MKAdd.h"
-#import "NSDictionary+MKAdd.h"
 

@@ -28,6 +28,8 @@
 		C5288D801DC6D6B100B87F48 /* MKFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5288D7A1DC6D6B100B87F48 /* MKFileHelper.m */; };
 		C5288D811DC6D6B100B87F48 /* MKImagePickerCtrHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5288D7C1DC6D6B100B87F48 /* MKImagePickerCtrHelper.m */; };
 		C5288D821DC6D6B100B87F48 /* MKUITools.m in Sources */ = {isa = PBXBuildFile; fileRef = C5288D7E1DC6D6B100B87F48 /* MKUITools.m */; };
+		C5292F751E24748E00A752CC /* MKRightImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5292F721E24748E00A752CC /* MKRightImageButton.m */; };
+		C5292F761E24748E00A752CC /* MKVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5292F741E24748E00A752CC /* MKVButton.m */; };
 		C52B5FE71DD19E85003BC011 /* NSObject+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B5FE61DD19E85003BC011 /* NSObject+MKAdd.m */; };
 		C53EFE1A1DCC2B9300EF5C39 /* MKBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE191DCC2B9300EF5C39 /* MKBaseTabBarController.m */; };
 		C53EFE401DCC9E9300EF5C39 /* MKBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE3F1DCC9E9300EF5C39 /* MKBaseTableViewCell.m */; };
@@ -39,8 +41,6 @@
 		C56D310F1E23644900813D97 /* MKDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D31001E23644900813D97 /* MKDatePickerView.m */; };
 		C56D31101E23644900813D97 /* MKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D31031E23644900813D97 /* MKImageView.m */; };
 		C56D31111E23644900813D97 /* MKPictureBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D31051E23644900813D97 /* MKPictureBrowser.m */; };
-		C56D31121E23644900813D97 /* MKRightImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D31081E23644900813D97 /* MKRightImageButton.m */; };
-		C56D31131E23644900813D97 /* MKVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D310A1E23644900813D97 /* MKVButton.m */; };
 		C56D311D1E239A6800813D97 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D311C1E239A6800813D97 /* SSKeychain.m */; };
 		C59DECD41DD01E5A00322D42 /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECD31DD01E5A00322D42 /* NSData+GZIP.m */; };
 		C59DECD91DD0213A00322D42 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECD81DD0213A00322D42 /* UIView+Toast.m */; };
@@ -99,6 +99,10 @@
 		C5288D7D1DC6D6B100B87F48 /* MKUITools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKUITools.h; sourceTree = "<group>"; };
 		C5288D7E1DC6D6B100B87F48 /* MKUITools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKUITools.m; sourceTree = "<group>"; };
 		C5288D831DC6D7C300B87F48 /* MKConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKConst.h; sourceTree = "<group>"; };
+		C5292F711E24748E00A752CC /* MKRightImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightImageButton.h; sourceTree = "<group>"; };
+		C5292F721E24748E00A752CC /* MKRightImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightImageButton.m; sourceTree = "<group>"; };
+		C5292F731E24748E00A752CC /* MKVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKVButton.h; sourceTree = "<group>"; };
+		C5292F741E24748E00A752CC /* MKVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKVButton.m; sourceTree = "<group>"; };
 		C52B5FE51DD19E85003BC011 /* NSObject+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MKAdd.h"; sourceTree = "<group>"; };
 		C52B5FE61DD19E85003BC011 /* NSObject+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKAdd.m"; sourceTree = "<group>"; };
 		C53EFE181DCC2B9300EF5C39 /* MKBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBaseTabBarController.h; sourceTree = "<group>"; };
@@ -121,10 +125,6 @@
 		C56D31031E23644900813D97 /* MKImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKImageView.m; sourceTree = "<group>"; };
 		C56D31041E23644900813D97 /* MKPictureBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKPictureBrowser.h; sourceTree = "<group>"; };
 		C56D31051E23644900813D97 /* MKPictureBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPictureBrowser.m; sourceTree = "<group>"; };
-		C56D31071E23644900813D97 /* MKRightImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightImageButton.h; sourceTree = "<group>"; };
-		C56D31081E23644900813D97 /* MKRightImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightImageButton.m; sourceTree = "<group>"; };
-		C56D31091E23644900813D97 /* MKVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKVButton.h; sourceTree = "<group>"; };
-		C56D310A1E23644900813D97 /* MKVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKVButton.m; sourceTree = "<group>"; };
 		C56D311B1E239A6800813D97 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		C56D311C1E239A6800813D97 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		C59DECD11DD01E5A00322D42 /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIP.h; sourceTree = "<group>"; };
@@ -162,9 +162,9 @@
 		C508AFC81D94F4B900852B87 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C515A5761D9CF0A600D7984E /* MKCategoryHead.h */,
 				C515A57A1D9CF33200D7984E /* Foundation+MKLog.h */,
 				C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */,
-				C515A5761D9CF0A600D7984E /* MKCategoryHead.h */,
 				C55E0E621DD6100400FB663A /* NSDate+MKAdd.h */,
 				C55E0E631DD6100400FB663A /* NSDate+MKAdd.m */,
 				C5EC60271DE2B92500174D93 /* NSDictionary+MKAdd.h */,
@@ -254,6 +254,17 @@
 			path = MKHelper;
 			sourceTree = "<group>";
 		};
+		C5292F701E24748E00A752CC /* MKButton */ = {
+			isa = PBXGroup;
+			children = (
+				C5292F711E24748E00A752CC /* MKRightImageButton.h */,
+				C5292F721E24748E00A752CC /* MKRightImageButton.m */,
+				C5292F731E24748E00A752CC /* MKVButton.h */,
+				C5292F741E24748E00A752CC /* MKVButton.m */,
+			);
+			path = MKButton;
+			sourceTree = "<group>";
+		};
 		C53EFE171DCC2B6700EF5C39 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,9 +282,9 @@
 				C56D30F31E23644900813D97 /* MKAlertView */,
 				C56D30F81E23644900813D97 /* MKBaseWindowView */,
 				C56D30FB1E23644900813D97 /* MKBlurView */,
+				C5292F701E24748E00A752CC /* MKButton */,
 				C56D30FE1E23644900813D97 /* MKDatePickerView */,
 				C56D31011E23644900813D97 /* MKImageView */,
-				C56D31061E23644900813D97 /* MKVButton */,
 			);
 			path = MKSubassembly;
 			sourceTree = "<group>";
@@ -325,17 +336,6 @@
 				C56D31051E23644900813D97 /* MKPictureBrowser.m */,
 			);
 			path = MKImageView;
-			sourceTree = "<group>";
-		};
-		C56D31061E23644900813D97 /* MKVButton */ = {
-			isa = PBXGroup;
-			children = (
-				C56D31071E23644900813D97 /* MKRightImageButton.h */,
-				C56D31081E23644900813D97 /* MKRightImageButton.m */,
-				C56D31091E23644900813D97 /* MKVButton.h */,
-				C56D310A1E23644900813D97 /* MKVButton.m */,
-			);
-			path = MKVButton;
 			sourceTree = "<group>";
 		};
 		C56D311A1E239A6800813D97 /* SSKeychain */ = {
@@ -441,8 +441,8 @@
 				C53EFE401DCC9E9300EF5C39 /* MKBaseTableViewCell.m in Sources */,
 				C56D311D1E239A6800813D97 /* SSKeychain.m in Sources */,
 				C508AFCF1D951C5A00852B87 /* UITabBar+MKAdd.m in Sources */,
+				C5292F751E24748E00A752CC /* MKRightImageButton.m in Sources */,
 				C5288D821DC6D6B100B87F48 /* MKUITools.m in Sources */,
-				C56D31121E23644900813D97 /* MKRightImageButton.m in Sources */,
 				C5288D801DC6D6B100B87F48 /* MKFileHelper.m in Sources */,
 				C59DECD91DD0213A00322D42 /* UIView+Toast.m in Sources */,
 				C56D31111E23644900813D97 /* MKPictureBrowser.m in Sources */,
@@ -450,8 +450,8 @@
 				C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */,
 				C508AFD91D951D7C00852B87 /* UINavigationController+MKAdd.m in Sources */,
 				C508AFD81D951D7C00852B87 /* UILabel+MKAdd.m in Sources */,
+				C5292F761E24748E00A752CC /* MKVButton.m in Sources */,
 				C5AF0D461DB6081B00928660 /* UINavigationBar+MKAdd.m in Sources */,
-				C56D31131E23644900813D97 /* MKVButton.m in Sources */,
 				C515A5851D9CF33200D7984E /* UIImage+MKAdd.m in Sources */,
 				C55E0E641DD6100400FB663A /* NSDate+MKAdd.m in Sources */,
 				C5288D7F1DC6D6B100B87F48 /* MKDeviceHelper.m in Sources */,

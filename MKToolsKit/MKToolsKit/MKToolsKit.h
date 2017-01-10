@@ -8,19 +8,17 @@
 
 #import "MKConst.h"
 
-
 #import "MKBaseTabBarController.h"
 #import "MKBaseTableViewCell.h"
-#import "MKBaseWindowView.h"
 
 /** subassembly 组件 */
-#import "MKAlertView/MKAlertView.h"
-#import "MKBlurView/MKBlurView.h"
-#import "MKVButton/MKVButton.h"
-#import "MKDatePickerView/MKDatePickerView.h"
-#import "MKImageView/MKImageView.h"
-
-
+#import "MKSubassembly/MKAlertView/MKAlertView.h"
+#import "MKSubassembly/MKBaseWindowView/MKBaseWindowView.h"
+#import "MKSubassembly/MKBlurView/MKBlurView.h"
+#import "MKSubassembly/MKButton/MKVButton.h"
+#import "MKSubassembly/MKButton/MKRightImageButton.h"
+#import "MKSubassembly/MKDatePickerView/MKDatePickerView.h"
+#import "MKSubassembly/MKImageView/MKImageView.h"
 
 #import "MKCategoryHead.h"
 
@@ -30,7 +28,6 @@
 #import "MKFileHelper.h"
 #import "MKImagePickerCtrHelper.h"
 
-#import "MKRightImageButton.h"
 
 /** Verdor */
 #import "GZIP.h"
