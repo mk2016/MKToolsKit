@@ -70,14 +70,14 @@
     
     _currentIndex = 0;
     self.labCurrent.frame = CGRectMake(self.imgWidth+self.leftMarge, 0,
-                                       self.bounds.size.width-(self.imgWidth+self.leftMarge),
+                                       self.bounds.size.width-(self.imgWidth+self.leftMarge-12),
                                        self.bounds.size.height);
     self.labCurrent.text = self.textArray.firstObject;
     
     if (self.textArray.count > 1) {
         self.labNext.frame = CGRectMake(self.imgWidth+self.leftMarge,
                                         self.bounds.size.height,
-                                        self.bounds.size.width-(self.imgWidth+self.leftMarge),
+                                        self.bounds.size.width-(self.imgWidth+self.leftMarge-12),
                                         self.bounds.size.height);
         self.labNext.text = [self.textArray objectAtIndex:1];
         if (self.timer) {
