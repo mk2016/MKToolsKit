@@ -19,6 +19,7 @@
 #import "MKSubassembly/MKButton/MKRightImageButton.h"
 #import "MKSubassembly/MKDatePickerView/MKDatePickerView.h"
 #import "MKSubassembly/MKImageView/MKImageView.h"
+#import "MKSubassembly/MKNewsView/MKNewsView.h"
 
 #import "MKCategoryHead.h"
 
