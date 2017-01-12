@@ -14,8 +14,9 @@
 }
 
 @property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, weak) UILabel *labCurrent;
-@property (nonatomic, weak) UILabel *labNext;
+@property (nonatomic, strong) UIView *viewCurrent;
+@property (nonatomic, strong) UIView *viewNext;
+
 @property (nonatomic, strong) UIButton *btnText;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, weak) MKIntegerBlock block;
@@ -33,6 +34,7 @@
         _textColor = [UIColor whiteColor];
         _currentIndex = 0;
         _leftMarge = 8.0f;
+        _rightMarge = 12.0f;
         _duration = 3.0f;
         _scrollTime = 1.0f;
         _imgWidth = 0.f;
@@ -40,12 +42,17 @@
     return self;
 }
 
+
 - (void)setImageName:(NSString *)imgName width:(CGFloat)imgWidth{
-    self.imgWidth = imgWidth;
-    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imgWidth, self.bounds.size.height)];
-    [self addSubview:self.imageView];
-    self.imageView.image = [UIImage imageNamed:imgName];
-    
+    if (imgName && imgName.length > 0) {
+        self.imgWidth = imgWidth;
+        self.imageView.frame = CGRectMake(0, 0, imgWidth, self.bounds.size.height);
+        self.imageView.image = [UIImage imageNamed:imgName];
+    }else{
+        self.imgWidth = 0.f;
+        [_imageView removeFromSuperview];
+        _imageView = nil;
+    }
     if (self.textArray.count > 0) {
         NSArray *ary = [self.textArray copySelfPerfect];
         [self startPlayWithTextArray:ary block:self.block];
@@ -56,10 +63,13 @@
     if (array == nil || array.count == 0) {
         return;
     }
+    //init
     [self.textArray removeAllObjects];
     [self.textArray addObjectsFromArray:array];
     self.block = block;
-    
+    _currentIndex = 0;
+
+    //btn
     self.btnText.frame = CGRectMake(self.imgWidth,
                                     0,
                                     self.bounds.size.width-self.imgWidth,
@@ -68,31 +78,56 @@
     [self.btnText addTarget:self action:@selector(btnTextClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.btnText];
     
-    _currentIndex = 0;
-    self.labCurrent.frame = CGRectMake(self.imgWidth+self.leftMarge, 0,
-                                       self.bounds.size.width-(self.imgWidth+self.leftMarge+12),
-                                       self.bounds.size.height);
-    self.labCurrent.text = self.textArray.firstObject;
+    //view
+    self.viewCurrent.frame = CGRectMake(self.imgWidth, 0, self.bounds.size.width-self.imgWidth,self.bounds.size.height);
+    [self.viewCurrent removeAllSubviews];
+    MKBlockExec(self.customViewBlock, self.viewCurrent);
+
+    //lab
+    UILabel *labCurrent = [[UILabel alloc] init];
+    [self.viewCurrent addSubview:labCurrent];
+    labCurrent.textColor = self.textColor;
+    labCurrent.font = self.textFont;
+    labCurrent.textAlignment = NSTextAlignmentLeft;
+    labCurrent.tag = 100;
+    
+    labCurrent.frame = CGRectMake(self.leftMarge, 0,
+                                  self.viewCurrent.width-(self.leftMarge+self.rightMarge),
+                                  self.viewCurrent.height);
+    labCurrent.text = self.textArray.firstObject;
+    
     
     if (self.textArray.count > 1) {
-        self.labNext.frame = CGRectMake(self.imgWidth+self.leftMarge,
-                                        self.bounds.size.height,
-                                        self.bounds.size.width-(self.imgWidth+self.leftMarge+12),
-                                        self.bounds.size.height);
-        self.labNext.text = [self.textArray objectAtIndex:1];
+        self.viewNext.frame = CGRectMake(self.imgWidth, self.bounds.size.height, self.bounds.size.width-self.imgWidth,self.bounds.size.height);
+        [self.viewNext removeAllSubviews];
+        MKBlockExec(self.customViewBlock, self.viewNext);
+
+        UILabel *labNext = [[UILabel alloc] init];
+        [self.viewNext addSubview:labNext];
+        labNext.textColor = self.textColor;
+        labNext.font = self.textFont;
+        labNext.textAlignment = NSTextAlignmentLeft;
+        labNext.tag = 100;
+        
+        labNext.frame = CGRectMake(self.leftMarge, 0,
+                                        self.viewNext.width-(self.leftMarge+self.rightMarge),
+                                        self.viewNext.height);
+        labNext.text = [self.textArray objectAtIndex:1];
         if (self.timer) {
             [self.timer invalidate];
             self.timer = nil;
         }
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:self.duration target:self selector:@selector(playNews) userInfo:nil repeats:YES];
+//        self.timer = [NSTimer scheduledTimerWithTimeInterval:self.duration target:self selector:@selector(playNews) userInfo:nil repeats:YES];
+        self.timer = [NSTimer timerWithTimeInterval:self.duration target:self selector:@selector(playNews) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     }
 }
 
 - (void)playNews{
 
     [UIView animateWithDuration:self.scrollTime animations:^{
-        self.labCurrent.y = - self.bounds.size.height;
-        self.labNext.y = 0;
+        self.viewCurrent.y = - self.bounds.size.height;
+        self.viewNext.y = 0;
     } completion:^(BOOL finished) {
         _currentIndex += 1;
         if (_currentIndex >= self.textArray.count) {
@@ -100,15 +135,17 @@
         }
         self.btnText.tag = _currentIndex;
 
-        UILabel *tmpLab = self.labCurrent;
-        self.labCurrent = self.labNext;
-        self.labNext = tmpLab;
-        tmpLab = nil;
+        UIView *tmpView = self.viewCurrent;
+        self.viewCurrent = self.viewNext;
+        self.viewNext = tmpView;
+        tmpView = nil;
         
-        self.labNext.y = self.bounds.size.height;
+        self.viewNext.y = self.bounds.size.height;
         NSInteger nextIndex = _currentIndex+1 >= self.textArray.count ? 0 : _currentIndex+1;
-        self.labNext.text = [self.textArray objectAtIndex:nextIndex];
-    
+        UILabel *lab = [self.viewNext viewWithTag:100];
+        if (lab) {
+            lab.text = [self.textArray objectAtIndex:nextIndex];
+        }
     }];
 }
 
@@ -125,28 +162,22 @@
 }
 
 #pragma mark - ***** lazy *****
-- (UILabel *)labCurrent{
-    if (!_labCurrent) {
-        UILabel *lab = [[UILabel alloc] init];
-        _labCurrent = lab;
-        _labCurrent.textColor = self.textColor;
-        _labCurrent.font = self.textFont;
-        _labCurrent.textAlignment = NSTextAlignmentLeft;
-        [self addSubview:_labCurrent];
+- (UIView *)viewCurrent{
+    if (!_viewCurrent) {
+        _viewCurrent = [UIView new];
+        _viewCurrent.backgroundColor = [UIColor clearColor];
+        [self addSubview:_viewCurrent];
     }
-    return _labCurrent;
+    return _viewCurrent;
 }
 
-- (UILabel *)labNext{
-    if (!_labNext) {
-        UILabel *lab = [[UILabel alloc] init];
-        _labNext = lab;
-        _labNext.textColor = self.textColor;
-        _labNext.font = self.textFont;
-        _labNext.textAlignment = NSTextAlignmentLeft;
-        [self addSubview:_labNext];
+- (UIView *)viewNext{
+    if (!_viewNext) {
+        _viewNext = [UIView new];
+        _viewNext.backgroundColor = [UIColor clearColor];
+        [self addSubview:_viewNext];
     }
-    return _labNext;
+    return _viewNext;
 }
 
 - (UIButton *)btnText{
@@ -161,6 +192,14 @@
         _textArray = @[].mutableCopy;
     }
     return _textArray;
+}
+
+- (UIImageView *)imageView{
+    if (!_imageView) {
+        _imageView = [UIImageView new];
+        [self addSubview:_imageView];
+    }
+    return _imageView;
 }
 
 /*
