@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) UIButton *btnText;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, weak) MKIntegerBlock block;
+@property (nonatomic, copy) MKIntegerBlock block;
 @property (nonatomic, strong) NSMutableArray *textArray;
 
 @property (nonatomic, assign) CGFloat imgWidth;
