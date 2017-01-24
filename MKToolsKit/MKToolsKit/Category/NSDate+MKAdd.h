@@ -12,6 +12,9 @@
 
 /** 获取当前时间戳 微秒 13位*/
 + (long long)mk_getCurrentTimeStamp;
+- (long long)mk_dateToMillisecond;
+- (long long)mk_dateToMicrosecond;
+
 /** 获取当前时间戳 秒 10位 */
 + (UInt32)mk_getTimeStamp4Second;
 /** 获取指定日期00:00:00的时间 NSDate*/

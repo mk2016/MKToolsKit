@@ -17,6 +17,18 @@
     return totalMilliseconds;
 }
 
+- (long long)mk_dateToMillisecond{
+    NSTimeInterval interval = [self timeIntervalSince1970];
+    long long milliseconds = interval*1000;
+    return milliseconds;
+}
+
+- (long long)mk_dateToMicrosecond{
+    NSTimeInterval interval = [self timeIntervalSince1970];
+    long long t = interval*1000*1000;
+    return t;
+}
+
 /** 获取当前时间戳 秒 10位 */
 + (UInt32)mk_getTimeStamp4Second{
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
@@ -73,7 +85,7 @@
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:timeZone];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
     NSString *dateString = [dateFormatter stringFromDate:self];
     return dateString;
 }
@@ -81,7 +93,7 @@
 /** UTC -> NSDate */
 - (NSDate *)mk_dateWithUTC:(NSString *)utc{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];//2017-01-11T07:42:47.000Z
     [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     NSDate *date = [dateFormatter dateFromString:utc];
     return date;
