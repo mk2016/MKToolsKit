@@ -73,6 +73,10 @@
     }else{
         NSAssert(NO, @"MKToolsKit: Could not find a root view controller.");
     }
+    if ([result isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabbarVC = (UITabBarController *)result;
+        result = tabbarVC.viewControllers[[tabbarVC selectedIndex]];
+    }
     if ([result isKindOfClass:[UINavigationController class]]) {
         UINavigationController *nav = (UINavigationController *)result;
         result = nav.topViewController;
