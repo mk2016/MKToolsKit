@@ -19,4 +19,4 @@
 #import "UINavigationController+MKAdd.h"
 #import "UITabBar+MKAdd.h"
 #import "UIView+MKAdd.h"
-
+#import "UITableViewCell+MKAdd.h"
