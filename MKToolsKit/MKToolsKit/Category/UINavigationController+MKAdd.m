@@ -11,7 +11,7 @@
 @implementation UINavigationController (MKAdd)
 
 /** pop 到制定界面 */
-- (BOOL)popToViewControllerWitnName:(NSString *)vcName animated:(BOOL)animated{
+- (BOOL)mk_popToViewControllerWithName:(NSString *)vcName animated:(BOOL)animated{
     Class class = NSClassFromString(vcName);
     if (class) {
         for (UIViewController *vc in self.viewControllers) {
@@ -21,11 +21,12 @@
             }
         }
     }
+    [self popViewControllerAnimated:YES];
     return NO;
 }
 
 /** 设置底部黑线 隐藏 */
-- (void)setBottomLineHidden:(BOOL)hidden{
+- (void)mk_setBottomLineHidden:(BOOL)hidden{
     if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
         NSArray *array = self.navigationBar.subviews;
         for (id obj in array) {
