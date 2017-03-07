@@ -16,6 +16,10 @@
 #pragma mark - ***** top View ******
 + (UIView *)getTopView;
 
+#pragma mark - ***** top window *****
++ (UIWindow *)getCurrentWindow;
++ (UIWindow *)getCurrentWindowByLevel:(CGFloat)windowLevel;
+
 #pragma mark - ***** current ViewController ******
 + (UIViewController *)getCurrentViewController;
 + (UIViewController *)getCurrentViewControllerIsIncludePresentedVC:(BOOL)isIncludePVC;

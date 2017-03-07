@@ -17,7 +17,7 @@ static CGRect oldframe;
 + (void)showImage:(UIImageView *)imageView{
     //图片
     UIImage *image = imageView.image;
-    UIWindow *window = [MKUITools getCurrentViewController].view.window;
+    UIWindow *window = [MKUITools getCurrentWindow];
     
     //背景
     UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];

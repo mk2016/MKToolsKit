@@ -20,6 +20,24 @@
     return [[[[UIApplication sharedApplication] keyWindow] subviews] lastObject];
 }
 
+#pragma mark - ***** top window *****
++ (UIWindow *)getCurrentWindow{
+    return [self getCurrentWindowByLevel:UIWindowLevelNormal];
+}
+
++ (UIWindow *)getCurrentWindowByLevel:(CGFloat)windowLevel{
+    UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
+    if (topWindow.windowLevel != windowLevel) {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for (UIWindow *window in windows) {
+            if (window.windowLevel == windowLevel) {
+                topWindow = window;
+            }
+        }
+    }
+    return topWindow;
+}
+
 #pragma mark - ***** current ViewController ******
 /** default include presentedViewController */
 + (UIViewController *)getCurrentViewController{
@@ -40,15 +58,7 @@
         }
     }
     
-    UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
-    if (topWindow.windowLevel != windowLevel) {
-        NSArray *windows = [[UIApplication sharedApplication] windows];
-        for (UIWindow *window in windows) {
-            if (window.windowLevel == windowLevel) {
-                topWindow = window;
-            }
-        }
-    }
+    UIWindow *topWindow = [self getCurrentWindowByLevel:windowLevel];
     
     UIView *rootView;
     NSArray *subViews = [topWindow subviews];
@@ -112,7 +122,7 @@
 /**
  *  传入模型数组，根据key字段 获取 字母 首拼音
  *
- *  @param NSArray model array
+ *  @param array model array
  *
  *  @return 排序好的 字母数组
  */

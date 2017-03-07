@@ -65,7 +65,7 @@
     self.datePicker.date = self.currentDate;
     [self.sheetView addSubview:self.datePicker];
     
-    [[MKUITools getCurrentViewController].view.window addSubview:self];
+    [[MKUITools getCurrentWindow] addSubview:self];
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         [self.shadeView setAlpha:0.2];
         [self.shadeView setUserInteractionEnabled:YES];

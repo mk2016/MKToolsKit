@@ -189,7 +189,7 @@
 }
 
 - (void)mk_showOnWindow{
-    UIWindow *window = [MKUITools getCurrentViewController].view.window;
+    UIWindow *window = [MKUITools getCurrentWindow];
     [window addSubview:self];
     self.alpha = 0;
     [UIView animateWithDuration:0.3 animations:^{
