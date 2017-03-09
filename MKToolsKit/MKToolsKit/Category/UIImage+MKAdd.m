@@ -56,11 +56,16 @@
 }
 
 /** 生成二维码 */
-+ (UIImage *)mk_imageWithQRString:(NSString *)qrStr imgWidth:(CGFloat)imgWidth{
++ (UIImage *)mk_imageWithQRString:(NSString *)str imgWidth:(CGFloat)imgWidth{
+    return [self mk_imageWithQRString:str imgWidth:imgWidth logo:nil];
+}
+
++ (UIImage *)mk_imageWithQRString:(NSString *)qrStr imgWidth:(CGFloat)imgWidth logo:(NSString *)logoImageName{
     NSData *stringData = [qrStr dataUsingEncoding:NSUTF8StringEncoding];
     // 创建filter
     CIFilter *qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     // 设置内容和纠错级别
+    [qrFilter setDefaults];
     [qrFilter setValue:stringData forKey:@"inputMessage"];
     [qrFilter setValue:@"H" forKey:@"inputCorrectionLevel"];
     CIImage *ciImage = qrFilter.outputImage;
@@ -86,6 +91,16 @@
     
     UIImage *qrImage = [UIImage imageWithCGImage:scaledImage];
     CGImageRelease(scaledImage);
+    
+    if (logoImageName) {
+        CGFloat logoWidth = 36;//imgWidth/8;
+        UIGraphicsBeginImageContextWithOptions(qrImage.size, NO, [UIScreen mainScreen].scale);
+        [qrImage drawInRect:CGRectMake(0, 0, qrImage.size.width, qrImage.size.height)];
+        UIImage *logoImg = [UIImage imageNamed:logoImageName];
+        [logoImg drawInRect:CGRectMake((qrImage.size.width - logoWidth) / 2, (qrImage.size.width - logoWidth) / 2, logoWidth, logoWidth)];
+        qrImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
     return qrImage;
 }
 
