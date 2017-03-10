@@ -57,10 +57,12 @@
 
 /** 生成二维码 */
 + (UIImage *)mk_imageWithQRString:(NSString *)str imgWidth:(CGFloat)imgWidth{
-    return [self mk_imageWithQRString:str imgWidth:imgWidth logo:nil];
+    return [self mk_imageWithQRString:str imgWidth:imgWidth margin:0 logo:nil];
 }
 
-+ (UIImage *)mk_imageWithQRString:(NSString *)qrStr imgWidth:(CGFloat)imgWidth logo:(NSString *)logoImageName{
++ (UIImage *)mk_imageWithQRString:(NSString *)qrStr imgWidth:(CGFloat)imgWidth margin:(CGFloat)margin logo:(NSString *)logoImageName{
+
+    CGFloat qrImageW = imgWidth - margin*2;
     NSData *stringData = [qrStr dataUsingEncoding:NSUTF8StringEncoding];
     // 创建filter
     CIFilter *qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
@@ -71,7 +73,7 @@
     CIImage *ciImage = qrFilter.outputImage;
     
     CGRect extent = CGRectIntegral(ciImage.extent);
-    CGFloat scale = MIN(imgWidth/CGRectGetWidth(extent), imgWidth/CGRectGetHeight(extent));
+    CGFloat scale = MIN(qrImageW/CGRectGetWidth(extent), qrImageW/CGRectGetHeight(extent));
     
     // 创建bitmap;
     size_t width = CGRectGetWidth(extent)* scale;
@@ -92,15 +94,15 @@
     UIImage *qrImage = [UIImage imageWithCGImage:scaledImage];
     CGImageRelease(scaledImage);
     
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(imgWidth, imgWidth), NO, [UIScreen mainScreen].scale);
+    [qrImage drawInRect:CGRectMake(margin, margin, qrImageW, qrImageW)];
     if (logoImageName) {
         CGFloat logoWidth = 36;//imgWidth/8;
-        UIGraphicsBeginImageContextWithOptions(qrImage.size, NO, [UIScreen mainScreen].scale);
-        [qrImage drawInRect:CGRectMake(0, 0, qrImage.size.width, qrImage.size.height)];
         UIImage *logoImg = [UIImage imageNamed:logoImageName];
-        [logoImg drawInRect:CGRectMake((qrImage.size.width - logoWidth) / 2, (qrImage.size.width - logoWidth) / 2, logoWidth, logoWidth)];
-        qrImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        [logoImg drawInRect:CGRectMake((imgWidth-logoWidth)/2, (imgWidth-logoWidth)/2, logoWidth, logoWidth)];
     }
+    qrImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     return qrImage;
 }
 
