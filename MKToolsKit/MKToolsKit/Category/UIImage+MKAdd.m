@@ -97,7 +97,7 @@
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(imgWidth, imgWidth), NO, [UIScreen mainScreen].scale);
     [qrImage drawInRect:CGRectMake(margin, margin, qrImageW, qrImageW)];
     if (logoImageName) {
-        CGFloat logoWidth = 36;//imgWidth/8;
+        CGFloat logoWidth = 28;//imgWidth/8;
         UIImage *logoImg = [UIImage imageNamed:logoImageName];
         [logoImg drawInRect:CGRectMake((imgWidth-logoWidth)/2, (imgWidth-logoWidth)/2, logoWidth, logoWidth)];
     }
