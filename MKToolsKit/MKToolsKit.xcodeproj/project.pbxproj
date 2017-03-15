@@ -32,7 +32,6 @@
 		C5292F761E24748E00A752CC /* MKVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5292F741E24748E00A752CC /* MKVButton.m */; };
 		C52B5FE71DD19E85003BC011 /* NSObject+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C52B5FE61DD19E85003BC011 /* NSObject+MKAdd.m */; };
 		C53EFE1A1DCC2B9300EF5C39 /* MKBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE191DCC2B9300EF5C39 /* MKBaseTabBarController.m */; };
-		C53EFE401DCC9E9300EF5C39 /* MKBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE3F1DCC9E9300EF5C39 /* MKBaseTableViewCell.m */; };
 		C54D1EDF1E6AB09500D124E0 /* UITableViewCell+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C54D1EDE1E6AB09500D124E0 /* UITableViewCell+MKAdd.m */; };
 		C55E0E641DD6100400FB663A /* NSDate+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E0E631DD6100400FB663A /* NSDate+MKAdd.m */; };
 		C56D310B1E23644900813D97 /* MKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D30F51E23644900813D97 /* MKAlertView.m */; };
@@ -109,8 +108,6 @@
 		C52B5FE61DD19E85003BC011 /* NSObject+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKAdd.m"; sourceTree = "<group>"; };
 		C53EFE181DCC2B9300EF5C39 /* MKBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBaseTabBarController.h; sourceTree = "<group>"; };
 		C53EFE191DCC2B9300EF5C39 /* MKBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBaseTabBarController.m; sourceTree = "<group>"; };
-		C53EFE3E1DCC9E9300EF5C39 /* MKBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBaseTableViewCell.h; sourceTree = "<group>"; };
-		C53EFE3F1DCC9E9300EF5C39 /* MKBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBaseTableViewCell.m; sourceTree = "<group>"; };
 		C54D1EDD1E6AB09500D124E0 /* UITableViewCell+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+MKAdd.h"; sourceTree = "<group>"; };
 		C54D1EDE1E6AB09500D124E0 /* UITableViewCell+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+MKAdd.m"; sourceTree = "<group>"; };
 		C55E0E621DD6100400FB663A /* NSDate+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MKAdd.h"; sourceTree = "<group>"; };
@@ -278,8 +275,6 @@
 			children = (
 				C53EFE181DCC2B9300EF5C39 /* MKBaseTabBarController.h */,
 				C53EFE191DCC2B9300EF5C39 /* MKBaseTabBarController.m */,
-				C53EFE3E1DCC9E9300EF5C39 /* MKBaseTableViewCell.h */,
-				C53EFE3F1DCC9E9300EF5C39 /* MKBaseTableViewCell.m */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -456,7 +451,6 @@
 				C59DECE91DD045AE00322D42 /* MKDeviceAuthorizationHelper.m in Sources */,
 				C53EFE1A1DCC2B9300EF5C39 /* MKBaseTabBarController.m in Sources */,
 				C56D310F1E23644900813D97 /* MKDatePickerView.m in Sources */,
-				C53EFE401DCC9E9300EF5C39 /* MKBaseTableViewCell.m in Sources */,
 				C56D311D1E239A6800813D97 /* SSKeychain.m in Sources */,
 				C508AFCF1D951C5A00852B87 /* UITabBar+MKAdd.m in Sources */,
 				C5292F751E24748E00A752CC /* MKRightImageButton.m in Sources */,

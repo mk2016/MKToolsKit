@@ -9,7 +9,6 @@
 #import "MKConst.h"
 
 #import "MKBaseTabBarController.h"
-#import "MKBaseTableViewCell.h"
 
 /** subassembly 组件 */
 #import "MKSubassembly/MKAlertView/MKAlertView.h"
