@@ -17,7 +17,7 @@
 @implementation MKVButton
 
 - (instancetype)initWithFrame:(CGRect)frame{
-    if ([super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         [self setNeedsLayout];
         [self layoutIfNeeded];
         self.space = 4;
