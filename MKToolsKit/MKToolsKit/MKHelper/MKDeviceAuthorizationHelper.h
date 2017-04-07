@@ -16,13 +16,13 @@
 + (void)cameraAuthorization:(MKBoolBlock)block;
 
 /** 判断设备是否有摄像头 */
-- (BOOL)isCameraAvailable;
++ (BOOL)isCameraAvailable;
 
 /** 前面的摄像头是否可用 */
-- (BOOL)isFrontCameraAvailable;
++ (BOOL)isFrontCameraAvailable;
 
 /** 后面的摄像头是否可用 */
-- (BOOL)isRearCameraAvailable;
++ (BOOL)isRearCameraAvailable;
 
 /** 定位授权 */
 + (void)locationAuthorization:(MKBoolBlock)block;

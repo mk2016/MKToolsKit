@@ -22,7 +22,7 @@
 
 #pragma mark - ***** 相机授权 ******
 + (void)cameraAuthorization:(MKBoolBlock)block{
-    if ([MKDeviceHelper isSystemIos7Later]) {
+    if ([MKDeviceHelper isSystemIos8Later]) {
         AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         switch (status) {
             case AVAuthorizationStatusNotDetermined:{   //未授权 发起授权
@@ -38,9 +38,18 @@
             case AVAuthorizationStatusDenied:{       //拒绝
                 NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
                 NSString *appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
-                NSString *msg = [NSString stringWithFormat:@"该功能需您请前往 “设置->隐私->相机->%@“ 开启权限", appName];
-                [MKAlertView alertWithTitle:@"提示" message:msg cancelButtonTitle:@"我知道了" confirmButtonTitle:nil block:nil];
+                NSString *msg = [NSString stringWithFormat:@"该功能需您请前往 “设置->隐私->相机->%@” 开启权限", appName];
                 MKBlockExec(block, NO);
+                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                if([[UIApplication sharedApplication] canOpenURL:url]) {
+                    [MKAlertView alertWithTitle:@"提示" message:msg cancelButtonTitle:@"暂不设置" confirmButtonTitle:@"马上设置" block:^(NSInteger buttonIndex) {
+                        if (buttonIndex == 1){
+                            [[UIApplication sharedApplication] openURL:url];
+                        }
+                    }];
+                }else{
+                    [MKAlertView alertWithTitle:@"提示" message:msg cancelButtonTitle:@"我知道了" confirmButtonTitle:nil block:nil];
+                }
             }
                 break;
             case AVAuthorizationStatusRestricted:   //没有权限访问
@@ -55,17 +64,17 @@
 }
 
 /** 判断设备是否有摄像头 */
-- (BOOL)isCameraAvailable{
++ (BOOL)isCameraAvailable{
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 }
 
 /** 前面的摄像头是否可用 */
-- (BOOL)isFrontCameraAvailable{
++ (BOOL)isFrontCameraAvailable{
     return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
 }
 
 /** 后面的摄像头是否可用 */
-- (BOOL)isRearCameraAvailable{
++ (BOOL)isRearCameraAvailable{
     return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
 }
 
@@ -109,19 +118,19 @@
     }
     switch (author) {
         case PHAuthorizationStatusNotDetermined:{   //未授权 发起授权
-            block(YES);
+            MKBlockExec(block, YES);
         }
             break;
         case PHAuthorizationStatusRestricted:{  //拒绝
-            block(NO);
+            MKBlockExec(block, NO);
         }
             break;
         case PHAuthorizationStatusDenied:{      //没有权限访问
-            block(NO);
+            MKBlockExec(block, NO);
         }
             break;
         case PHAuthorizationStatusAuthorized:{  // 已经开启授权，可继续
-            block(YES);
+            MKBlockExec(block, YES);
         }
             break;
         default:
