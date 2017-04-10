@@ -38,6 +38,6 @@
 - (UIImage *)compressWithRatio:(CGFloat)ratio;
 - (UIImage *)compressImage;
 
-
-
+/** 剪裁图片 */
+- (UIImage *)mk_cropWith:(CGRect)rect;
 @end
