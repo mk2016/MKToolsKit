@@ -23,6 +23,9 @@
 }
 
 - (NSDictionary *)mk_dictionaryWithJsonString{
+    if (self.length == 0) {
+        return nil;
+    }
     return [self mk_jsonString2Dictionary];
 }
 
@@ -111,5 +114,14 @@
                                        attributes:@{NSFontAttributeName: font}
                                           context:nil].size;
     return size;
+}
+
+
++ (NSString *)mk_stringWithInt:(int)i{
+    return [NSString stringWithFormat:@"%d", i];
+}
+
++ (NSString *)mk_stringWithLongLong:(long long)i{
+    return [NSString stringWithFormat:@"%lld", i];
 }
 @end

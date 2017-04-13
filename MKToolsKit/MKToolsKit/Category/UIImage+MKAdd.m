@@ -279,6 +279,11 @@
     return result;
 }
 
+- (CGFloat)mk_imageLength{
+    NSData *data = UIImageJPEGRepresentation(self, 1);
+    return data.length/1000;
+}
+
 
 - (UIImage *)mk_cropWith:(CGRect)rect{
     rect = CGRectMake(rect.origin.x * self.scale,

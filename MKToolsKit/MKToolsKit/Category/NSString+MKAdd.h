@@ -38,5 +38,9 @@
 /** 获取字符串的 Size */
 - (CGSize)mk_getContentSizeWithFont:(UIFont *)font width:(CGFloat)width;
 
+
++ (NSString *)mk_stringWithInt:(int)i;
++ (NSString *)mk_stringWithLongLong:(long long)i;
+
 @end
 
