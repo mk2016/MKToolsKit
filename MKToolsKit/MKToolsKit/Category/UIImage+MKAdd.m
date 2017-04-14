@@ -244,14 +244,24 @@
 }
 
 /** 压缩图片 */
-- (UIImage *)compressLessThan1M{
+- (NSData *)mk_compressLessThan1M{
+    return [self mk_compressLessThan:1000.f];
+}
+
+- (NSData *)mk_compressLessThan500KBData{
+    return [self mk_compressLessThan:500.f];
+}
+
+- (NSData *)mk_compressLessThan:(CGFloat)maxKB{
     NSData *imgData = UIImageJPEGRepresentation(self, 1.0);
-    UIImage *result = [UIImage imageWithData:imgData];
-    while (imgData.length > 1000000) {
-        imgData = UIImageJPEGRepresentation(result, 0.5);
-        result = [UIImage imageWithData:imgData];
+    CGFloat sizeOriginKB = imgData.length / 1000.0f;
+    CGFloat resizeRate = 0.9;
+    while (sizeOriginKB > maxKB && resizeRate > 0.1) {
+        imgData = UIImageJPEGRepresentation(self, resizeRate);
+        sizeOriginKB = imgData.length/1000.f;
+        resizeRate -= 0.1;
     }
-    return result;
+    return imgData;
 }
 
 - (UIImage *)compressWithRatio:(CGFloat)ratio{
@@ -281,7 +291,7 @@
 
 - (CGFloat)mk_imageLength{
     NSData *data = UIImageJPEGRepresentation(self, 1);
-    return data.length/1000;
+    return data.length/1000.f;
 }
 
 
@@ -295,6 +305,5 @@
     UIImage *result = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
     CGImageRelease(imageRef);
     return result;
-    
 }
 @end

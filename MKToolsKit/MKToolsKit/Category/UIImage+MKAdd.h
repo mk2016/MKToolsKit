@@ -35,7 +35,8 @@
 - (BOOL)hasAlpha;
 - (CGFloat)mk_imageLength;
 /** 压缩图片 */
-- (UIImage *)compressLessThan1M;
+- (NSData *)mk_compressLessThan1M;
+- (NSData *)mk_compressLessThan500KBData;
 - (UIImage *)compressWithRatio:(CGFloat)ratio;
 - (UIImage *)compressImage;
 
