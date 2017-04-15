@@ -25,6 +25,15 @@
     return self;
 }
 
++ (id)viewWithNibBlock:(MKBlock)block{
+    MKBaseWindowView *view = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self.class) owner:nil options:nil].firstObject;
+    view.frame = MKSCREEN_BOUNDS;
+    view.block = block;
+    view.backgroundColor = MKCOLOR_RGBA(0, 0, 0, 0.3);
+    [view setupUI];
+    return view;
+}
+
 - (void)setupUI{
     UIButton *btnBg = [UIButton buttonWithType:UIButtonTypeCustom];
     btnBg.frame = self.bounds;

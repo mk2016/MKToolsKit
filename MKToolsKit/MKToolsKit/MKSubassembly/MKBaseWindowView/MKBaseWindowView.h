@@ -12,7 +12,7 @@
 @interface MKBaseWindowView : UIView
 
 @property (nonatomic, copy) MKBlock block;
-
++ (id)viewWithNibBlock:(MKBlock)block;
 - (instancetype)initWithBlock:(MKBlock)block;
 
 - (void)setupUI;
