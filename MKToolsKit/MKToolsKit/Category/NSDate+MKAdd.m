@@ -66,6 +66,7 @@
 - (NSString *)mk_dateToStringWithFormat:(NSString *)format{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:format];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     NSString *dateStr = [dateFormatter stringFromDate:self];
     return dateStr;
 }
@@ -99,6 +100,16 @@
     return date;
 }
 
+//- (NSString *)mk_dateLocalTimeZoneToStringWithFormat:(NSString *)format{
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:format];
+//    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+//    NSString *dateStr = [dateFormatter stringFromDate:self];
+//    
+//    NSLog(@"%@", [self mk_dateToStringWithFormat:format]);
+//    NSLog(@"%@", dateStr);
+//    return dateStr;
+//}
 @end
 
 @implementation NSString (MKDateAdd)
@@ -119,13 +130,14 @@
 
 - (NSString *)mk_UTCFormatToFormatFull{
     NSDate *date = [[NSDate alloc] mk_dateWithUTC:self];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
-    NSString *dateString = [dateFormatter stringFromDate:date];
-    return dateString;
+    return [date mk_dateToStringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+
 }
 
+- (NSString *)mk_UTCFormatToFormatDate{
+    NSDate *date = [[NSDate alloc] mk_dateWithUTC:self];
+    return [date mk_dateToStringWithFormat:@"yyyy-MM-dd"];
+}
 
 
 @end
