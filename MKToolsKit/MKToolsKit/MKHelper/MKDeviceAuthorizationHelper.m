@@ -16,7 +16,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
 #import "MKDeviceHelper.h"
-#import "MKAlertView.h"
+#import "MKAlertView+MKAdd.h"
 
 @implementation MKDeviceAuthorizationHelper
 
@@ -42,13 +42,13 @@
                 MKBlockExec(block, NO);
                 NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
                 if([[UIApplication sharedApplication] canOpenURL:url]) {
-                    [MKAlertView alertWithTitle:@"提示" message:msg cancelButtonTitle:@"暂不设置" confirmButtonTitle:@"马上设置" block:^(NSInteger buttonIndex) {
+                    [MKAlertView alertWithTitle:@"提示" message:msg cancelTitle:@"暂不设置" confirmTitle:@"马上设置" block:^(NSInteger buttonIndex) {
                         if (buttonIndex == 1){
                             [[UIApplication sharedApplication] openURL:url];
                         }
                     }];
                 }else{
-                    [MKAlertView alertWithTitle:@"提示" message:msg cancelButtonTitle:@"我知道了" confirmButtonTitle:nil block:nil];
+                    [MKAlertView alertWithTitle:@"提示" message:msg cancelTitle:@"我知道了" confirmTitle:nil block:nil];
                 }
             }
                 break;
