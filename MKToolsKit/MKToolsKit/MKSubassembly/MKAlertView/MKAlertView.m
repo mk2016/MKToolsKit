@@ -211,10 +211,14 @@
 @implementation MKAlertViewConfig
 - (id)init{
     if (self = [super init]) {
-        self.titleAlignment = NSTextAlignmentCenter;
-        self.messageAlignment = NSTextAlignmentCenter;
-        self.cancelIndex = -1;
-        self.destructiveIndex = -1;
+        _titleFont = [UIFont boldSystemFontOfSize:17];
+        _titleColor = [UIColor blackColor];
+        _titleAlignment = NSTextAlignmentCenter;
+        _messageFont = [UIFont systemFontOfSize:13];
+        _messageColor = [UIColor blackColor];
+        _messageAlignment = NSTextAlignmentCenter;
+        _cancelIndex = -1;
+        _destructiveIndex = -1;
     }
     return self;
 }
