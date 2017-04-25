@@ -20,7 +20,6 @@
 + (void)alertWithTitle:(NSString *)title
                message:(NSString *)message
           buttonTitles:(NSArray *)buttonTitles
-      onViewController:(UIViewController *)vc
                  block:(void (^)(NSInteger buttonIndex))block;
 
 

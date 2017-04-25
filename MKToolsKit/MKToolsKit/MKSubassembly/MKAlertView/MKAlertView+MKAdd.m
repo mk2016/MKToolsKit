@@ -25,7 +25,6 @@
 + (void)alertWithTitle:(NSString *)title
                message:(NSString *)message
           buttonTitles:(NSArray *)buttonTitles
-      onViewController:(UIViewController *)vc
                  block:(void (^)(NSInteger buttonIndex))block{
     [self alertWithTitle:title message:message buttonTitles:buttonTitles config:nil block:block];
 }
