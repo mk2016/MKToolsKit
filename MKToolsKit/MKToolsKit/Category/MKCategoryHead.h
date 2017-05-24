@@ -21,3 +21,4 @@
 #import "UITextField+MKAdd.h"
 #import "UIView+MKAdd.h"
 #import "UITableViewCell+MKAdd.h"
+#import "UIImageView+MKTapAdd.h"

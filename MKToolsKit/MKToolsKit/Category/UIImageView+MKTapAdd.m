@@ -1,28 +1,46 @@
 //
-//  MKPictureBrowser.m
+//  UIImageView+MKTapAdd.m
 //  MKToolsKit
 //
-//  Created by xmk on 2016/10/31.
-//  Copyright © 2016年 mk. All rights reserved.
+//  Created by xmk on 2017/5/24.
+//  Copyright © 2017年 mk. All rights reserved.
 //
 
-#import "MKPictureBrowser.h"
-#import "MKUITools.h"
+#import "UIImageView+MKTapAdd.h"
+#import <objc/runtime.h>
+
+@implementation UIImageView (MKTapAdd)
+
+- (BOOL)mk_tapPreview{
+    NSNumber *tapPreview = objc_getAssociatedObject(self, @selector(mk_tapPreview));
+    return [tapPreview boolValue];
+}
+
+- (void)setMk_tapPreview:(BOOL)mk_tapPreview{
+    objc_setAssociatedObject(self, @selector(mk_tapPreview), @(mk_tapPreview), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setUserInteractionEnabled:mk_tapPreview];
+    if (mk_tapPreview) {
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGesture:)];
+        [self addGestureRecognizer:gesture];
+    }
+}
+
+- (void)tapGesture:(UITapGestureRecognizer *)sender{
+    if (self) {
+        [self mk_previewImageView];
+    }
+}
 
 static CGRect oldframe;
-
-@implementation MKPictureBrowser
-
-
-+ (void)showImage:(UIImageView *)imageView{
+- (void)mk_previewImageView{
     //图片
-    UIImage *image = imageView.image;
-    UIWindow *window = [MKUITools getCurrentWindow];
+    UIImage *image = self.image;
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
     //背景
     UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     //原来的frame
-    oldframe = [imageView convertRect:imageView.bounds toView:window];
+    oldframe = [self convertRect:self.bounds toView:window];
     
     backgroundView.backgroundColor = [UIColor blackColor];
     backgroundView.alpha = 0;
@@ -47,7 +65,7 @@ static CGRect oldframe;
     }];
 }
 
-+ (void)hideImage:(UITapGestureRecognizer *)tap{
+- (void)hideImage:(UITapGestureRecognizer *)tap{
     UIView *backgroundView = tap.view;
     UIImageView *imageView = (UIImageView *)[tap.view viewWithTag:1];
     [UIView animateWithDuration:0.3 animations:^{
@@ -57,6 +75,5 @@ static CGRect oldframe;
         [backgroundView removeFromSuperview];
     }];
 }
-
 
 @end
