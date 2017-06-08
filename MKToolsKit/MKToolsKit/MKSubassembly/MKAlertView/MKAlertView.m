@@ -200,7 +200,8 @@
             }
             [alertController addAction:action];
         }
-        
+        [alertController.view setNeedsLayout];
+        [alertController.view layoutIfNeeded];
         [vc presentViewController:alertController animated:YES completion:nil];
     }
 }
