@@ -10,14 +10,15 @@
 
 @interface UITabBar(MKAdd)
 
+- (void)mk_setBadgeWithValue:(NSString *)value onIndex:(int)index;
 
 /** show small badge */
-- (void)showSmallBadgeOnItemIndex:(int)index;
+- (void)mk_showSmallBadgeOnItemIndex:(int)index;
 
 /** hide small badge */
-- (void)hideSmallBadgeOnItemIndex:(int)index;
+- (void)mk_hideSmallBadgeOnItemIndex:(int)index;
 
 /*!< remove all small badge */
-- (void)clearAllSmallBadge;
+- (void)mk_clearAllSmallBadge;
 
 @end

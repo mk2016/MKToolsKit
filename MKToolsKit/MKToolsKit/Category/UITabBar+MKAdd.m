@@ -12,8 +12,20 @@
 
 @implementation UITabBar(MKAdd)
 
+
+- (void)mk_setBadgeWithValue:(NSString *)value onIndex:(int)index{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (index < self.items.count) {
+            UITabBarItem *item = [self.items objectAtIndex:index];
+            item.badgeValue = value;
+        }
+    });
+}
+
+
+
 /** 显示小红点 */
-- (void)showSmallBadgeOnItemIndex:(int)index{
+- (void)mk_showSmallBadgeOnItemIndex:(int)index{
     //移除之前的小红点
     [self removeBadgeOnItemIndex:index];
     
@@ -34,12 +46,12 @@
 
 
 /** 隐藏小红点 */
-- (void)hideSmallBadgeOnItemIndex:(int)index{
+- (void)mk_hideSmallBadgeOnItemIndex:(int)index{
     [self removeBadgeOnItemIndex:index];
 }
 
 /** 清除所有小红点 */
-- (void)clearAllSmallBadge{
+- (void)mk_clearAllSmallBadge{
     for (UIView *view in self.subviews) {
         NSInteger tag = view.tag;
         if (tag >= MKUITabBarTagBase && tag <= MKUITabBarTagBase + 10) {
