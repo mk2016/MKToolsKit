@@ -12,6 +12,7 @@
 
 - (void)mk_setBadgeWithValue:(NSString *)value onIndex:(int)index;
 
+- (void)mk_smallBadgeOnItemIndex:(int)index show:(BOOL)show;
 /** show small badge */
 - (void)mk_showSmallBadgeOnItemIndex:(int)index;
 

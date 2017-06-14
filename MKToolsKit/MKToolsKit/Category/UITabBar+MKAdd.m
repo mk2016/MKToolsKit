@@ -22,7 +22,13 @@
     });
 }
 
-
+- (void)mk_smallBadgeOnItemIndex:(int)index show:(BOOL)show{
+    if (show) {
+        [self mk_showSmallBadgeOnItemIndex:index];
+    }else{
+        [self mk_hideSmallBadgeOnItemIndex:index];
+    }
+}
 
 /** 显示小红点 */
 - (void)mk_showSmallBadgeOnItemIndex:(int)index{
