@@ -110,31 +110,34 @@
 
 #pragma mark - ***** 照片库授权 ******
 + (void)assetsLibAuthorization:(MKBoolBlock)block{
-    NSInteger author;
     if ([MKDeviceHelper isSystemIos8Later]) {
-        author = [PHPhotoLibrary authorizationStatus];
-    }else{
-        author = [ALAssetsLibrary authorizationStatus];
-    }
-    switch (author) {
-        case PHAuthorizationStatusNotDetermined:{   //未授权 发起授权
-            MKBlockExec(block, YES);
+        NSInteger author = [PHPhotoLibrary authorizationStatus];
+        switch (author) {
+            case PHAuthorizationStatusNotDetermined:{   //未授权 发起授权
+                [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                    if (status == PHAuthorizationStatusAuthorized) {
+                        MKBlockExec(block, YES);
+                    }else{
+                        MKBlockExec(block, NO);
+                    }
+                }];
+            }
+                break;
+            case PHAuthorizationStatusRestricted:{  //拒绝
+                MKBlockExec(block, NO);
+            }
+                break;
+            case PHAuthorizationStatusDenied:{      //没有权限访问
+                MKBlockExec(block, NO);
+            }
+                break;
+            case PHAuthorizationStatusAuthorized:{  // 已经开启授权，可继续
+                MKBlockExec(block, YES);
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        case PHAuthorizationStatusRestricted:{  //拒绝
-            MKBlockExec(block, NO);
-        }
-            break;
-        case PHAuthorizationStatusDenied:{      //没有权限访问
-            MKBlockExec(block, NO);
-        }
-            break;
-        case PHAuthorizationStatusAuthorized:{  // 已经开启授权，可继续
-            MKBlockExec(block, YES);
-        }
-            break;
-        default:
-            break;
     }
 }
 
