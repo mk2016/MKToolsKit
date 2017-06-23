@@ -43,7 +43,7 @@
     CGRect tabFrame = self.frame;
     
     //确定小红点的位置
-    float percentX = (index +0.6) / self.items.count;
+    float percentX = (index +0.55) / self.items.count;
     CGFloat x = ceilf(percentX * tabFrame.size.width);
     CGFloat y = ceilf(0.1 * tabFrame.size.height);
     badgeView.frame = CGRectMake(x, y, 10, 10);//圆形大小为10
