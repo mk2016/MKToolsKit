@@ -41,7 +41,6 @@
 		C56D310E1E23644900813D97 /* MKBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D30FD1E23644900813D97 /* MKBlurView.m */; };
 		C56D310F1E23644900813D97 /* MKDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D31001E23644900813D97 /* MKDatePickerView.m */; };
 		C56D311D1E239A6800813D97 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D311C1E239A6800813D97 /* SSKeychain.m */; };
-		C588FCAB1E25CCF4007B0844 /* MKNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C588FCAA1E25CCF4007B0844 /* MKNewsView.m */; };
 		C59DECD41DD01E5A00322D42 /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECD31DD01E5A00322D42 /* NSData+GZIP.m */; };
 		C59DECD91DD0213A00322D42 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECD81DD0213A00322D42 /* UIView+Toast.m */; };
 		C59DECE91DD045AE00322D42 /* MKDeviceAuthorizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECE81DD045AE00322D42 /* MKDeviceAuthorizationHelper.m */; };
@@ -126,8 +125,6 @@
 		C56D31001E23644900813D97 /* MKDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDatePickerView.m; sourceTree = "<group>"; };
 		C56D311B1E239A6800813D97 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		C56D311C1E239A6800813D97 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
-		C588FCA91E25CCF4007B0844 /* MKNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNewsView.h; sourceTree = "<group>"; };
-		C588FCAA1E25CCF4007B0844 /* MKNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNewsView.m; sourceTree = "<group>"; };
 		C59DECD11DD01E5A00322D42 /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZIP.h; sourceTree = "<group>"; };
 		C59DECD21DD01E5A00322D42 /* NSData+GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GZIP.h"; sourceTree = "<group>"; };
 		C59DECD31DD01E5A00322D42 /* NSData+GZIP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GZIP.m"; sourceTree = "<group>"; };
@@ -291,7 +288,6 @@
 				C56D30FB1E23644900813D97 /* MKBlurView */,
 				C5292F701E24748E00A752CC /* MKButton */,
 				C56D30FE1E23644900813D97 /* MKDatePickerView */,
-				C588FCA81E25CCF4007B0844 /* MKNewsView */,
 			);
 			path = MKSubassembly;
 			sourceTree = "<group>";
@@ -341,15 +337,6 @@
 				C56D311C1E239A6800813D97 /* SSKeychain.m */,
 			);
 			path = SSKeychain;
-			sourceTree = "<group>";
-		};
-		C588FCA81E25CCF4007B0844 /* MKNewsView */ = {
-			isa = PBXGroup;
-			children = (
-				C588FCA91E25CCF4007B0844 /* MKNewsView.h */,
-				C588FCAA1E25CCF4007B0844 /* MKNewsView.m */,
-			);
-			path = MKNewsView;
 			sourceTree = "<group>";
 		};
 		C59DECC91DD01D1B00322D42 /* Vendor */ = {
@@ -461,7 +448,6 @@
 				C55E0E641DD6100400FB663A /* NSDate+MKAdd.m in Sources */,
 				C5288D7F1DC6D6B100B87F48 /* MKDeviceHelper.m in Sources */,
 				C508AFCC1D950F4500852B87 /* UIView+MKAdd.m in Sources */,
-				C588FCAB1E25CCF4007B0844 /* MKNewsView.m in Sources */,
 				C515A5791D9CF24E00D7984E /* NSString+MKAdd.m in Sources */,
 				C515A5831D9CF33200D7984E /* NSObject+MKAddProperty.m in Sources */,
 				C54D1EDF1E6AB09500D124E0 /* UITableViewCell+MKAdd.m in Sources */,
