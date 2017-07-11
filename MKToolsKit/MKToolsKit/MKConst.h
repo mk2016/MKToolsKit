@@ -40,13 +40,21 @@
                                                      blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0f]
 
 /** 单例 */
-#define MKImpl_sharedInstance(type) + (instancetype)sharedInstance {\
-    static type *sharedInstance = nil;\
+#define MKImpl_sharedInstance(type) static type *sharedInstance = nil;\
++ (instancetype)sharedInstance {\
     static dispatch_once_t once;\
     dispatch_once(&once, ^{\
         sharedInstance = [[self alloc] init];\
     });\
-    return sharedInstance;}
+    return sharedInstance;\
+}\
++ (instancetype)allocWithZone:(struct _NSZone *)zone{\
+    static dispatch_once_t once;\
+    dispatch_once(&once, ^{\
+        sharedInstance = [super allocWithZone:zone];\
+    });\
+    return sharedInstance;\
+}
 
 /** 线程 */
 #define MKDispatch_main_sync_safe(block)\
