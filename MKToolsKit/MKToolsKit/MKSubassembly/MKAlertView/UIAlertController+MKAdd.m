@@ -203,8 +203,8 @@
             NSString *ivarName = [NSString stringWithCString:ivar_getName(ivar) encoding:NSUTF8StringEncoding];
             if ([ivarName isEqualToString:@"_titleTextColor"]) {
                 if (i == config.destructiveIndex || action.style == UIAlertActionStyleDestructive) {
-                    if (config.destructivelColor) {
-                        [action setValue:config.destructivelColor forKey:@"titleTextColor"];
+                    if (config.destructiveColor) {
+                        [action setValue:config.destructiveColor forKey:@"titleTextColor"];
                     }else{
                         [action setValue:[UIColor redColor] forKey:@"titleTextColor"];
                     }

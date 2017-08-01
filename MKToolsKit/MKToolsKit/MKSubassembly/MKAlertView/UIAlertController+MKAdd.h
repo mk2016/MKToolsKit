@@ -95,5 +95,5 @@
 @property (nonatomic, strong) UIColor *actionColor;
 @property (nonatomic, assign) NSInteger cancelIndex;
 @property (nonatomic, assign) NSInteger destructiveIndex;
-@property (nonatomic, strong) UIColor *destructivelColor;
+@property (nonatomic, strong) UIColor *destructiveColor;
 @end
