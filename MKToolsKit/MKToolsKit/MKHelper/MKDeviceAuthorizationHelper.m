@@ -16,7 +16,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
 #import "MKDeviceHelper.h"
-#import "MKAlertView+MKAdd.h"
+#import "MKAlertView.h"
 
 @implementation MKDeviceAuthorizationHelper
 
