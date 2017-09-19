@@ -39,6 +39,7 @@
 /** 获取设备信息 */
 + (NSString *)devicePlatform;
 
++ (BOOL)isSimulator;
 #pragma mark - ***** 手机信息 ******
 /** get the phone name */
 + (NSString *)phoneName;
