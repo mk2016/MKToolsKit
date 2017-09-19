@@ -65,24 +65,19 @@ static NSString* const kMKToolkitUUIDString             = @"kMKToolkitUUID";
 }
 
 + (BOOL)isSystemIos7Later{
-    if ([self systemVersion] >= 7.0) {
-        return YES;
-    }
-    return NO;
+    return [self systemVersion] >= 7.0;
 }
 
 + (BOOL)isSystemIos8Later{
-    if ([self systemVersion] >= 8.0) {
-        return YES;
-    }
-    return NO;
+    return [self systemVersion] >= 8.0;
 }
 
 + (BOOL)isSystemIos10Later{
-    if ([self systemVersion] >= 10.0) {
-        return YES;
-    }
-    return NO;
+    return [self systemVersion] >= 10.0;
+}
+
++ (BOOL)isSystemIos11Later{
+    return [self systemVersion] >= 11.0;
 }
 
 + (NSString *)deviceType{
