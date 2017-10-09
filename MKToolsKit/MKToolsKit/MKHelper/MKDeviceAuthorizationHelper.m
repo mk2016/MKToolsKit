@@ -82,26 +82,15 @@
 + (void)locationAuthorization:(MKBoolBlock)block{
     if ([CLLocationManager locationServicesEnabled]){   //检测的是整个的iOS系统的定位服务是否开启
         CLAuthorizationStatus authStatus = [CLLocationManager authorizationStatus];
-        switch (authStatus) {
-            case kCLAuthorizationStatusNotDetermined:{   //未选择
-                CLLocationManager* location = [[CLLocationManager alloc] init];
-                if ([location respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-                    [location requestWhenInUseAuthorization];
-                }
+        if (authStatus == kCLAuthorizationStatusNotDetermined) {    //未选择
+            CLLocationManager* location = [[CLLocationManager alloc] init];
+            if ([location respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+                [location requestWhenInUseAuthorization];
             }
-                break;
-            case kCLAuthorizationStatusRestricted:      //无权限
-                block(NO);
-                break;
-            case kCLAuthorizationStatusDenied:          //拒绝
-                block(NO);
-                break;
-            case kCLAuthorizationStatusAuthorizedAlways:    //允许 任何时候
-            case kCLAuthorizationStatusAuthorizedWhenInUse: //允许 使用的时候
-                block(YES);
-                break;
-            default:
-                break;
+        }else if (authStatus == kCLAuthorizationStatusAuthorizedAlways || authStatus == kCLAuthorizationStatusAuthorizedWhenInUse){
+            MKBlockExec(block, YES);
+        }else{
+            MKBlockExec(block, NO);
         }
     }else{
         block(NO);
@@ -112,34 +101,52 @@
 + (void)assetsLibAuthorization:(MKBoolBlock)block{
     if ([MKDeviceHelper isSystemIos8Later]) {
         NSInteger author = [PHPhotoLibrary authorizationStatus];
-        switch (author) {
-            case PHAuthorizationStatusNotDetermined:{   //未授权 发起授权
-                [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-                    if (status == PHAuthorizationStatusAuthorized) {
-                        MKBlockExec(block, YES);
-                    }else{
-                        MKBlockExec(block, NO);
-                    }
-                }];
-            }
-                break;
-            case PHAuthorizationStatusRestricted:{  //拒绝
-                MKBlockExec(block, NO);
-            }
-                break;
-            case PHAuthorizationStatusDenied:{      //没有权限访问
-                MKBlockExec(block, NO);
-            }
-                break;
-            case PHAuthorizationStatusAuthorized:{  // 已经开启授权，可继续
-                MKBlockExec(block, YES);
-            }
-                break;
-            default:
-                break;
+        if (author == PHAuthorizationStatusNotDetermined) { //未授权 发起授权
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                if (status == PHAuthorizationStatusAuthorized) {
+                    MKBlockExec(block, YES);
+                }else{
+                    MKBlockExec(block, NO);
+                }
+            }];
+        }else if (author == PHAuthorizationStatusAuthorized){   // 已经开启授权，可继续
+            MKBlockExec(block, YES);
+        }else{  //没有权限访问 //拒绝   PHAuthorizationStatusRestricted PHAuthorizationStatusDenied
+            MKBlockExec(block, NO);
         }
     }
 }
+
+#pragma mark - ***** 通讯录授权 ******
++ (void)addressBookAuthorization:(MKBoolBlock)block{
+    if ([MKDeviceHelper isSystemIos9Later]) {
+        CNAuthorizationStatus authStatus = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+        if (authStatus == CNAuthorizationStatusNotDetermined) {     //未选择
+            [[[CNContactStore alloc] init] requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                MKBlockExec(block, granted);
+            }];
+        }else if (authStatus == CNAuthorizationStatusAuthorized){   //允许
+            MKBlockExec(block, YES);
+        }else{
+            MKBlockExec(block, NO);
+        }
+    }else{
+        if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
+            ABAddressBookRef addressBookref = ABAddressBookCreateWithOptions(NULL, NULL);
+            ABAddressBookRequestAccessWithCompletion(addressBookref, ^(bool granted, CFErrorRef error) {
+                if (granted) {
+                    MKBlockExec(block, YES);
+                }
+            });
+        }else if(ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized){
+            MKBlockExec(block, YES);
+        }else{
+            MKBlockExec(block, NO);
+        }
+    }
+}
+
+
 
 #pragma mark - ***** 日历、提醒事项授权 ******
 + (void)eventWitType:(EKEntityType)type Authorization:(MKBoolBlock)block{
@@ -199,26 +206,6 @@
             break;
     }
 };
-
-#pragma mark - ***** 通讯录授权 ******
-+ (void)addressBookAuthorization:(MKBoolBlock)block{
-    CNAuthorizationStatus authStatus = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
-    switch (authStatus) {
-        case CNAuthorizationStatusNotDetermined:   //未选择
-            break;
-        case CNAuthorizationStatusRestricted:      //无权限
-            block(NO);
-            break;
-        case CNAuthorizationStatusDenied:          //拒绝
-            block(NO);
-            break;
-        case CNAuthorizationStatusAuthorized:      //允许
-            block(YES);
-            break;
-        default:
-            break;
-    }
-}
 
 
 
