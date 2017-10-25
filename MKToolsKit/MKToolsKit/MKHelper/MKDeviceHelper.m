@@ -117,6 +117,12 @@ static NSString* const kMKToolkitUUIDString             = @"kMKToolkitUUID";
                               @"iPhone9,2": @"iPhone 7 Plus",
                               @"iPhone9,3": @"iPhone 7",
                               @"iPhone9,4": @"iPhone 7 Plus",
+                              @"iPhone10,1": @"iPhone 8 (A1863,A1906)",
+                              @"iPhone10,2": @"iPhone 8 Plus (A1864,A1898)",
+                              @"iPhone10,3": @"iPhone X (A1865,A1902)",
+                              @"iPhone10,4": @"iPhone 8 (Global/A1905)",
+                              @"iPhone10,5": @"iPhone 8 Plus ((Global/A1897))",
+                              @"iPhone10,6": @"iPhone X (Global/A1901)",
                               
                               //iPad
                               @"iPad1,1": @"iPad",
