@@ -20,63 +20,144 @@
 
 @implementation MKDeviceAuthorizationHelper
 
-#pragma mark - ***** 相机授权 ******
-+ (void)cameraAuthorization:(MKBoolBlock)block{
++ (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type block:(MKBoolBlock)block{
+    [self getAppAuthorizationWithType:type showAlert:YES block:block];
+}
+
++ (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type showAlert:(BOOL)show block:(MKBoolBlock)block{
     if ([MKDeviceHelper isSystemIos8Later]) {
-        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-        switch (status) {
-            case AVAuthorizationStatusNotDetermined:{   //未授权 发起授权
-                [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-                    MKBlockExec(block, granted);
-                }];
+        switch (type) {
+            case MKAppAuthorizationType_assetsLib:
+                [self assetsLibAuthorizationShowAlert:show block:block];
                 break;
+            case MKAppAuthorizationType_camera:
+                [self cameraAuthorizationShowAlert:show block:block];
+                break;
+            case MKAppAuthorizationType_contacts:
+                [self contactsAuthorizationShowAlert:show block:block];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
++ (void)showAlert:(BOOL)show type:(MKAppAuthorizationType)type{
+    if (show) {
+        [self openAppAuthorizationSetPageWithType:type];
+    }
+}
+
+#pragma mark - ***** 相册授权 ******
++ (void)assetsLibAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block{
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    switch (status) {
+        case PHAuthorizationStatusNotDetermined:{   //未授权 发起授权
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                if (status == PHAuthorizationStatusAuthorized) {
+                    MKBlockExec(block, YES);
+                }else{
+                    MKBlockExec(block, NO);
+                    [self showAlert:show type:MKAppAuthorizationType_assetsLib];
+                }
+            }];
+        }
+            break;
+        case PHAuthorizationStatusAuthorized:       // 已经开启授权，可继续
+            MKBlockExec(block, YES);
+            break;
+        case PHAuthorizationStatusRestricted:       //没有权限访问
+        case PHAuthorizationStatusDenied:           //拒绝
+            MKBlockExec(block, NO);
+            [self showAlert:show type:MKAppAuthorizationType_assetsLib];
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - ***** 相机授权 ******
++ (void)cameraAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block{
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    switch (status) {
+        case AVAuthorizationStatusNotDetermined:{
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                MKBlockExec(block, granted);
+                if (!granted) {
+                    [self showAlert:show type:MKAppAuthorizationType_camera];
+                }
+            }];
+        }
+            break;
+        case AVAuthorizationStatusAuthorized:
+            MKBlockExec(block, YES);
+            break;
+        case AVAuthorizationStatusRestricted:
+        case AVAuthorizationStatusDenied:
+            MKBlockExec(block, NO);
+            [self showAlert:show type:MKAppAuthorizationType_camera];
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - ***** 通讯录授权 ******
++ (void)contactsAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block{
+    if ([MKDeviceHelper isSystemIos9Later]) {
+        CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+        switch (status) {
+            case CNAuthorizationStatusNotDetermined:{
+                [[[CNContactStore alloc] init] requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                    MKBlockExec(block, granted);
+                    if (!granted) {
+                        [self showAlert:show type:MKAppAuthorizationType_contacts];
+                    }
+                }];
             }
-            case AVAuthorizationStatusAuthorized:{   // 已经开启授权，可继续
+                break;
+            case CNAuthorizationStatusAuthorized:
                 MKBlockExec(block, YES);
                 break;
-            }
-            case AVAuthorizationStatusDenied:{       //拒绝
-                NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-                NSString *appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
-                NSString *msg = [NSString stringWithFormat:@"该功能需您请前往 “设置->隐私->相机->%@” 开启权限", appName];
+            case CNAuthorizationStatusRestricted:
+            case CNAuthorizationStatusDenied:
                 MKBlockExec(block, NO);
-                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                if([[UIApplication sharedApplication] canOpenURL:url]) {
-                    [MKAlertView alertWithTitle:@"提示" message:msg cancelTitle:@"暂不设置" confirmTitle:@"马上设置" block:^(NSInteger buttonIndex) {
-                        if (buttonIndex == 1){
-                            [[UIApplication sharedApplication] openURL:url];
-                        }
-                    }];
-                }else{
-                    [MKAlertView alertWithTitle:@"提示" message:msg cancelTitle:@"我知道了" confirmTitle:nil block:nil];
-                }
-            }
-                break;
-            case AVAuthorizationStatusRestricted:   //没有权限访问
-                MKBlockExec(block, NO);
+                [self showAlert:show type:MKAppAuthorizationType_contacts];
                 break;
             default:
                 break;
         }
     }else{
-        block(YES);
+        ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
+        switch (status) {
+            case kABAuthorizationStatusNotDetermined:{
+                ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
+                ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
+                    MKBlockExec(block, granted);
+                    if (!granted) {
+                        [self showAlert:show type:MKAppAuthorizationType_contacts];
+                    }
+                    CFRelease(addressBookRef);
+                });
+            }
+                break;
+            case kABAuthorizationStatusAuthorized:
+                MKBlockExec(block, YES);
+                break;
+            case kABAuthorizationStatusRestricted:
+            case kABAuthorizationStatusDenied:
+                MKBlockExec(block, NO);
+                [self showAlert:show type:MKAppAuthorizationType_contacts];
+                break;
+            default:
+                break;
+        }
     }
 }
 
-/** 判断设备是否有摄像头 */
-+ (BOOL)isCameraAvailable{
-    return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
-}
 
-/** 前面的摄像头是否可用 */
-+ (BOOL)isFrontCameraAvailable{
-    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
-}
 
-/** 后面的摄像头是否可用 */
-+ (BOOL)isRearCameraAvailable{
-    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
-}
+
 
 #pragma mark - ***** 定位授权 ******
 + (void)locationAuthorization:(MKBoolBlock)block{
@@ -97,54 +178,9 @@
     }
 }
 
-#pragma mark - ***** 照片库授权 ******
-+ (void)assetsLibAuthorization:(MKBoolBlock)block{
-    if ([MKDeviceHelper isSystemIos8Later]) {
-        NSInteger author = [PHPhotoLibrary authorizationStatus];
-        if (author == PHAuthorizationStatusNotDetermined) { //未授权 发起授权
-            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-                if (status == PHAuthorizationStatusAuthorized) {
-                    MKBlockExec(block, YES);
-                }else{
-                    MKBlockExec(block, NO);
-                }
-            }];
-        }else if (author == PHAuthorizationStatusAuthorized){   // 已经开启授权，可继续
-            MKBlockExec(block, YES);
-        }else{  //没有权限访问 //拒绝   PHAuthorizationStatusRestricted PHAuthorizationStatusDenied
-            MKBlockExec(block, NO);
-        }
-    }
-}
 
-#pragma mark - ***** 通讯录授权 ******
-+ (void)addressBookAuthorization:(MKBoolBlock)block{
-    if ([MKDeviceHelper isSystemIos9Later]) {
-        CNAuthorizationStatus authStatus = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
-        if (authStatus == CNAuthorizationStatusNotDetermined) {     //未选择
-            [[[CNContactStore alloc] init] requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                MKBlockExec(block, granted);
-            }];
-        }else if (authStatus == CNAuthorizationStatusAuthorized){   //允许
-            MKBlockExec(block, YES);
-        }else{
-            MKBlockExec(block, NO);
-        }
-    }else{
-        if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
-            ABAddressBookRef addressBookref = ABAddressBookCreateWithOptions(NULL, NULL);
-            ABAddressBookRequestAccessWithCompletion(addressBookref, ^(bool granted, CFErrorRef error) {
-                if (granted) {
-                    MKBlockExec(block, YES);
-                }
-            });
-        }else if(ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized){
-            MKBlockExec(block, YES);
-        }else{
-            MKBlockExec(block, NO);
-        }
-    }
-}
+
+
 
 
 
@@ -211,4 +247,58 @@
 
 
 
+#pragma mark - ***** open app authorization set page ******
++ (void)openAppAuthorizationSetPageWithType:(MKAppAuthorizationType)type{
+    NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+    NSString *str = nil;
+    
+    switch (type) {
+        case MKAppAuthorizationType_assetsLib:
+            str = @"照片";
+            break;
+        case MKAppAuthorizationType_camera:
+            str = @"相机";
+            break;
+        case MKAppAuthorizationType_contacts:
+            str = @"通讯录";
+            break;
+        default:
+            break;
+    }
+    NSString *msg = [NSString stringWithFormat:@"请在”设置-隐私-%@“选项中，允许%@访问你的%@", str,appName, str];
+    [self openAppAuthorizationSetPageWith:msg];
+}
+
+
++ (void)openAppAuthorizationSetPageWith:(NSString *)msg{
+    [MKAlertView alertWithTitle:@"提示" message:msg cancelTitle:@"取消" confirmTitle:@"设置" block:^(NSInteger buttonIndex) {
+        if (buttonIndex == 1){
+            [self openAppAuthorizationSetPage];
+        }
+    }];
+}
+
++ (void)openAppAuthorizationSetPage{
+    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+
+
+
+#pragma mark - ***** 摄像头 ******
+/** 判断设备是否有摄像头 */
++ (BOOL)isCameraAvailable{
+    return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+}
+
+/** 前面的摄像头是否可用 */
++ (BOOL)isFrontCameraAvailable{
+    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
+}
+
+/** 后面的摄像头是否可用 */
++ (BOOL)isRearCameraAvailable{
+    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
+}
 @end

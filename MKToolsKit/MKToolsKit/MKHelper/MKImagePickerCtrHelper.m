@@ -37,11 +37,13 @@ MKImpl_sharedInstance(MKImagePickerCtrHelper);
         self.sourceType = sourceType;
         self.block = block;
     }
-    
+    MKAppAuthorizationType authType = MKAppAuthorizationType_camera;
     if (self.sourceType == MKImagePickerType_camera) {
         self.ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        authType = MKAppAuthorizationType_camera;
     }else if (self.sourceType == MKImagePickerType_photoLibrary ){
         self.ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        authType = MKAppAuthorizationType_assetsLib;
     }
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
@@ -49,7 +51,7 @@ MKImpl_sharedInstance(MKImagePickerCtrHelper);
     }
     
     MKWEAKSELF
-    [MKDeviceAuthorizationHelper cameraAuthorization:^(BOOL bRet) {
+    [MKDeviceAuthorizationHelper getAppAuthorizationWithType:authType block:^(BOOL bRet) {
         if (bRet) {
             double delayInSeconds = 0.1;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
