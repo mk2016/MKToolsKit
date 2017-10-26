@@ -36,6 +36,9 @@
             case MKAppAuthorizationType_contacts:
                 [self contactsAuthorizationShowAlert:show block:block];
                 break;
+            case MKAppAuthorizationType_location:
+                [self locationAuthorizationShowAlert:show block:block];
+                break;
             default:
                 break;
         }
@@ -160,29 +163,35 @@
 
 
 #pragma mark - ***** 定位授权 ******
-+ (void)locationAuthorization:(MKBoolBlock)block{
++ (void)locationAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block{
     if ([CLLocationManager locationServicesEnabled]){   //检测的是整个的iOS系统的定位服务是否开启
-        CLAuthorizationStatus authStatus = [CLLocationManager authorizationStatus];
-        if (authStatus == kCLAuthorizationStatusNotDetermined) {    //未选择
-            CLLocationManager* location = [[CLLocationManager alloc] init];
-            if ([location respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-                [location requestWhenInUseAuthorization];
+        CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+        switch (status) {
+            case kCLAuthorizationStatusNotDetermined:{
+                CLLocationManager* location = [[CLLocationManager alloc] init];
+                if ([location respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+                    [location requestWhenInUseAuthorization];
+                }else if ([location respondsToSelector:@selector(requestAlwaysAuthorization)]){
+                    [location requestAlwaysAuthorization];
+                }
             }
-        }else if (authStatus == kCLAuthorizationStatusAuthorizedAlways || authStatus == kCLAuthorizationStatusAuthorizedWhenInUse){
-            MKBlockExec(block, YES);
-        }else{
-            MKBlockExec(block, NO);
+            case kCLAuthorizationStatusAuthorizedAlways:
+            case kCLAuthorizationStatusAuthorizedWhenInUse:
+                MKBlockExec(block, YES);
+                break;
+            case kCLAuthorizationStatusRestricted:
+            case kCLAuthorizationStatusDenied:
+                MKBlockExec(block, NO);
+                [self showAlert:show type:MKAppAuthorizationType_location];
+                break;
+            default:
+                break;
         }
     }else{
-        block(NO);
+        MKBlockExec(block, NO);
+        [self showAlert:show type:MKAppAuthorizationType_location];
     }
 }
-
-
-
-
-
-
 
 #pragma mark - ***** 日历、提醒事项授权 ******
 + (void)eventWitType:(EKEntityType)type Authorization:(MKBoolBlock)block{
@@ -262,6 +271,8 @@
         case MKAppAuthorizationType_contacts:
             str = @"通讯录";
             break;
+        case MKAppAuthorizationType_location:
+            str = @"定位服务";
         default:
             break;
     }
