@@ -25,6 +25,13 @@
 }
 
 + (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type showAlert:(BOOL)show block:(MKBoolBlock)block{
+    if ([MKDeviceHelper isSimulator]) {
+        if (type == MKAppAuthorizationType_camera
+            || type == MKAppAuthorizationType_contacts){
+            MKBlockExec(block, NO);
+            return;
+        }
+    }
     if ([MKDeviceHelper isSystemIos8Later]) {
         switch (type) {
             case MKAppAuthorizationType_assetsLib:

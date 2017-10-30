@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "MKDeviceHelper.h"
 
 /** 日志 */
 #ifdef DEBUG
@@ -27,8 +28,9 @@
 #define MKFileManager       [NSFileManager defaultManager]
 
 /** 屏幕尺寸 */
+#define MKSCREEN_IPHONEX_VERTICAL_IGNORE (MK_Device_Is_iPhoneX ? 44+34-20 : 0)
 #define MKSCREEN_WIDTH      [UIScreen mainScreen].bounds.size.width
-#define MKSCREEN_HEIGHT     [UIScreen mainScreen].bounds.size.height
+#define MKSCREEN_HEIGHT     [UIScreen mainScreen].bounds.size.height - MKSCREEN_IPHONEX_VERTICAL_IGNORE
 #define MKSCREEN_SIZE       [UIScreen mainScreen].bounds.size
 #define MKSCREEN_BOUNDS     [UIScreen mainScreen].bounds
 
