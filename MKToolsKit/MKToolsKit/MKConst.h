@@ -28,11 +28,15 @@
 #define MK_FileManager       [NSFileManager defaultManager]
 
 /** 屏幕尺寸 */
-#define MK_SCREEN_IPHONEX_VERTICAL_IGNORE (MK_Device_Is_iPhoneX ? 44+34-20 : 0)
-#define MK_SCREEN_WIDTH      [UIScreen mainScreen].bounds.size.width
-#define MK_SCREEN_HEIGHT     [UIScreen mainScreen].bounds.size.height - MK_SCREEN_IPHONEX_VERTICAL_IGNORE
-#define MK_SCREEN_SIZE       [UIScreen mainScreen].bounds.size
-#define MK_SCREEN_BOUNDS     [UIScreen mainScreen].bounds
+#define MK_SCREEN_WIDTH         [UIScreen mainScreen].bounds.size.width
+#define MK_SCREEN_HEIGHT        [UIScreen mainScreen].bounds.size.height
+#define MK_SCREEN_SIZE          [UIScreen mainScreen].bounds.size
+#define MK_SCREEN_BOUNDS        [UIScreen mainScreen].bounds
+
+#define MK_SCREEN_IPHONEX_IGNORE_HEIGHT (MK_Device_is_iPhoneX ? 44+34-20 : 0)
+#define MK_SCREEN_IPHONEX_TOP           (MK_Device_is_iPhoneX ? 44 : 0)
+#define MK_SCREEN_IPHONEX_BOTTOM        (MK_Device_is_iPhoneX ? 34 : 0)
+#define MK_SCREEN_SAFE_HEIGHT   (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_IGNORE_HEIGHT)
 
 /** 颜色 */
 #define MK_COLOR_RGB(r, g, b)        [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1]
