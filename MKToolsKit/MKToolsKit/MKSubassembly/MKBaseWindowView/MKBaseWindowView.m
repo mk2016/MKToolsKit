@@ -17,9 +17,9 @@
 
 
 - (instancetype)initWithBlock:(MKBlock)block{
-    if (self = [super initWithFrame:MKSCREEN_BOUNDS]) {
+    if (self = [super initWithFrame:MK_SCREEN_BOUNDS]) {
         self.block = block;
-        self.backgroundColor = MKCOLOR_RGBA(0, 0, 0, 0.3);
+        self.backgroundColor = MK_COLOR_RGBA(0, 0, 0, 0.3);
         [self setupUI];
     }
     return self;
@@ -27,9 +27,9 @@
 
 + (id)viewWithNibBlock:(MKBlock)block{
     MKBaseWindowView *view = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self.class) owner:nil options:nil].firstObject;
-    view.frame = MKSCREEN_BOUNDS;
+    view.frame = MK_SCREEN_BOUNDS;
     view.block = block;
-    view.backgroundColor = MKCOLOR_RGBA(0, 0, 0, 0.3);
+    view.backgroundColor = MK_COLOR_RGBA(0, 0, 0, 0.3);
     [view setupUI];
     return view;
 }

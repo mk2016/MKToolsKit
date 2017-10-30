@@ -30,7 +30,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[self alloc] initWithStyle:style reuseIdentifier:identifier];
-        cell.selectedBackgroundView.backgroundColor = MKCOLOR_HEX(0xF0EFF0);
+        cell.selectedBackgroundView.backgroundColor = MK_COLOR_HEX(0xF0EFF0);
         [cell mk_setupUI];
     }
     return cell;

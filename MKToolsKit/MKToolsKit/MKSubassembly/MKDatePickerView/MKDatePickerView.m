@@ -23,7 +23,7 @@
     if (self = [super initWithFrame:frame]) {
         self.sheetViewH = 240;
         self.currentDate = [NSDate date];
-        self.tintColor = MKCOLOR_RGB(0, 118, 255);
+        self.tintColor = MK_COLOR_RGB(0, 118, 255);
         self.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT+0800"];
     }
     return self;
@@ -31,14 +31,14 @@
 
 - (void)showWithBlock:(MKDatePickerViewBlock)block{
     self.block = block;
-    self.frame = MKSCREEN_BOUNDS;
+    self.frame = MK_SCREEN_BOUNDS;
     [self addSubview:self.shadeView];
     [self addSubview:self.sheetView];
     
-    self.sheetView.frame = CGRectMake(0, MKSCREEN_HEIGHT, MKSCREEN_WIDTH, self.sheetViewH);
+    self.sheetView.frame = CGRectMake(0, MK_SCREEN_HEIGHT, MK_SCREEN_WIDTH, self.sheetViewH);
     
-    UIView *btnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MKSCREEN_WIDTH, 40)];
-    btnView.backgroundColor = MKCOLOR_RGB(240, 240, 240);
+    UIView *btnView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MK_SCREEN_WIDTH, 40)];
+    btnView.backgroundColor = MK_COLOR_RGB(240, 240, 240);
     [self.sheetView addSubview:btnView];
     
     UIButton *btnCancel = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -53,11 +53,11 @@
     [btnConfirm setTitle:@"确定" forState:UIControlStateNormal];
     [btnConfirm setTitleColor:self.tintColor forState:UIControlStateNormal];
     btnConfirm.titleLabel.font = [UIFont systemFontOfSize:16];
-    btnConfirm.frame = CGRectMake(MKSCREEN_WIDTH-80, 0, 80, 40);
+    btnConfirm.frame = CGRectMake(MK_SCREEN_WIDTH-80, 0, 80, 40);
     [btnConfirm addTarget:self action:@selector(btnConfirmOnclick:) forControlEvents:UIControlEventTouchUpInside];
     [btnView addSubview:btnConfirm];
     
-    self.datePicker.frame = CGRectMake(0, 40, MKSCREEN_WIDTH, 200);
+    self.datePicker.frame = CGRectMake(0, 40, MK_SCREEN_WIDTH, 200);
     self.datePicker.datePickerMode = self.datePickerModel;
     self.datePicker.timeZone = self.timeZone;
     self.datePicker.minimumDate = self.minimumDate;
@@ -71,7 +71,7 @@
         [self.shadeView setUserInteractionEnabled:YES];
         
         CGRect frame = self.sheetView.frame;
-        frame.origin.y = MKSCREEN_HEIGHT - frame.size.height;
+        frame.origin.y = MK_SCREEN_HEIGHT - frame.size.height;
         self.sheetView.frame = frame;
     } completion:nil];
 }
@@ -82,7 +82,7 @@
         [self.shadeView setUserInteractionEnabled:NO];
         
         CGRect frame = self.shadeView.frame;
-        frame.origin.y = MKSCREEN_HEIGHT;
+        frame.origin.y = MK_SCREEN_HEIGHT;
         self.sheetView.frame = frame;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
@@ -92,7 +92,7 @@
 #pragma mark - ***** 按钮事件 *****
 - (void)btnConfirmOnclick:(UIButton *)sender{
     NSDate *date = self.datePicker.date;
-    MKBlockExec(self.block, self, date);
+    MK_BLOCK_EXEC(self.block, self, date);
     [self dismiss];
 }
 
@@ -104,8 +104,8 @@
 - (UIView *)shadeView{
     if (!_shadeView) {
         _shadeView = [[UIView alloc] init];
-        [_shadeView setFrame:MKSCREEN_BOUNDS];
-        [_shadeView setBackgroundColor:MKCOLOR_RGBA(0, 0, 0, 1)];
+        [_shadeView setFrame:MK_SCREEN_BOUNDS];
+        [_shadeView setBackgroundColor:MK_COLOR_RGBA(0, 0, 0, 1)];
         [_shadeView setUserInteractionEnabled:NO];
         [_shadeView setAlpha:0];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
