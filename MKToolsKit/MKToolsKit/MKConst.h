@@ -34,10 +34,11 @@
 #define MK_SCREEN_BOUNDS        [UIScreen mainScreen].bounds
 
 #define MK_SCREEN_IPHONEX_IGNORE_HEIGHT (MK_Device_is_iPhoneX ? 24+34 : 0)
-#define MK_SCREEN_IPHONEX_NAVGATION     (MK_Device_is_iPhoneX ? 88 : 0)
+#define MK_SCREEN_IPHONEX_NAVGATION     (MK_Device_is_iPhoneX ? 88 : 64)
 #define MK_SCREEN_IPHONEX_TOP           (MK_Device_is_iPhoneX ? 44 : 0)
 #define MK_SCREEN_IPHONEX_BOTTOM        (MK_Device_is_iPhoneX ? 34 : 0)
-#define MK_SCREEN_SAFE_HEIGHT           (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_NAVGATION - MK_SCREEN_IPHONEX_BOTTOM)
+#define MK_SCREEN_SAFE_HEIGHT           (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_TOP - MK_SCREEN_IPHONEX_BOTTOM)
+#define MK_SCREEN_SCREEN_HEIGHT         (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_NAVGATION - MK_SCREEN_IPHONEX_BOTTOM)
 
 /** 颜色 */
 #define MK_COLOR_RGB(r, g, b)        [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1]
