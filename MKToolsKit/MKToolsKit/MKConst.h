@@ -8,39 +8,47 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "MKDeviceHelper.h"
 
 /** 日志 */
 #ifdef DEBUG
 #   define DLog(...) NSLog(@"%s, %d, %@", __func__, __LINE__, [NSString stringWithFormat:__VA_ARGS__])
 #   define ELog(fmt, ...) NSLog((@"[Elog] " fmt), ##__VA_ARGS__);
-#   define DebugStatus YES
+#   define MK_DEBUG_STATUS YES
 #else
 #   define DLog(...)
 #   define ELog(...)
-#   define DebugStatus NO
+#   define MK_DEBUG_STATUS NO
 #endif
 
 /** 系统单例 简写 */
-#define MKApplication       [UIApplication sharedApplication]
-#define MKNotification      [NSNotificationCenter defaultCenter]
-#define MKUserDefaults      [NSUserDefaults standardUserDefaults]
-#define MKFileManager       [NSFileManager defaultManager]
+#define MK_Application      [UIApplication sharedApplication]
+#define MK_Notification     [NSNotificationCenter defaultCenter]
+#define MK_UserDefaults     [NSUserDefaults standardUserDefaults]
+#define MK_FileManager       [NSFileManager defaultManager]
 
 /** 屏幕尺寸 */
-#define MKSCREEN_WIDTH      [UIScreen mainScreen].bounds.size.width
-#define MKSCREEN_HEIGHT     [UIScreen mainScreen].bounds.size.height
-#define MKSCREEN_SIZE       [UIScreen mainScreen].bounds.size
-#define MKSCREEN_BOUNDS     [UIScreen mainScreen].bounds
+#define MK_SCREEN_WIDTH         [UIScreen mainScreen].bounds.size.width
+#define MK_SCREEN_HEIGHT        [UIScreen mainScreen].bounds.size.height
+#define MK_SCREEN_SIZE          [UIScreen mainScreen].bounds.size
+#define MK_SCREEN_BOUNDS        [UIScreen mainScreen].bounds
+
+#define MK_SCREEN_IPHONEX_IGNORE_HEIGHT (MK_Device_is_iPhoneX ? 24+34 : 0)
+#define MK_SCREEN_IPHONEX_NAVGATION     (MK_Device_is_iPhoneX ? 88 : 64)
+#define MK_SCREEN_IPHONEX_TOP           (MK_Device_is_iPhoneX ? 44 : 0)
+#define MK_SCREEN_IPHONEX_BOTTOM        (MK_Device_is_iPhoneX ? 34 : 0)
+#define MK_SCREEN_SAFE_HEIGHT           (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_TOP - MK_SCREEN_IPHONEX_BOTTOM)
+#define MK_SCREEN_SCREEN_HEIGHT         (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_NAVGATION - MK_SCREEN_IPHONEX_BOTTOM)
 
 /** 颜色 */
-#define MKCOLOR_RGB(r, g, b)        [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1]
-#define MKCOLOR_RGBA(r, g, b, a)    [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:(a)]
-#define MKCOLOR_HEX(rgbValue)       [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f \
+#define MK_COLOR_RGB(r, g, b)        [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1]
+#define MK_COLOR_RGBA(r, g, b, a)    [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:(a)]
+#define MK_COLOR_HEX(rgbValue)       [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f \
                                                     green:((float)((rgbValue & 0xFF00) >> 8))/255.0f \
                                                      blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0f]
 
 /** 单例 */
-#define MKImpl_sharedInstance(type) static type *sharedInstance = nil;\
+#define MK_Impl_sharedInstance(type) static type *sharedInstance = nil;\
 + (instancetype)sharedInstance {\
     static dispatch_once_t once;\
     dispatch_once(&once, ^{\
@@ -57,14 +65,14 @@
 }
 
 /** 线程 */
-#define MKDispatch_main_sync_safe(block)\
+#define MK_Dispatch_main_sync_safe(block)\
     if ([NSThread isMainThread]) {\
         block();\
     } else {\
         dispatch_sync(dispatch_get_main_queue(), block);\
     }
 
-#define MKDispatch_main_async_safe(block)\
+#define MK_Dispatch_main_async_safe(block)\
     if ([NSThread isMainThread]) {\
         block();\
     } else {\
@@ -72,20 +80,20 @@
     }
 
 /** 弱引用 */
-#define MKWEAKSELF          __weak typeof(self) weakSelf = self;
-#define MKWEAKIFY(var)      __weak typeof(var) weak_##var = var;
-#define MKSTRONGSELF        __strong typeof(weakSelf) strongSelf = weakSelf;
-#define MKSTRONGIFY(var)    __strong typeof(var) strong_##var = var;
+#define MK_WEAK_SELF          __weak typeof(self) weakSelf = self;
+#define MK_WEAK_IFY(var)      __weak typeof(var) weak_##var = var;
+#define MK_STRONG_SELF        __strong typeof(weakSelf) strongSelf = weakSelf;
+#define MK_STRONG_IFY(var)    __strong typeof(var) strong_##var = var;
 
 /** block */
-#define MKBlockExec(block, ...) if (block) { block(__VA_ARGS__); };
+#define MK_BLOCK_EXEC(block, ...) if (block) { block(__VA_ARGS__); };
 typedef void (^MKBlock)(id result);
 typedef void (^MKBoolBlock)(BOOL bRet);
 typedef void (^MKVoidBlock)(void);
 typedef void (^MKIntegerBlock)(NSInteger index);
 
 /** 处理分割线没在最左边问题：ios8以后才有的问题 */
-#define AddTableViewLineAdjust \
+#define MK_AddTableViewLineAdjust \
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{\
     if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {\
         [tableView setSeparatorInset:UIEdgeInsetsZero];\

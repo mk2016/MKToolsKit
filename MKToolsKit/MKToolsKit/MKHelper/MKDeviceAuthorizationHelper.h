@@ -11,26 +11,16 @@
 #import "MKConst.h"
 
 typedef NS_ENUM(NSInteger, MKAppAuthorizationType) {
-    MKAppAuthorizationType_assetsLib    = 1,
-    MKAppAuthorizationType_camera       = 2,
-    MKAppAuthorizationType_contacts     = 3,
-    MKAppAuthorizationType_location     = 4,
+    MKAppAuthorizationType_assetsLib    = 1,    /*!< 照片库授权 */
+    MKAppAuthorizationType_camera       = 2,    /*!< 相机授权 */
+    MKAppAuthorizationType_contacts     = 3,    /*!< 通讯录授权 */
+    MKAppAuthorizationType_location     = 4,    /*!< 定位服务 */
 };
 
 @interface MKDeviceAuthorizationHelper : NSObject
 
 + (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type block:(MKBoolBlock)block;
 + (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type showAlert:(BOOL)show block:(MKBoolBlock)block;
-
-/** 照片库授权 */
-+ (void)assetsLibAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block;
-/** 相机授权 */
-+ (void)cameraAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block;
-/** 通讯录授权 */
-+ (void)contactsAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block;
-/** 定位服务 */
-+ (void)locationAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block;
-
 
 /** 日历、提醒事项授权 */
 + (void)eventWitType:(EKEntityType)type Authorization:(MKBoolBlock)block;

@@ -19,7 +19,7 @@
 
 @implementation MKImagePickerCtrHelper
 
-MKImpl_sharedInstance(MKImagePickerCtrHelper);
+MK_Impl_sharedInstance(MKImagePickerCtrHelper);
 
 - (UIImagePickerController *)ipc{
     if (!(_ipc)) {
@@ -50,7 +50,7 @@ MKImpl_sharedInstance(MKImagePickerCtrHelper);
         vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     }
     
-    MKWEAKSELF
+    MK_WEAK_SELF
     [MKDeviceAuthorizationHelper getAppAuthorizationWithType:authType block:^(BOOL bRet) {
         if (bRet) {
             double delayInSeconds = 0.1;
@@ -58,7 +58,7 @@ MKImpl_sharedInstance(MKImagePickerCtrHelper);
                 [vc presentViewController:weakSelf.ipc animated:YES completion:nil];
             });
         }else{
-            MKBlockExec(block, nil);
+            MK_BLOCK_EXEC(block, nil);
         }
     }];
     
@@ -69,12 +69,12 @@ MKImpl_sharedInstance(MKImagePickerCtrHelper);
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     [self.vc dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    MKBlockExec(self.block, image);
+    MK_BLOCK_EXEC(self.block, image);
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self.vc dismissViewControllerAnimated:YES completion:nil];
-    MKBlockExec(self.block, nil);
+    MK_BLOCK_EXEC(self.block, nil);
 }
 
 

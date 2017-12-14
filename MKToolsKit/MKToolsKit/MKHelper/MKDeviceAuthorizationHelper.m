@@ -25,6 +25,13 @@
 }
 
 + (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type showAlert:(BOOL)show block:(MKBoolBlock)block{
+    if ([MKDeviceHelper isSimulator]) {
+        if (type == MKAppAuthorizationType_camera
+            || type == MKAppAuthorizationType_contacts){
+            MK_BLOCK_EXEC(block, NO);
+            return;
+        }
+    }
     if ([MKDeviceHelper isSystemIos8Later]) {
         switch (type) {
             case MKAppAuthorizationType_assetsLib:
@@ -58,20 +65,20 @@
         case PHAuthorizationStatusNotDetermined:{   //未授权 发起授权
             [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
                 if (status == PHAuthorizationStatusAuthorized) {
-                    MKBlockExec(block, YES);
+                    MK_BLOCK_EXEC(block, YES);
                 }else{
-                    MKBlockExec(block, NO);
+                    MK_BLOCK_EXEC(block, NO);
                     [self showAlert:show type:MKAppAuthorizationType_assetsLib];
                 }
             }];
         }
             break;
         case PHAuthorizationStatusAuthorized:       // 已经开启授权，可继续
-            MKBlockExec(block, YES);
+            MK_BLOCK_EXEC(block, YES);
             break;
         case PHAuthorizationStatusRestricted:       //没有权限访问
         case PHAuthorizationStatusDenied:           //拒绝
-            MKBlockExec(block, NO);
+            MK_BLOCK_EXEC(block, NO);
             [self showAlert:show type:MKAppAuthorizationType_assetsLib];
             break;
         default:
@@ -85,7 +92,7 @@
     switch (status) {
         case AVAuthorizationStatusNotDetermined:{
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-                MKBlockExec(block, granted);
+                MK_BLOCK_EXEC(block, granted);
                 if (!granted) {
                     [self showAlert:show type:MKAppAuthorizationType_camera];
                 }
@@ -93,11 +100,11 @@
         }
             break;
         case AVAuthorizationStatusAuthorized:
-            MKBlockExec(block, YES);
+            MK_BLOCK_EXEC(block, YES);
             break;
         case AVAuthorizationStatusRestricted:
         case AVAuthorizationStatusDenied:
-            MKBlockExec(block, NO);
+            MK_BLOCK_EXEC(block, NO);
             [self showAlert:show type:MKAppAuthorizationType_camera];
             break;
         default:
@@ -112,7 +119,7 @@
         switch (status) {
             case CNAuthorizationStatusNotDetermined:{
                 [[[CNContactStore alloc] init] requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                    MKBlockExec(block, granted);
+                    MK_BLOCK_EXEC(block, granted);
                     if (!granted) {
                         [self showAlert:show type:MKAppAuthorizationType_contacts];
                     }
@@ -120,11 +127,11 @@
             }
                 break;
             case CNAuthorizationStatusAuthorized:
-                MKBlockExec(block, YES);
+                MK_BLOCK_EXEC(block, YES);
                 break;
             case CNAuthorizationStatusRestricted:
             case CNAuthorizationStatusDenied:
-                MKBlockExec(block, NO);
+                MK_BLOCK_EXEC(block, NO);
                 [self showAlert:show type:MKAppAuthorizationType_contacts];
                 break;
             default:
@@ -136,7 +143,7 @@
             case kABAuthorizationStatusNotDetermined:{
                 ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
                 ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
-                    MKBlockExec(block, granted);
+                    MK_BLOCK_EXEC(block, granted);
                     if (!granted) {
                         [self showAlert:show type:MKAppAuthorizationType_contacts];
                     }
@@ -145,11 +152,11 @@
             }
                 break;
             case kABAuthorizationStatusAuthorized:
-                MKBlockExec(block, YES);
+                MK_BLOCK_EXEC(block, YES);
                 break;
             case kABAuthorizationStatusRestricted:
             case kABAuthorizationStatusDenied:
-                MKBlockExec(block, NO);
+                MK_BLOCK_EXEC(block, NO);
                 [self showAlert:show type:MKAppAuthorizationType_contacts];
                 break;
             default:
@@ -177,18 +184,18 @@
             }
             case kCLAuthorizationStatusAuthorizedAlways:
             case kCLAuthorizationStatusAuthorizedWhenInUse:
-                MKBlockExec(block, YES);
+                MK_BLOCK_EXEC(block, YES);
                 break;
             case kCLAuthorizationStatusRestricted:
             case kCLAuthorizationStatusDenied:
-                MKBlockExec(block, NO);
+                MK_BLOCK_EXEC(block, NO);
                 [self showAlert:show type:MKAppAuthorizationType_location];
                 break;
             default:
                 break;
         }
     }else{
-        MKBlockExec(block, NO);
+        MK_BLOCK_EXEC(block, NO);
         [self showAlert:show type:MKAppAuthorizationType_location];
     }
 }
