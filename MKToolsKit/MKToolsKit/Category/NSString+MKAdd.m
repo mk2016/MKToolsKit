@@ -86,7 +86,7 @@
     CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                               (CFStringRef)self,
                                                               NULL,
-                                                              (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]",
+                                                              (CFStringRef)@"!$&'()*+,-./:;=?@_%#[]",
                                                               kCFStringEncodingUTF8));
     return encodedString;
 }
