@@ -45,4 +45,6 @@
 
 /** 修改图片尺寸 */
 - (UIImage *)mk_imageByScalingToSize:(CGSize)targetSize;
+
+- (UIImage *)mk_scaleToSize:(CGSize)size;
 @end
