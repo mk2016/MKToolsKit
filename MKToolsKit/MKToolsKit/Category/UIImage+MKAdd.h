@@ -42,4 +42,7 @@
 
 /** 剪裁图片 */
 - (UIImage *)mk_cropWith:(CGRect)rect;
+
+/** 修改图片尺寸 */
+- (UIImage *)mk_imageByScalingToSize:(CGSize)targetSize;
 @end
