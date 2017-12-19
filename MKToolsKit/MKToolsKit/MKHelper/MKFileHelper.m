@@ -141,43 +141,37 @@
 }
 
 /** 创建文件夹 */
-+ (void)createDir:(NSString *)dir{
++ (BOOL)createDir:(NSString *)dir{
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![self isDir:dir]) {
-        // 创建目录
-        BOOL res = [fileManager createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
-        if (res) {
-            NSLog(@"文件夹创建成功 : %@" , dir);
-        }else{
-            NSLog(@"文件夹创建失败 : %@" , dir);
-        }
+    if ([self isDir:dir]) {
+        NSLog(@"文件夹已经存在: %@" , dir);
+        return YES;
     }
+    
+    // 创建目录
+    BOOL res = [fileManager createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
+    NSLog(@"文件夹创建 %@ : %@" , res?@"成功":@"失败" ,dir);
+    return res;
 }
 
 /** 创建文件 */
 + (BOOL)createFilePath:(NSString *)filePath{
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL res = [fileManager createFileAtPath:filePath contents:nil attributes:nil];
-    if (res) {
-        NSLog(@"文件创建成功: %@" ,filePath);
-    }else{
-        NSLog(@"文件创建失败: %@" ,filePath);
-    }
+    NSLog(@"文件创建 %@ : %@" , res?@"成功":@"失败" ,filePath);
     return res;
 }
 
 /** 删除文件 */
-+ (void)deleteFileWithPath:(NSString *)path{
++ (BOOL)deleteFileWithPath:(NSString *)path{
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager isExecutableFileAtPath:path]) {
         BOOL res = [fileManager removeItemAtPath:path error:nil];
-        if (res) {
-            NSLog(@"文件删除成功");
-        }else{
-            NSLog(@"文件删除失败");
-        }
+        NSLog(@"文件删除 %@ : %@", res?@"成功":@"失败", path);
+        return res;
     }else{
         NSLog(@"文件不存在");
+        return YES;
     }
 }
 

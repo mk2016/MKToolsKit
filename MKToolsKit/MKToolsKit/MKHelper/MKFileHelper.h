@@ -42,10 +42,10 @@
 /** 文件是否存在 */
 + (BOOL)fileIsExecutable:(NSString *)path;
 /** 创建文件夹 */
-+ (void)createDir:(NSString *)dir;
++ (BOOL)createDir:(NSString *)dir;
 /** 创建文件 */
 + (BOOL)createFilePath:(NSString *)file;
 /** 删除文件 */
-+ (void)deleteFileWithPath:(NSString *)path;
++ (BOOL)deleteFileWithPath:(NSString *)path;
 
 @end
