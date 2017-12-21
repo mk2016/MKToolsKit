@@ -136,7 +136,7 @@
 }
 
 /** 文件是否存在 */
-+ (BOOL)fileIsExecutable:(NSString *)path{
++ (BOOL)fileExistsAtPath:(NSString *)path{
     return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
@@ -165,13 +165,25 @@
 /** 删除文件 */
 + (BOOL)deleteFileWithPath:(NSString *)path{
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager isExecutableFileAtPath:path]) {
+    if ([fileManager fileExistsAtPath:path]) {
         BOOL res = [fileManager removeItemAtPath:path error:nil];
         NSLog(@"文件删除 %@ : %@", res?@"成功":@"失败", path);
         return res;
     }else{
-        NSLog(@"文件不存在");
+        NSLog(@"文件不存在 :%@ ", path);
         return YES;
+    }
+}
+
++ (BOOL)moveItemAtPath:(NSString *)path1 toPath:(NSString *)path2{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([self fileExistsAtPath:path1]) {
+        BOOL res = [fileManager moveItemAtPath:path1 toPath:path2 error:nil];
+        NSLog(@"文件移动 %@ : %@", res?@"成功":@"失败", path2);
+        return res;
+    }else{
+        NSLog(@"文件不存在 :%@ ", path1);
+        return NO;
     }
 }
 

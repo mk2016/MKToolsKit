@@ -40,12 +40,13 @@
 /** 判断是否是为目录 */
 + (BOOL)isDir:(NSString *)path;
 /** 文件是否存在 */
-+ (BOOL)fileIsExecutable:(NSString *)path;
++ (BOOL)fileExistsAtPath:(NSString *)path;
 /** 创建文件夹 */
 + (BOOL)createDir:(NSString *)dir;
 /** 创建文件 */
 + (BOOL)createFilePath:(NSString *)file;
 /** 删除文件 */
 + (BOOL)deleteFileWithPath:(NSString *)path;
-
+/** 移动文件 */
++ (BOOL)moveItemAtPath:(NSString *)path1 toPath:(NSString *)path2;
 @end
