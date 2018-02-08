@@ -139,6 +139,11 @@
     return [date mk_dateToStringWithFormat:@"yyyy-MM-dd"];
 }
 
+- (NSString *)mk_UTCFormatToFormat:(NSString *)format{
+    NSDate *date = [[NSDate alloc] mk_dateWithUTC:self];
+    return [date mk_dateToStringWithFormat:format];
+}
+
 
 @end
 

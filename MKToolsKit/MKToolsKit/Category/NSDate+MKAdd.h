@@ -40,4 +40,5 @@
 - (NSDate *)mk_stringToDateWithFormatFull;
 - (NSString *)mk_UTCFormatToFormatFull;
 - (NSString *)mk_UTCFormatToFormatDate;
+- (NSString *)mk_UTCFormatToFormat:(NSString *)format;
 @end
