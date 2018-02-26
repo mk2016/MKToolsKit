@@ -39,6 +39,9 @@
 #define MK_SCREEN_IPHONEX_BOTTOM        (MK_Device_is_iPhoneX ? 34 : 0)
 #define MK_SCREEN_SAFE_HEIGHT           (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_TOP - MK_SCREEN_IPHONEX_BOTTOM)
 #define MK_SCREEN_SCREEN_HEIGHT         (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_NAVGATION - MK_SCREEN_IPHONEX_BOTTOM)
+//#define MK_SCREEN_SAFE_FRAME            CGRectMake(0, MK_SCREEN_IPHONEX_NAVGATION, MK_SCREEN_WIDTH, MK_SCREEN_SCREEN_HEIGHT)
+
+#define MK_ONE_PIXEL_HEIGHT             (1.f/[UIScreen mainScreen].scale)
 
 /** 颜色 */
 #define MK_COLOR_RGB(r, g, b)        [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1]
