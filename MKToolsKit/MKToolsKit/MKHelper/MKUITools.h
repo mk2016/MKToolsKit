@@ -11,6 +11,8 @@
 
 @interface MKUITools : NSObject
 
++ (BOOL)checkProxySetting;
+
 + (id)getVCFromStoryboard:(NSString *)storyboard identify:(NSString *)identify;
 
 #pragma mark - ***** top View ******
