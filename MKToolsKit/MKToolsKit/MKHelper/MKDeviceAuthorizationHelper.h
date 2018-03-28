@@ -15,12 +15,15 @@ typedef NS_ENUM(NSInteger, MKAppAuthorizationType) {
     MKAppAuthorizationType_camera       = 2,    /*!< 相机授权 */
     MKAppAuthorizationType_contacts     = 3,    /*!< 通讯录授权 */
     MKAppAuthorizationType_location     = 4,    /*!< 定位服务 */
+    MKAppAuthorizationType_nofity       = 5,    /*!< 通知 */
 };
 
 @interface MKDeviceAuthorizationHelper : NSObject
 
 + (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type block:(MKBoolBlock)block;
 + (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type showAlert:(BOOL)show block:(MKBoolBlock)block;
+
++ (BOOL)getNotifycationAuthorization;
 
 /** 日历、提醒事项授权 */
 + (void)eventWitType:(EKEntityType)type Authorization:(MKBoolBlock)block;

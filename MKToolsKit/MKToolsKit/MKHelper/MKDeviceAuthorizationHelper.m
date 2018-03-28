@@ -46,6 +46,8 @@
             case MKAppAuthorizationType_location:
                 [self locationAuthorizationShowAlert:show block:block];
                 break;
+            case MKAppAuthorizationType_nofity:
+                break;
             default:
                 break;
         }
@@ -165,10 +167,6 @@
     }
 }
 
-
-
-
-
 #pragma mark - ***** 定位授权 ******
 + (void)locationAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block{
     if ([CLLocationManager locationServicesEnabled]){   //检测的是整个的iOS系统的定位服务是否开启
@@ -198,6 +196,13 @@
         MK_BLOCK_EXEC(block, NO);
         [self showAlert:show type:MKAppAuthorizationType_location];
     }
+}
+
+
+
+#pragma mark - ***** 通知 ******
++ (BOOL)getNotifycationAuthorization{
+    return [[UIApplication sharedApplication] currentUserNotificationSettings].types != UIUserNotificationTypeNone;
 }
 
 #pragma mark - ***** 日历、提醒事项授权 ******
