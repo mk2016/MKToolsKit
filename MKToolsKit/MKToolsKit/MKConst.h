@@ -134,4 +134,3 @@ typedef enum {
     MKTableViewRefreshTypeAll       = ~0UL
 }MKTableViewRefreshType;
 
-#define MKActionSheetDefine
