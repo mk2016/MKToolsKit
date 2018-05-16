@@ -21,6 +21,8 @@
 - (NSDate *)mk_dateForZeroTime;
 /** 时间戳-> NSDate */
 + (NSDate *)mk_dataWithTimeStamp:(long long)timeStamp;
+/** 获取当前时间 */
++ (NSString *)mk_getNowDateWithFormat:(NSString *)format;
 /** 时间戳 -> 全格式String */
 + (NSString *)mk_FormatFullWithTimeStamp:(long long)timeStamp;
 /** NSDate -> 指定 format */

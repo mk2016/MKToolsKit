@@ -46,6 +46,13 @@
     return [formatter dateFromString:dateStr];
 }
 
+/** 获取当前时间 */
++ (NSString *)mk_getNowDateWithFormat:(NSString *)format{
+    NSDate *data = [NSDate date];
+    NSString *dataStr = [data mk_dateToStringWithFormat:format];
+    return dataStr;
+}
+
 /** 时间戳-> NSDate */
 + (NSDate *)mk_dataWithTimeStamp:(long long)timeStamp{
     if (timeStamp > 10000000000) {
