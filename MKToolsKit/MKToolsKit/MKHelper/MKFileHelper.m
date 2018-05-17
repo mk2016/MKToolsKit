@@ -142,14 +142,13 @@
 
 /** 创建文件夹 */
 + (BOOL)createDir:(NSString *)dir{
-    NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([self isDir:dir]) {
         NSLog(@"文件夹已经存在: %@" , dir);
         return YES;
     }
     
     // 创建目录
-    BOOL res = [fileManager createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
+    BOOL res = [[NSFileManager defaultManager] createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:nil];
     NSLog(@"文件夹创建 %@ : %@" , res?@"成功":@"失败" ,dir);
     return res;
 }
