@@ -33,6 +33,9 @@
 #define MK_SCREEN_SIZE          [UIScreen mainScreen].bounds.size
 #define MK_SCREEN_BOUNDS        [UIScreen mainScreen].bounds
 
+#define MK_IS_IPHONE       (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define MK_IS_PAD          (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
 #define MK_STATUSBAR_HEIGHT             (MK_Device_is_iPhoneX ? 44 : 20)
 #define MK_SCREEN_IPHONEX_IGNORE_HEIGHT (MK_Device_is_iPhoneX ? 24+34 : 0)
 #define MK_SCREEN_IPHONEX_NAVGATION     (MK_Device_is_iPhoneX ? 88 : 64)
