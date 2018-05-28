@@ -21,13 +21,22 @@
 /** 是否全部为汉字 */
 - (BOOL)isChineseString;
 
-
 /** 邮箱格式检查 */
 - (BOOL)validateEmail;
 
 /** 简单身份证校验 */
 - (BOOL)validateIdentityCard;
 
+#pragma mark - ***** 汉字 转 拼音 ******
+/** 获取中文名首个拼音字母 */
+- (NSString *)mk_getChineseNameFirstLetter;
+
+/** 中文名转拼音 */
+- (NSString *)mk_chineseNameToPinyin;
+
+/** 汉字转拼音 */
+- (NSString *)mk_hanziToPinyinIsChineseName:(BOOL)isName;
+    
 #pragma mark - ***** URL Encode Decode *****
 /** 对字符串进行URLEncode */
 - (NSString *)mk_stringByURLEncode;

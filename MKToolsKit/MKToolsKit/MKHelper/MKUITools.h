@@ -11,6 +11,7 @@
 
 @interface MKUITools : NSObject
 
+/** 检查是否设置的代理 */
 + (BOOL)checkProxySetting;
 
 + (id)getVCFromStoryboard:(NSString *)storyboard identify:(NSString *)identify;
@@ -23,23 +24,19 @@
 + (UIWindow *)getCurrentWindowByLevel:(CGFloat)windowLevel;
 
 #pragma mark - ***** current ViewController ******
-+ (UIViewController *)getCurrentViewController;
-+ (UIViewController *)getCurrentViewControllerIsIncludePresentedVC:(BOOL)isIncludePVC;
-+ (UIViewController *)getCurrentViewControllerWithWindowLevel:(CGFloat)windowLevel includePresentedVC:(BOOL)isIncludePVC;
-+ (UIViewController *)getPresentedViewController;
++ (UIViewController *)topViewController;
++ (UIViewController *)topViewControllerByWindowLevel:(CGFloat)level;
++ (UIViewController *)topViewControllerWith:(UIViewController *)base;
 
-+ (void)callTelephone:(NSString *)phone showAlert:(BOOL)showAlert;
+/** 拨打电话 */
++ (void)callTelephone:(NSString *)phone;
 
 
 /**
  *  传入模型数组，根据key字段 获取 字母 首拼音
- *
  *  @param array model array
- *
  *  @return 排序好的 字母数组
  */
 + (NSArray *)getNoRepeatSortLetterArray:(NSArray *)array letterKey:(NSString *)letterKey;
 
-+ (NSString *)getChineseNameFirstPinyinWithName:(NSString *)name;
-+ (NSString *)hanziToPinyinWith:(NSString *)hanziStr isChineseName:(BOOL)isChineseName;
 @end

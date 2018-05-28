@@ -41,7 +41,7 @@
                 config:(MKAlertCtrlConfig *)config
                  block:(void (^)(NSInteger buttonIndex))block{
     if (vc == nil) {
-        vc = [MKUITools getCurrentViewController];
+        vc = [MKUITools topViewController];
     }
     UIAlertController *alert = [UIAlertController mk_alertWithTitle:title message:message cancelTitle:cancelTitle confirmTitle:confirmTitle preferredStyle:UIAlertControllerStyleAlert config:config block:block];
     [vc presentViewController:alert animated:YES completion:nil];
@@ -75,7 +75,7 @@
                 config:(MKAlertCtrlConfig *)config
                  block:(void (^)(NSInteger buttonIndex))block{
     if (vc == nil) {
-        vc = [MKUITools getCurrentViewController];
+        vc = [MKUITools topViewController];
     }
     UIAlertController *alert = [UIAlertController mk_alertWithTitle:title message:message buttonTitles:buttonTitles preferredStyle:UIAlertControllerStyleAlert config:config block:block];
     [vc presentViewController:alert animated:YES completion:nil];
