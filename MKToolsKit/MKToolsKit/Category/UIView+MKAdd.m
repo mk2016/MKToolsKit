@@ -89,15 +89,13 @@
 }
 
 #pragma mark - ***** 圆角 ******
-- (void)setCornerValue:(CGFloat)value{
-    [self.layer setMasksToBounds:YES];
-    [self.layer setCornerRadius:value];
+- (void)setCorner{
+    [self setCornerValue:4.f];
 }
 
-- (void)setCorner{
-    [self.layer setMasksToBounds:YES];
-    [self.layer setCornerRadius:4.0];
-//    [self setCornerWith:UIRectCornerAllCorners radii:CGSizeMake(4.f, 0)];
+- (void)setCornerValue:(CGFloat)value{
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = value;
 }
 
 - (void)setToCircle{
@@ -117,15 +115,11 @@
 }
 
 #pragma mark - ***** 边框 ******
-- (void)setBorder{
-    [self setBorderWidth:0.7 andColor:[UIColor colorWithRed:(200/255.0f) green:(200/255.0f) blue:(200/255.0f) alpha:1]];
-}
-
-- (void)setBorderColor:(UIColor*)color{
+- (void)setBorderColor:(UIColor *)color{
     [self setBorderWidth:0.7 andColor:color];
 }
 
-- (void)setBorderWidth:(CGFloat)width andColor:(UIColor*)color{
+- (void)setBorderWidth:(CGFloat)width andColor:(UIColor *)color{
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = width;
     self.layer.borderColor = color.CGColor;
@@ -160,10 +154,30 @@
     [self.layer addSublayer:borderLayer];
 }
 
+#pragma mark - ***** remove ******
 - (void)removeAllSubviews{
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
+
+- (void)mk_showOnWindow{
+    UIWindow *window = [MKUITools getCurrentWindow];
+    [window addSubview:self];
+    self.alpha = 0;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.alpha = 1;
+    }];
+}
+
+- (void)mk_removeFromWindow{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+}
+
+#pragma mark - ***** screenshot ******
 - (UIImage *)mk_screenshot{
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale);
     
@@ -186,23 +200,6 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
-}
-
-- (void)mk_showOnWindow{
-    UIWindow *window = [MKUITools getCurrentWindow];
-    [window addSubview:self];
-    self.alpha = 0;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.alpha = 1;
-    }];
-}
-
-- (void)mk_removeFromWindow{
-    [UIView animateWithDuration:0.3 animations:^{
-        self.alpha = 0;
-    } completion:^(BOOL finished) {
-        [self removeFromSuperview];
-    }];
 }
 
 @end

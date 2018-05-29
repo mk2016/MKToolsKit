@@ -46,28 +46,23 @@ typedef enum {
 - (void)setCenterY:(CGFloat)y;
 
 #pragma mark - ***** 圆角 ******
-- (void)setCornerValue:(CGFloat)value;
 - (void)setCorner;
+- (void)setCornerValue:(CGFloat)value;
 - (void)setToCircle;
 - (void)setCornerWith:(UIRectCorner)corners radii:(CGSize)size;
 
 #pragma mark - ***** 边框 ******
-- (void)setBorder;
-- (void)setBorderWidth:(CGFloat)width andColor:(UIColor*)color;
-- (void)setBorderColor:(UIColor*)color;
+- (void)setBorderColor:(UIColor *)color;
+- (void)setBorderWidth:(CGFloat)width andColor:(UIColor *)color;
 
 - (void)addBorderOnDirection:(MKBorderDirectionType)direction;
 - (void)addBorderOnDirection:(MKBorderDirectionType)direction borderWidth:(CGFloat)width borderColor:(UIColor *)color isConstraint:(BOOL)isConstraint;
 
-
-
 - (void)removeAllSubviews;
-
-
-- (UIImage *)mk_screenshot;
-
-
 - (void)mk_showOnWindow;
 - (void)mk_removeFromWindow;
+
+#pragma mark - ***** screenshot ******
+- (UIImage *)mk_screenshot;
 
 @end

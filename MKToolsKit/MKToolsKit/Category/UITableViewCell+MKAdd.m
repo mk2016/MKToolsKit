@@ -53,14 +53,6 @@
     return cell;
 }
 
-+ (CGFloat)mk_cellHeight{
-    return 44;
-}
-
-+ (CGFloat)mk_cellHeightWithModel:(id)model{
-    return 44;
-}
-
 - (void)mk_setupUI{
     if ([self respondsToSelector:@selector(setupUI)]) {
         [self performSelector:@selector(setupUI) withObject:nil];
@@ -74,6 +66,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self mk_setupUI];
+}
+
++ (CGFloat)mk_cellHeight{
+    return 44;
+}
+
++ (CGFloat)mk_cellHeightWithModel:(id)model{
+    return 44;
 }
 
 @end
