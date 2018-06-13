@@ -143,7 +143,6 @@
 /** 创建文件夹 */
 + (BOOL)createDir:(NSString *)dir{
     if ([self isDir:dir]) {
-        NSLog(@"文件夹已经存在: %@" , dir);
         return YES;
     }
     
