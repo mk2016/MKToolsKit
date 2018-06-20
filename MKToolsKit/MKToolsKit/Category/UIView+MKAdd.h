@@ -46,19 +46,19 @@ typedef enum {
 - (void)setCenterY:(CGFloat)y;
 
 #pragma mark - ***** 圆角 ******
-- (void)setCorner;
-- (void)setCornerValue:(CGFloat)value;
-- (void)setToCircle;
-- (void)setCornerWith:(UIRectCorner)corners radii:(CGSize)size;
+- (void)mk_setCorner;
+- (void)mk_setCornerValue:(CGFloat)value;
+- (void)mk_setToCircle;
+- (void)mk_setCornerWith:(UIRectCorner)corners radii:(CGSize)size;
 
 #pragma mark - ***** 边框 ******
-- (void)setBorderColor:(UIColor *)color;
-- (void)setBorderWidth:(CGFloat)width andColor:(UIColor *)color;
+- (void)mk_setBorderColor:(UIColor *)color;
+- (void)mk_setBorderWidth:(CGFloat)width andColor:(UIColor *)color;
 
-- (void)addBorderOnDirection:(MKBorderDirectionType)direction;
-- (void)addBorderOnDirection:(MKBorderDirectionType)direction borderWidth:(CGFloat)width borderColor:(UIColor *)color isConstraint:(BOOL)isConstraint;
+- (void)mk_addBorderOnDirection:(MKBorderDirectionType)direction;
+- (void)mk_addBorderOnDirection:(MKBorderDirectionType)direction borderWidth:(CGFloat)width borderColor:(UIColor *)color isConstraint:(BOOL)isConstraint;
 
-- (void)removeAllSubviews;
+- (void)mk_removeAllSubviews;
 - (void)mk_showOnWindow;
 - (void)mk_removeFromWindow;
 

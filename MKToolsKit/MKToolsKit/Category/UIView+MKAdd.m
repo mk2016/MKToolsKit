@@ -89,20 +89,20 @@
 }
 
 #pragma mark - ***** 圆角 ******
-- (void)setCorner{
-    [self setCornerValue:4.f];
+- (void)mk_setCorner{
+    [self mk_setCornerValue:4.f];
 }
 
-- (void)setCornerValue:(CGFloat)value{
+- (void)mk_setCornerValue:(CGFloat)value{
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = value;
 }
 
-- (void)setToCircle{
-    [self setCornerWith:UIRectCornerAllCorners radii:CGSizeMake(self.width/2, 0)];
+- (void)mk_setToCircle{
+    [self mk_setCornerWith:UIRectCornerAllCorners radii:CGSizeMake(self.width/2, 0)];
 }
 
-- (void)setCornerWith:(UIRectCorner)corners radii:(CGSize)size{
+- (void)mk_setCornerWith:(UIRectCorner)corners radii:(CGSize)size{
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:size];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = self.bounds;
@@ -115,21 +115,21 @@
 }
 
 #pragma mark - ***** 边框 ******
-- (void)setBorderColor:(UIColor *)color{
-    [self setBorderWidth:0.7 andColor:color];
+- (void)mk_setBorderColor:(UIColor *)color{
+    [self mk_setBorderWidth:0.7 andColor:color];
 }
 
-- (void)setBorderWidth:(CGFloat)width andColor:(UIColor *)color{
+- (void)mk_setBorderWidth:(CGFloat)width andColor:(UIColor *)color{
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = width;
     self.layer.borderColor = color.CGColor;
 }
 
-- (void)addBorderOnDirection:(MKBorderDirectionType)direction{
-    [self addBorderOnDirection:direction borderWidth:0.7 borderColor:[UIColor colorWithRed:(200/255.0f) green:(200/255.0f) blue:(200/255.0f) alpha:1] isConstraint:YES];
+- (void)mk_addBorderOnDirection:(MKBorderDirectionType)direction{
+    [self mk_addBorderOnDirection:direction borderWidth:0.7 borderColor:[UIColor colorWithRed:(200/255.0f) green:(200/255.0f) blue:(200/255.0f) alpha:1] isConstraint:YES];
 }
 
-- (void)addBorderOnDirection:(MKBorderDirectionType)direction borderWidth:(CGFloat)width borderColor:(UIColor *)color isConstraint:(BOOL)isConstraint{
+- (void)mk_addBorderOnDirection:(MKBorderDirectionType)direction borderWidth:(CGFloat)width borderColor:(UIColor *)color isConstraint:(BOOL)isConstraint{
     if (isConstraint) {
         [self layoutIfNeeded];  //约束生效
     }
@@ -155,7 +155,7 @@
 }
 
 #pragma mark - ***** remove ******
-- (void)removeAllSubviews{
+- (void)mk_removeAllSubviews{
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
