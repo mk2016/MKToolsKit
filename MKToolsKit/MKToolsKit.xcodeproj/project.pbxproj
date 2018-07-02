@@ -40,13 +40,14 @@
 		C56D310D1E23644900813D97 /* MKBaseWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D30FA1E23644900813D97 /* MKBaseWindowView.m */; };
 		C56D310E1E23644900813D97 /* MKBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D30FD1E23644900813D97 /* MKBlurView.m */; };
 		C56D310F1E23644900813D97 /* MKDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D31001E23644900813D97 /* MKDatePickerView.m */; };
-		C56D311D1E239A6800813D97 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D311C1E239A6800813D97 /* SSKeychain.m */; };
 		C57FE2FF1F306AE9008AC0CB /* UIAlertController+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C57FE2FE1F306AE9008AC0CB /* UIAlertController+MKAdd.m */; };
 		C594C35C20BC524F00A7870C /* UIButton+MKHitRect.m in Sources */ = {isa = PBXBuildFile; fileRef = C594C35B20BC524F00A7870C /* UIButton+MKHitRect.m */; };
 		C59DECD41DD01E5A00322D42 /* NSData+GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECD31DD01E5A00322D42 /* NSData+GZIP.m */; };
 		C59DECD91DD0213A00322D42 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECD81DD0213A00322D42 /* UIView+Toast.m */; };
 		C59DECE91DD045AE00322D42 /* MKDeviceAuthorizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C59DECE81DD045AE00322D42 /* MKDeviceAuthorizationHelper.m */; };
 		C5AF0D461DB6081B00928660 /* UINavigationBar+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AF0D451DB6081B00928660 /* UINavigationBar+MKAdd.m */; };
+		C5BE6C4120EA0FD70012A66D /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BE6C3D20EA0FD70012A66D /* SAMKeychainQuery.m */; };
+		C5BE6C4220EA0FD70012A66D /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BE6C4020EA0FD70012A66D /* SAMKeychain.m */; };
 		C5EC60291DE2B92500174D93 /* NSDictionary+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EC60281DE2B92500174D93 /* NSDictionary+MKAdd.m */; };
 /* End PBXBuildFile section */
 
@@ -124,8 +125,6 @@
 		C56D30FD1E23644900813D97 /* MKBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBlurView.m; sourceTree = "<group>"; };
 		C56D30FF1E23644900813D97 /* MKDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKDatePickerView.h; sourceTree = "<group>"; };
 		C56D31001E23644900813D97 /* MKDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDatePickerView.m; sourceTree = "<group>"; };
-		C56D311B1E239A6800813D97 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		C56D311C1E239A6800813D97 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		C57FE2FD1F306AE9008AC0CB /* UIAlertController+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+MKAdd.h"; sourceTree = "<group>"; };
 		C57FE2FE1F306AE9008AC0CB /* UIAlertController+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+MKAdd.m"; sourceTree = "<group>"; };
 		C594C35A20BC524F00A7870C /* UIButton+MKHitRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+MKHitRect.h"; sourceTree = "<group>"; };
@@ -139,6 +138,10 @@
 		C59DECE81DD045AE00322D42 /* MKDeviceAuthorizationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKDeviceAuthorizationHelper.m; sourceTree = "<group>"; };
 		C5AF0D441DB6081B00928660 /* UINavigationBar+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+MKAdd.h"; sourceTree = "<group>"; };
 		C5AF0D451DB6081B00928660 /* UINavigationBar+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+MKAdd.m"; sourceTree = "<group>"; };
+		C5BE6C3D20EA0FD70012A66D /* SAMKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMKeychainQuery.m; sourceTree = "<group>"; };
+		C5BE6C3E20EA0FD70012A66D /* SAMKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMKeychain.h; sourceTree = "<group>"; };
+		C5BE6C3F20EA0FD70012A66D /* SAMKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMKeychainQuery.h; sourceTree = "<group>"; };
+		C5BE6C4020EA0FD70012A66D /* SAMKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMKeychain.m; sourceTree = "<group>"; };
 		C5EC60271DE2B92500174D93 /* NSDictionary+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MKAdd.h"; sourceTree = "<group>"; };
 		C5EC60281DE2B92500174D93 /* NSDictionary+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MKAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -335,20 +338,11 @@
 			path = MKDatePickerView;
 			sourceTree = "<group>";
 		};
-		C56D311A1E239A6800813D97 /* SSKeychain */ = {
-			isa = PBXGroup;
-			children = (
-				C56D311B1E239A6800813D97 /* SSKeychain.h */,
-				C56D311C1E239A6800813D97 /* SSKeychain.m */,
-			);
-			path = SSKeychain;
-			sourceTree = "<group>";
-		};
 		C59DECC91DD01D1B00322D42 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
 				C59DECD01DD01E5A00322D42 /* GZIP */,
-				C56D311A1E239A6800813D97 /* SSKeychain */,
+				C5BE6C3C20EA0FD70012A66D /* SAMKeychain */,
 				C59DECD61DD0213A00322D42 /* Toast */,
 			);
 			path = Vendor;
@@ -371,6 +365,17 @@
 				C59DECD81DD0213A00322D42 /* UIView+Toast.m */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		C5BE6C3C20EA0FD70012A66D /* SAMKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				C5BE6C3D20EA0FD70012A66D /* SAMKeychainQuery.m */,
+				C5BE6C3E20EA0FD70012A66D /* SAMKeychain.h */,
+				C5BE6C3F20EA0FD70012A66D /* SAMKeychainQuery.h */,
+				C5BE6C4020EA0FD70012A66D /* SAMKeychain.m */,
+			);
+			path = SAMKeychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,9 +440,9 @@
 				C59DECE91DD045AE00322D42 /* MKDeviceAuthorizationHelper.m in Sources */,
 				C53EFE1A1DCC2B9300EF5C39 /* MKBaseTabBarController.m in Sources */,
 				C56D310F1E23644900813D97 /* MKDatePickerView.m in Sources */,
-				C56D311D1E239A6800813D97 /* SSKeychain.m in Sources */,
 				C508AFCF1D951C5A00852B87 /* UITabBar+MKAdd.m in Sources */,
 				C5292F751E24748E00A752CC /* MKRightImageButton.m in Sources */,
+				C5BE6C4220EA0FD70012A66D /* SAMKeychain.m in Sources */,
 				C5288D821DC6D6B100B87F48 /* MKUITools.m in Sources */,
 				C5288D801DC6D6B100B87F48 /* MKFileHelper.m in Sources */,
 				C59DECD91DD0213A00322D42 /* UIView+Toast.m in Sources */,
@@ -447,6 +452,7 @@
 				C508AFD81D951D7C00852B87 /* UILabel+MKAdd.m in Sources */,
 				C5292F761E24748E00A752CC /* MKVButton.m in Sources */,
 				C5AF0D461DB6081B00928660 /* UINavigationBar+MKAdd.m in Sources */,
+				C5BE6C4120EA0FD70012A66D /* SAMKeychainQuery.m in Sources */,
 				C515A5851D9CF33200D7984E /* UIImage+MKAdd.m in Sources */,
 				C5052D911E98BF93007F7657 /* UITextField+MKAdd.m in Sources */,
 				C55E0E641DD6100400FB663A /* NSDate+MKAdd.m in Sources */,

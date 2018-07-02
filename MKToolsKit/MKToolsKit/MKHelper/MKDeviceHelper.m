@@ -11,25 +11,22 @@
 #include <sys/sysctl.h>
 #import <AVFoundation/AVFoundation.h>
 #import <sys/utsname.h>
-#import "SSKeychain.h"
-
-//uudi
-static NSString* const kMKToolkitUUIDString             = @"kMKToolkitUUID";
+#import "SAMKeychain.h"
 
 @implementation MKDeviceHelper
 
 + (NSString *)getUUID{
-    NSString* retrieveuuid = [SSKeychain passwordForService:kMKToolkitUUIDString account:@"user"];
-    if ([retrieveuuid isEqualToString:@""] || retrieveuuid == NULL) {
+    NSString *bundleId = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *uuid = [SAMKeychain passwordForService:bundleId account:@"user"];
+    if (uuid == nil || uuid == NULL || uuid.length == 0) {
         CFUUIDRef uuidRef = CFUUIDCreate(NULL);
-        assert(uuidRef != NULL);
         CFStringRef uuidStr = CFUUIDCreateString(NULL, uuidRef);
-        retrieveuuid = [NSString stringWithFormat:@"%@", uuidStr];
-        [SSKeychain setPassword:retrieveuuid forService:kMKToolkitUUIDString account:@"user"];
+        uuid = [NSString stringWithFormat:@"%@", uuidStr];
+        [SAMKeychain setPassword:uuid forService:bundleId account:@"user"];
         CFRelease(uuidRef);
         CFRelease(uuidStr);
     }
-    return retrieveuuid;
+    return uuid;
 }
 
 #pragma mark - ***** app 版本号 ******
