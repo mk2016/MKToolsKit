@@ -48,5 +48,7 @@
 /** 删除文件 */
 + (BOOL)deleteFileWithPath:(NSString *)path;
 /** 移动文件 */
-+ (BOOL)moveItemAtPath:(NSString *)path1 toPath:(NSString *)path2;
++ (BOOL)moveItemAtPath:(NSString *)path1 toPath:(NSString *)path2 force:(BOOL)force;
+/** 拷贝文件 */
++ (BOOL)copyItemAtPath:(NSString *)path1 toPath:(NSString *)path2 force:(BOOL)force;
 @end

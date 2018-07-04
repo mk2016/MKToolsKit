@@ -173,14 +173,36 @@
     }
 }
 
-+ (BOOL)moveItemAtPath:(NSString *)path1 toPath:(NSString *)path2{
++ (BOOL)moveItemAtPath:(NSString *)path1 toPath:(NSString *)path2 force:(BOOL)force{
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([self fileExistsAtPath:path1]) {
+        if (force) {
+            if ([MKFileHelper fileExistsAtPath:path2]) {
+                [MKFileHelper deleteFileWithPath:path2];
+            }
+        }
         BOOL res = [fileManager moveItemAtPath:path1 toPath:path2 error:nil];
         NSLog(@"文件移动 %@ : %@", res?@"成功":@"失败", path2);
         return res;
     }else{
-        NSLog(@"文件不存在 :%@ ", path1);
+        NSLog(@"源文件不存在 :%@ ", path1);
+        return NO;
+    }
+}
+
++ (BOOL)copyItemAtPath:(NSString *)path1 toPath:(NSString *)path2 force:(BOOL)force{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([self fileExistsAtPath:path1]) {
+        if (force) {
+            if ([MKFileHelper fileExistsAtPath:path2]) {
+                [MKFileHelper deleteFileWithPath:path2];
+            }
+        }
+        BOOL res = [fileManager copyItemAtPath:path1 toPath:path2 error:nil];
+        NSLog(@"文件拷贝 %@ : %@", res?@"成功":@"失败", path2);
+        return res;
+    }else{
+        NSLog(@"源文件不存在 :%@ ", path1);
         return NO;
     }
 }
