@@ -36,11 +36,11 @@
 /** 获取设备系统版本字符串 保留2位小数*/
 + (NSString *)systemVersionString;
 
-+ (BOOL)isSystemIos7Later;
-+ (BOOL)isSystemIos8Later;
-+ (BOOL)isSystemIos9Later;
-+ (BOOL)isSystemIos10Later;
-+ (BOOL)isSystemIos11Later;
++ (BOOL)systemIs7Later;
++ (BOOL)systemIs8Later;
++ (BOOL)systemIs9Later;
++ (BOOL)systemIs10Later;
++ (BOOL)systemIs11Later;
 /** 设备信息对应名称 */
 + (NSString *)deviceType;
 

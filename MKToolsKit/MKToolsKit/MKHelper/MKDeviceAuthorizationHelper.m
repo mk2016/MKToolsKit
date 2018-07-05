@@ -15,6 +15,7 @@
 #import <EventKit/EventKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
+#import <CoreTelephony/CTCellularData.h>
 #import "MKDeviceHelper.h"
 #import "MKAlertView.h"
 
@@ -32,7 +33,7 @@
             return;
         }
     }
-    if ([MKDeviceHelper isSystemIos8Later]) {
+    if ([MKDeviceHelper systemIs8Later]) {
         switch (type) {
             case MKAppAuthorizationType_assetsLib:
                 [self assetsLibAuthorizationShowAlert:show block:block];
@@ -47,6 +48,9 @@
                 [self locationAuthorizationShowAlert:show block:block];
                 break;
             case MKAppAuthorizationType_nofity:
+                break;
+            case MKAppAuthorizationType_cellularData:
+                [self cellularAuthorizationAlert:show block:block];
                 break;
             default:
                 break;
@@ -116,7 +120,7 @@
 
 #pragma mark - ***** 通讯录授权 ******
 + (void)contactsAuthorizationShowAlert:(BOOL)show block:(MKBoolBlock)block{
-    if ([MKDeviceHelper isSystemIos9Later]) {
+    if ([MKDeviceHelper systemIs9Later]) {
         CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
         switch (status) {
             case CNAuthorizationStatusNotDetermined:{
@@ -198,7 +202,34 @@
     }
 }
 
+#pragma mark - ***** 网络授权 ******
++ (void)cellularAuthorizationAlert:(BOOL)show block:(MKBoolBlock)block{
+    if ([MKDeviceHelper systemIs9Later]) {
+        CTCellularData *cellularData = [[CTCellularData alloc] init];
+        cellularData.cellularDataRestrictionDidUpdateNotifier = ^(CTCellularDataRestrictedState state) {
+            switch (state) {
+                case kCTCellularDataRestricted:
+                    ELog(@"MKCellularAuth=== Restricted");
+                    break;
+                case kCTCellularDataNotRestricted:
+                    ELog(@"MKCellularAuth=== kCTCellularDataNotRestricted");
+                    break;
+                case kCTCellularDataRestrictedStateUnknown:
+                    NSLog(@"MKCellularAuth=== kCTCellularDataRestrictedStateUnknown");
+                    break;
+                default:
+                    break;
+            }
+        };
+    }
+}
 
++ (BOOL)getCellularAuthorization{
+    if ([MKDeviceHelper systemIs9Later]) {
+        return [[CTCellularData alloc] init].restrictedState == kCTCellularDataNotRestricted;
+    }
+    return YES;
+}
 
 #pragma mark - ***** 通知 ******
 + (BOOL)getNotifycationAuthorization{

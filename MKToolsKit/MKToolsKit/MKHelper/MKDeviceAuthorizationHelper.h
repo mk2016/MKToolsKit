@@ -16,12 +16,16 @@ typedef NS_ENUM(NSInteger, MKAppAuthorizationType) {
     MKAppAuthorizationType_contacts     = 3,    /*!< 通讯录授权 */
     MKAppAuthorizationType_location     = 4,    /*!< 定位服务 */
     MKAppAuthorizationType_nofity       = 5,    /*!< 通知 */
+    MKAppAuthorizationType_cellularData = 6,    /*!< 网络 */
 };
 
 @interface MKDeviceAuthorizationHelper : NSObject
 
 + (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type block:(MKBoolBlock)block;
 + (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type showAlert:(BOOL)show block:(MKBoolBlock)block;
+
+/** 网络是否被限制 */
++ (BOOL)getCellularAuthorizationIsRestricted;
 
 + (BOOL)getNotifycationAuthorization;
 
