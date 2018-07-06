@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, MKAppAuthorizationType) {
 + (void)getAppAuthorizationWithType:(MKAppAuthorizationType)type showAlert:(BOOL)show block:(MKBoolBlock)block;
 
 /** 网络是否被限制 */
-+ (BOOL)getCellularAuthorizationIsRestricted;
++ (BOOL)getCellularAuthorization;
 
 + (BOOL)getNotifycationAuthorization;
 
