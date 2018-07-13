@@ -47,4 +47,8 @@
 
 /** 修改图片尺寸 */
 - (UIImage *)mk_scaleToSize:(CGSize)size;
+
+/** 获取视频第一帧图片 */
++ (UIImage *)mk_thumbnailImageWithVideo:(NSString *)urlString;
++ (UIImage *)mk_thumbnailImageWithVideoURL:(NSURL *)videoURL;
 @end

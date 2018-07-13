@@ -7,6 +7,7 @@
 //
 
 #import "UIImage+MKAdd.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation UIImage(MKAdd)
 
@@ -342,6 +343,28 @@
     return scaledImage;
 }
 
+/** 获取视频第一帧图片 */
++ (UIImage *)mk_thumbnailImageWithVideo:(NSString *)urlString{
+    NSURL *url = [NSURL URLWithString:urlString];
+    return [self mk_thumbnailImageWithVideoURL:url];
+}
 
++ (UIImage *)mk_thumbnailImageWithVideoURL:(NSURL *)videoURL{
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    AVAssetImageGenerator *generator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    generator.appliesPreferredTrackTransform = YES;
+    generator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CMTime time = CMTimeMake(1,60);
+    CMTime actualTime;
+    NSError *error = nil;
+    CGImageRef imageRef = [generator copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    if (!imageRef) {
+        NSLog(@"thumbnailImageGenerationError %@", error);
+    }
+    UIImage *image = imageRef ? [[UIImage alloc] initWithCGImage:imageRef] : nil;
+    CGImageRelease(imageRef);
+    return image;
+}
 @end
 
