@@ -75,6 +75,10 @@
 }
 
 + (UIImage *)mk_imageWithQRString:(NSString *)qrStr imgWidth:(CGFloat)imgWidth margin:(CGFloat)margin logo:(NSString *)logoImageName{
+    return [self mk_imageWithQRString:qrStr imgWidth:imgWidth margin:margin logo:logoImageName logoWidth:28];
+}
+    
++ (UIImage *)mk_imageWithQRString:(NSString *)qrStr imgWidth:(CGFloat)imgWidth margin:(CGFloat)margin logo:(NSString *)logoImageName logoWidth:(CGFloat)logoWidth{
 
     CGFloat qrImageW = imgWidth - margin*2;
     NSData *stringData = [qrStr dataUsingEncoding:NSUTF8StringEncoding];
@@ -111,9 +115,9 @@
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(imgWidth, imgWidth), NO, [UIScreen mainScreen].scale);
     [qrImage drawInRect:CGRectMake(margin, margin, qrImageW, qrImageW)];
     if (logoImageName) {
-        CGFloat logoWidth = 28;//imgWidth/8;
         UIImage *logoImg = [UIImage imageNamed:logoImageName];
-        [logoImg drawInRect:CGRectMake((imgWidth-logoWidth)/2, (imgWidth-logoWidth)/2, logoWidth, logoWidth)];
+        CGFloat xyPostion = (imgWidth-logoWidth)/2.f;
+        [logoImg drawInRect:CGRectMake(xyPostion, xyPostion, logoWidth, logoWidth)];
     }
     qrImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

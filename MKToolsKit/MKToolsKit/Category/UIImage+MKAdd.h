@@ -26,10 +26,17 @@
 
 /** 生成二维码图片 */
 + (UIImage *)mk_imageWithQRString:(NSString *)str imgWidth:(CGFloat)imgWidth;
+
 + (UIImage *)mk_imageWithQRString:(NSString *)qrStr
                          imgWidth:(CGFloat)imgWidth
                            margin:(CGFloat)margin
                              logo:(NSString *)logoImageName;
+
++ (UIImage *)mk_imageWithQRString:(NSString *)qrStr
+                         imgWidth:(CGFloat)imgWidth
+                           margin:(CGFloat)margin
+                             logo:(NSString *)logoImageName
+                        logoWidth:(CGFloat)logoWidth;
 
 - (UIImage *)mk_applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
 
