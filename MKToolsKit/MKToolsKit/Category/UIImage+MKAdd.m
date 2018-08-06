@@ -31,6 +31,9 @@
 
 //CIImage -> UIImage
 + (UIImage *)mk_imageWithCIImage:(CIImage *)ciImage size:(CGSize)size{
+    if (ciImage == nil) {
+        return nil;
+    }
     if (size.width == 0 ) {
         size = ciImage.extent.size;
     }
