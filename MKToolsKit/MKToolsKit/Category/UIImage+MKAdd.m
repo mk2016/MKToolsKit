@@ -29,6 +29,19 @@
     return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType, [imageData base64EncodedStringWithOptions: 0]];
 }
 
+//CIImage -> UIImage
++ (UIImage *)mk_imageWithCIImage:(CIImage *)ciImage size:(CGSize)size{
+    if (size.width == 0 ) {
+        size = ciImage.extent.size;
+    }
+    UIGraphicsBeginImageContext(size);
+    [[UIImage imageWithCIImage:ciImage
+                         scale:1.f
+                   orientation:UIImageOrientationUp] drawInRect:CGRectMake(0,0, size.width,size.height)];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
 
 
 

@@ -18,6 +18,9 @@
 /** 图片转 dataURL */
 - (NSString *)mk_imageToDataURL;
 
+//CIImage -> UIImage
++ (UIImage *)mk_imageWithCIImage:(CIImage *)ciImage size:(CGSize)size;
+
 /** 返回九宫格图片 */
 + (UIImage *)mk_resizedImageWithName:(NSString *)name;
 /** 根据颜色生成图片 */
