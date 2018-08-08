@@ -8,9 +8,9 @@
 
 #import "MKImagePickerCtrHelper.h"
 #import "MKDeviceAuthorizationHelper.h"
+#import "MKUITools.h"
 
 @interface MKImagePickerCtrHelper()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-
 @property (nonatomic, weak) UIViewController *vc;
 @property (nonatomic, assign) MKImagePickerType sourceType;
 @property (nonatomic, copy) MKBlock block;
@@ -21,22 +21,19 @@
 
 MK_Impl_sharedInstance(MKImagePickerCtrHelper);
 
-- (UIImagePickerController *)ipc{
-    if (!(_ipc)) {
-        _ipc = [[UIImagePickerController alloc] init];
-        _ipc.delegate = self;
-        _ipc.allowsEditing = YES;
-        _ipc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    }
-    return _ipc;
-}
-
 - (void)showWithSourceType:(MKImagePickerType)sourceType onViewController:(UIViewController *)vc block:(MKBlock)block{
-    if (vc && sourceType && block) {
-        self.vc = vc;
-        self.sourceType = sourceType;
-        self.block = block;
+    self.vc = vc;
+    self.sourceType = sourceType;
+    self.block = block;
+    
+    if (self.vc == nil) {
+        self.vc = [MKUITools topViewController];
     }
+    
+    if (self.sourceType == MKImagePickerType_none) {
+        self.sourceType = MKImagePickerType_camera;
+    }
+    
     MKAppAuthorizationType authType = MKAppAuthorizationType_camera;
     if (self.sourceType == MKImagePickerType_camera) {
         self.ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -61,9 +58,6 @@ MK_Impl_sharedInstance(MKImagePickerCtrHelper);
             MK_BLOCK_EXEC(block, nil);
         }
     }];
-    
-    
-    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
@@ -77,6 +71,17 @@ MK_Impl_sharedInstance(MKImagePickerCtrHelper);
     MK_BLOCK_EXEC(self.block, nil);
 }
 
-
+#pragma mark - ***** lazy ******
+- (UIImagePickerController *)ipc{
+    if (!_ipc) {
+        _ipc = [[UIImagePickerController alloc] init];
+        _ipc.delegate = self;
+        _ipc.allowsEditing = YES;
+        _ipc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        _ipc.navigationBar.translucent = NO;
+    }
+    return _ipc;
+}
 
 @end
+

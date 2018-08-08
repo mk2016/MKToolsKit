@@ -10,7 +10,8 @@
 #import "MKConst.h"
 
 typedef NS_ENUM(NSInteger, MKImagePickerType) {
-    MKImagePickerType_camera = 1,
+    MKImagePickerType_none      = 0,
+    MKImagePickerType_camera,
     MKImagePickerType_photoLibrary,
     
 };
