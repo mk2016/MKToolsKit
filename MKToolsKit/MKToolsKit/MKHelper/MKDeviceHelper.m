@@ -120,7 +120,11 @@
                               @"iPhone10,4": @"iPhone 8 (Global/A1905)",
                               @"iPhone10,5": @"iPhone 8 Plus ((Global/A1897))",
                               @"iPhone10,6": @"iPhone X (Global/A1901)",
-                              
+                              @"iPhone11,2": @"iPhone XS",
+                              @"iPhone11,4": @"iPhone XS Max",
+                              @"iPhone11,6": @"iPhone XS Max",
+                              @"iPhone11,8": @"iPhone XR",
+
                               //iPad
                               @"iPad1,1": @"iPad",
                               @"iPad2,1": @"iPad 2 (WiFi)",
@@ -158,6 +162,14 @@
                               @"iPad6,4": @"iPad Pro(Cellular) 9.7-inch",
                               @"iPad6,7": @"iPad Pro(WiFi) 12.9-inch",
                               @"iPad6,8": @"iPad Pro(Cellular) 12.9-inch",
+                              @"iPad6,11": @"iPad 5 (WiFi)",
+                              @"iPad6,12": @"iPad 5 (Cellular)",
+                              
+                              @"iPad7,1": @"iPad Pro 12.9-inch 2nd gen (WiFi)",
+                              @"iPad7,2": @"iPad Pro 12.9-inch 2nd gen (Cellular)",
+                              @"iPad7,3": @"iPad Pro 10.5-inch (WiFi)",
+                              @"iPad7,4": @"iPad Pro 10.5-inch (Cellular)",
+                              
                               
                               //watch
                               @"Watch1,1" : @"Apple Watch 38mm",
