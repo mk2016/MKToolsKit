@@ -16,4 +16,7 @@
 /** 设置底部黑线 隐藏 */
 - (void)mk_setBottomLineHidden:(BOOL)hidden;
 
+/** 设置底部黑线 隐藏 全局 */
++ (void)mk_hiddenBottomLine;
+
 @end

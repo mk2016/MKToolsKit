@@ -7,6 +7,7 @@
 //
 
 #import "UINavigationController+MKAdd.h"
+#import "MKCategoryHead.h"
 
 @implementation UINavigationController (MKAdd)
 
@@ -46,4 +47,9 @@
     }
 }
 
++ (void)mk_hiddenBottomLine{
+    if ([UINavigationBar instancesRespondToSelector:@selector(setShadowImage:)]){
+        [[UINavigationBar appearance] setShadowImage:[UIImage mk_imageWithColor:[UIColor clearColor]]];
+    }
+}
 @end
