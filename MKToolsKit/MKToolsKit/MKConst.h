@@ -32,6 +32,7 @@
 #define MK_SCREEN_HEIGHT        [UIScreen mainScreen].bounds.size.height
 #define MK_SCREEN_SIZE          [UIScreen mainScreen].bounds.size
 #define MK_SCREEN_BOUNDS        [UIScreen mainScreen].bounds
+#define MK_SCREEN_CENTER        CGPointMake(MK_SCREEN_WIDTH/2, MK_SCREEN_HEIGHT/2);
 
 #define MK_IS_IPHONE       (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define MK_IS_PAD          (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
