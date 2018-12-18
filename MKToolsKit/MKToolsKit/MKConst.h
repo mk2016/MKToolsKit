@@ -25,7 +25,7 @@
 #define MK_Application      [UIApplication sharedApplication]
 #define MK_Notification     [NSNotificationCenter defaultCenter]
 #define MK_UserDefaults     [NSUserDefaults standardUserDefaults]
-#define MK_FileManager       [NSFileManager defaultManager]
+#define MK_FileManager      [NSFileManager defaultManager]
 
 /** 屏幕尺寸 */
 #define MK_SCREEN_WIDTH         [UIScreen mainScreen].bounds.size.width
@@ -58,8 +58,8 @@
 #define MK_SCREEN_IPHONEX_TOP           (MK_IS_IPHONE_XX ? 44 : 0)
 #define MK_SCREEN_IPHONEX_BOTTOM        (MK_IS_IPHONE_XX ? 34 : 0)
 #define MK_SCREEN_SAFE_HEIGHT           (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_TOP - MK_SCREEN_IPHONEX_BOTTOM)
-#define MK_SCREEN_SCREEN_HEIGHT         (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_NAVGATION - MK_SCREEN_IPHONEX_BOTTOM)
-//#define MK_SCREEN_SAFE_FRAME            CGRectMake(0, MK_SCREEN_IPHONEX_NAVGATION, MK_SCREEN_WIDTH, MK_SCREEN_SCREEN_HEIGHT)
+#define MK_SCREEN_MAIN_HEIGHT           (MK_SCREEN_HEIGHT - MK_SCREEN_IPHONEX_NAVGATION - MK_SCREEN_IPHONEX_BOTTOM)
+//#define MK_SCREEN_SAFE_FRAME            CGRectMake(0, MK_SCREEN_IPHONEX_NAVGATION, MK_SCREEN_WIDTH, MK_SCREEN_MAIN_HEIGHT)
 
 #define MK_ONE_PIXEL_HEIGHT             (1.f/[UIScreen mainScreen].scale)
 
