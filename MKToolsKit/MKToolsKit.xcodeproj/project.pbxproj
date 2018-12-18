@@ -13,7 +13,7 @@
 		C508AFCF1D951C5A00852B87 /* UITabBar+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFCE1D951C5A00852B87 /* UITabBar+MKAdd.m */; };
 		C508AFD81D951D7C00852B87 /* UILabel+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFD51D951D7C00852B87 /* UILabel+MKAdd.m */; };
 		C508AFD91D951D7C00852B87 /* UINavigationController+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFD71D951D7C00852B87 /* UINavigationController+MKAdd.m */; };
-		C51317E61D93C97300EA9C9B /* MKToolsKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C51317E31D93C97300EA9C9B /* MKToolsKit.h */; };
+		C51317E61D93C97300EA9C9B /* MKToolsKit.h in Copy Files */ = {isa = PBXBuildFile; fileRef = C51317E31D93C97300EA9C9B /* MKToolsKit.h */; };
 		C515A5791D9CF24E00D7984E /* NSString+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A5781D9CF24E00D7984E /* NSString+MKAdd.m */; };
 		C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */; };
 		C515A5831D9CF33200D7984E /* NSObject+MKAddProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A57D1D9CF33200D7984E /* NSObject+MKAddProperty.m */; };
@@ -52,14 +52,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C51317DE1D93C97300EA9C9B /* CopyFiles */ = {
+		C51317DE1D93C97300EA9C9B /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				C51317E61D93C97300EA9C9B /* MKToolsKit.h in CopyFiles */,
+				C51317E61D93C97300EA9C9B /* MKToolsKit.h in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -370,10 +371,10 @@
 		C5BE6C3C20EA0FD70012A66D /* SAMKeychain */ = {
 			isa = PBXGroup;
 			children = (
-				C5BE6C3D20EA0FD70012A66D /* SAMKeychainQuery.m */,
 				C5BE6C3E20EA0FD70012A66D /* SAMKeychain.h */,
-				C5BE6C3F20EA0FD70012A66D /* SAMKeychainQuery.h */,
 				C5BE6C4020EA0FD70012A66D /* SAMKeychain.m */,
+				C5BE6C3F20EA0FD70012A66D /* SAMKeychainQuery.h */,
+				C5BE6C3D20EA0FD70012A66D /* SAMKeychainQuery.m */,
 			);
 			path = SAMKeychain;
 			sourceTree = "<group>";
@@ -387,7 +388,7 @@
 			buildPhases = (
 				C51317DC1D93C97300EA9C9B /* Sources */,
 				C51317DD1D93C97300EA9C9B /* Frameworks */,
-				C51317DE1D93C97300EA9C9B /* CopyFiles */,
+				C51317DE1D93C97300EA9C9B /* Copy Files */,
 			);
 			buildRules = (
 			);

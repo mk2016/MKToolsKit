@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "MKDeviceHelper.h"
 
 /** 日志 */
 #ifdef DEBUG
