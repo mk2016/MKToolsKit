@@ -21,21 +21,21 @@
 #endif
 
 /** 系统单例 简写 */
-#define MK_Application      [UIApplication sharedApplication]
-#define MK_Notification     [NSNotificationCenter defaultCenter]
-#define MK_UserDefaults     [NSUserDefaults standardUserDefaults]
-#define MK_FileManager      [NSFileManager defaultManager]
+
+#define MK_APPLICATION      [UIApplication sharedApplication]
+#define MK_NOTIFICATION     [NSNotificationCenter defaultCenter]
+#define MK_USERDEFAULTS     [NSUserDefaults standardUserDefaults]
+#define MK_FILEMANAGER      [NSFileManager defaultManager]
 
 /** 屏幕尺寸 */
-#define MK_SCREEN_WIDTH         [UIScreen mainScreen].bounds.size.width
-#define MK_SCREEN_HEIGHT        [UIScreen mainScreen].bounds.size.height
-#define MK_SCREEN_SIZE          [UIScreen mainScreen].bounds.size
-#define MK_SCREEN_BOUNDS        [UIScreen mainScreen].bounds
-#define MK_SCREEN_CENTER        CGPointMake(MK_SCREEN_WIDTH/2, MK_SCREEN_HEIGHT/2);
+#define MK_SCREEN_WIDTH     [UIScreen mainScreen].bounds.size.width
+#define MK_SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
+#define MK_SCREEN_SIZE      [UIScreen mainScreen].bounds.size
+#define MK_SCREEN_BOUNDS    [UIScreen mainScreen].bounds
+#define MK_SCREEN_CENTER    CGPointMake(MK_SCREEN_WIDTH/2, MK_SCREEN_HEIGHT/2);
 
-#define MK_IS_IPHONE       (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define MK_IS_PAD          (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-
+#define MK_IS_IPHONE        (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define MK_IS_PAD           (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define MK_IS_IPHONE_X_XS   ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?\
                                 CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 #define MK_IS_IPHONE_XSMAX  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?\
@@ -70,7 +70,8 @@
                                                      blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0f]
 
 /** 单例 */
-#define MK_Impl_sharedInstance(type) static type *sharedInstance = nil;\
+#define MK_IMPL_SHAREDINSTANCE(type)\
+static type *sharedInstance = nil;\
 + (instancetype)sharedInstance {\
     static dispatch_once_t once;\
     dispatch_once(&once, ^{\
@@ -87,14 +88,14 @@
 }
 
 /** 线程 */
-#define MK_Dispatch_main_sync_safe(block)\
+#define MK_DISPATCH_MAIN_SYNC_SAFE(block)\
     if ([NSThread isMainThread]) {\
         block();\
     } else {\
         dispatch_sync(dispatch_get_main_queue(), block);\
     }
 
-#define MK_Dispatch_main_async_safe(block)\
+#define MK_DISPATCH_MAIN_ASYNC_SAFE(block)\
     if ([NSThread isMainThread]) {\
         block();\
     } else {\
@@ -115,7 +116,7 @@ typedef void (^MKVoidBlock)(void);
 typedef void (^MKIntegerBlock)(NSInteger index);
 
 /** 处理分割线没在最左边问题：ios8以后才有的问题 */
-#define MK_AddTableViewLineAdjust \
+#define MK_ADD_TABLEVIEW_SEPARATOR_ADJUST \
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{\
     if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {\
         [tableView setSeparatorInset:UIEdgeInsetsZero];\
@@ -128,8 +129,7 @@ typedef void (^MKIntegerBlock)(NSInteger index);
     }\
 }
 
-
-#define  MK_AdjustsScrollViewInsets_NO(scrollView,vc)\
+#define  MK_ADJUSTS_SCROLLVIEW_INSETS_NO(scrollView,vc)\
 do { \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
