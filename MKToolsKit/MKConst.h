@@ -70,6 +70,8 @@
                                                      blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0f]
 
 /** 单例 */
+#define MK_INSTANCETYPE + (instancetype)sharedInstance;
+
 #define MK_IMPL_SHAREDINSTANCE(type)\
 static type *sharedInstance = nil;\
 + (instancetype)sharedInstance {\

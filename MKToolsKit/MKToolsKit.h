@@ -8,7 +8,7 @@
 
 #ifndef __MKTOOLSKIT_
     #define __MKTOOLSKIT_
-    #import "MKToolsKit.h"
+    #import "MKConst.h"
     #import "MKBaseTabBarController.h"
     #import "MKCategoryHead.h"
 
