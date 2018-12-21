@@ -69,6 +69,14 @@
                                                     green:((float)((rgbValue & 0xFF00) >> 8))/255.0f \
                                                      blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0f]
 
+/** Font */
+#define MK_FONT(a)          [UIFont systemFontOfSize:a]
+#define MK_FONTBOLD(a)      [UIFont boldSystemFontOfSize:a]
+
+#define MK_FONT_PFSC_Regular(a) [MKDeviceHelper systemIs9Later]?[UIFont fontWithName:@"PingFangSC-Regular" size:a]:[UIFont systemFontOfSize:a]
+#define MK_FONT_PFSC_Light(a)   [MKDeviceHelper systemIs9Later]?[UIFont fontWithName:@"PingFangSC-Light" size:a]:[UIFont systemFontOfSize:a]
+#define MK_FONT_PFSC_Medium(a)  [MKDeviceHelper systemIs9Later]?[UIFont fontWithName:@"PingFangSC-Medium" size:a]:[UIFont boldSystemFontOfSize:a]
+
 /** 单例 */
 #define MK_INSTANCETYPE + (instancetype)sharedInstance;
 
