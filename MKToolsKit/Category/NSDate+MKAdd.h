@@ -12,27 +12,33 @@
 
 /** 获取当前时间戳 微秒 13位*/
 + (long long)mk_getCurrentTimeStamp;
+/** NSDate -> 时间戳毫秒 */
 - (long long)mk_dateToMillisecond;
+/** NSDate -> 微妙 */
 - (long long)mk_dateToMicrosecond;
 
 /** 获取当前时间戳 秒 10位 */
 + (UInt32)mk_getTimeStamp4Second;
-/** 获取指定日期00:00:00的时间 NSDate*/
-- (NSDate *)mk_dateForZeroTime;
 /** 时间戳-> NSDate */
 + (NSDate *)mk_dataWithTimeStamp:(long long)timeStamp;
-/** 获取当前时间 */
-+ (NSString *)mk_getNowDateWithFormat:(NSString *)format;
+/** 格式化当前时间 */
++ (NSString *)mk_getNowDateStringWithFormat:(NSString *)format;
 /** 时间戳 -> 全格式String */
-+ (NSString *)mk_FormatFullWithTimeStamp:(long long)timeStamp;
++ (NSString *)mk_formatFullWithTimeStamp:(long long)timeStamp;
+/** UTC -> NSDate */
++ (NSDate *)mk_dateWithUTC:(NSString *)utc;
+
+/** 获取指定日期NSDate 的00:00:00的时间 */
+- (NSDate *)mk_dateForZeroTime;
 /** NSDate -> 指定 format */
 - (NSString *)mk_dateToStringWithFormat:(NSString *)format;
-/** NSDate -> 全格式String */
+/** NSDate -> yyyy-MM-dd HH:mm:ss */
 - (NSString *)mk_dateToStringWithFormatFull;
+/** NSDate -> yyyy-MM-dd */
+- (NSString *)mk_dateToStringWithFormatDate;
 /** NSDate -> UTC */
 - (NSString *)mk_dateToUTCFormat;
-/** UTC -> NSDate */
-- (NSDate *)mk_dateWithUTC:(NSString *)utc;
+
 @end
 
 

@@ -298,13 +298,13 @@
     return imgData;
 }
 
-- (UIImage *)compressWithRatio:(CGFloat)ratio{
+- (UIImage *)mk_compressWithRatio:(CGFloat)ratio{
     NSData *imgData = UIImageJPEGRepresentation(self, ratio);
     UIImage *result = [UIImage imageWithData:imgData];
     return result;
 }
 
-- (UIImage *)compressImage{
+- (UIImage *)mk_compressImage{
     NSData *imgData = UIImageJPEGRepresentation(self, 1.0);
     CGFloat ratio = 1;
     if (imgData.length > 10000000) {

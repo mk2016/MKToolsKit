@@ -36,6 +36,7 @@
 		C53EFE1A1DCC2B9300EF5C39 /* MKBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C53EFE191DCC2B9300EF5C39 /* MKBaseTabBarController.m */; };
 		C54D1EDF1E6AB09500D124E0 /* UITableViewCell+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C54D1EDE1E6AB09500D124E0 /* UITableViewCell+MKAdd.m */; };
 		C55E0E641DD6100400FB663A /* NSDate+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E0E631DD6100400FB663A /* NSDate+MKAdd.m */; };
+		C563590821D0BB9600078589 /* MKHyperlinkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C563590621D0BB9400078589 /* MKHyperlinkButton.m */; };
 		C56D310B1E23644900813D97 /* MKAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D30F51E23644900813D97 /* MKAlertView.m */; };
 		C56D310D1E23644900813D97 /* MKBaseWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D30FA1E23644900813D97 /* MKBaseWindowView.m */; };
 		C56D310E1E23644900813D97 /* MKBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D30FD1E23644900813D97 /* MKBlurView.m */; };
@@ -118,6 +119,8 @@
 		C54D1EDE1E6AB09500D124E0 /* UITableViewCell+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+MKAdd.m"; sourceTree = "<group>"; };
 		C55E0E621DD6100400FB663A /* NSDate+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MKAdd.h"; sourceTree = "<group>"; };
 		C55E0E631DD6100400FB663A /* NSDate+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MKAdd.m"; sourceTree = "<group>"; };
+		C563590621D0BB9400078589 /* MKHyperlinkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKHyperlinkButton.m; sourceTree = "<group>"; };
+		C563590721D0BB9400078589 /* MKHyperlinkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKHyperlinkButton.h; sourceTree = "<group>"; };
 		C56D30F41E23644900813D97 /* MKAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKAlertView.h; sourceTree = "<group>"; };
 		C56D30F51E23644900813D97 /* MKAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKAlertView.m; sourceTree = "<group>"; };
 		C56D30F91E23644900813D97 /* MKBaseWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBaseWindowView.h; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 		C5292F701E24748E00A752CC /* MKButton */ = {
 			isa = PBXGroup;
 			children = (
+				C563590721D0BB9400078589 /* MKHyperlinkButton.h */,
+				C563590621D0BB9400078589 /* MKHyperlinkButton.m */,
 				C5292F711E24748E00A752CC /* MKRightImageButton.h */,
 				C5292F721E24748E00A752CC /* MKRightImageButton.m */,
 				C5292F731E24748E00A752CC /* MKVButton.h */,
@@ -446,6 +451,7 @@
 				C5BE6C4220EA0FD70012A66D /* SAMKeychain.m in Sources */,
 				C5288D821DC6D6B100B87F48 /* MKUITools.m in Sources */,
 				C5288D801DC6D6B100B87F48 /* MKFileHelper.m in Sources */,
+				C563590821D0BB9600078589 /* MKHyperlinkButton.m in Sources */,
 				C59DECD91DD0213A00322D42 /* UIView+Toast.m in Sources */,
 				C5288D811DC6D6B100B87F48 /* MKImagePickerCtrHelper.m in Sources */,
 				C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */,

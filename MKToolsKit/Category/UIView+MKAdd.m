@@ -114,6 +114,19 @@
 //    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
+/** é´å½± */
+- (void)mk_addShadowWithColor:(UIColor *)color{
+    [self mk_addShadowWithColor:color size:CGSizeMake(0, 0)];
+}
+
+- (void)mk_addShadowWithColor:(UIColor *)color size:(CGSize)size{
+    self.layer.shadowColor = color.CGColor;
+    self.layer.shadowOffset = size;
+    self.layer.shadowOpacity = 0.5;
+    self.layer.shadowRadius = 1;
+}
+
+
 #pragma mark - ***** 边框 ******
 - (void)mk_setBorderColor:(UIColor *)color{
     [self mk_setBorderWidth:0.7 andColor:color];

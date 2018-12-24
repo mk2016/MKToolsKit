@@ -10,6 +10,6 @@
 
 @interface NSObject (MKAdd)
 
-- (id)copySelfPerfect;
+- (id)mk_copySelfPerfect;
 
 @end

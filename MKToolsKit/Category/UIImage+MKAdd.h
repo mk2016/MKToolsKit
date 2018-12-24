@@ -49,8 +49,8 @@
 - (NSData *)mk_compressLessThan:(CGFloat)kb;
 - (NSData *)mk_compressLessThan1M;
 - (NSData *)mk_compressLessThan500KBData;
-- (UIImage *)compressWithRatio:(CGFloat)ratio;
-- (UIImage *)compressImage;
+- (UIImage *)mk_compressWithRatio:(CGFloat)ratio;
+- (UIImage *)mk_compressImage;
 
 /** 剪裁图片 */
 - (UIImage *)mk_cropWith:(CGRect)rect;

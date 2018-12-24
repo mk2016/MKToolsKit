@@ -19,7 +19,7 @@
 
 @implementation MKImagePickerCtrHelper
 
-MK_Impl_sharedInstance(MKImagePickerCtrHelper);
+MK_IMPL_SHAREDINSTANCE(MKImagePickerCtrHelper);
 
 - (void)showWithSourceType:(MKImagePickerType)sourceType onViewController:(UIViewController *)vc block:(MKBlock)block{
     self.vc = vc;

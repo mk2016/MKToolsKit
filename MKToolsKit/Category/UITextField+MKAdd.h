@@ -10,6 +10,6 @@
 
 @interface UITextField (MKAdd)
 
-- (void)mk_constraintMoneyInputWithLength:(NSInteger)length;
+- (void)mk_constraintMoneyByIntegerLimit:(NSInteger)length;
 
 @end

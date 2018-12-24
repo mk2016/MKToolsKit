@@ -20,6 +20,8 @@
 /** 打包版本号 */
 + (NSString *)appBundleVersion;
 
++ (NSString *)appName;
+
 /** 发布版本号转int */
 + (int)appIntVersion;
 
