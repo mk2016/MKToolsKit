@@ -304,10 +304,10 @@
 		C56D30F31E23644900813D97 /* MKAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				C57FE2FD1F306AE9008AC0CB /* UIAlertController+MKAdd.h */,
-				C57FE2FE1F306AE9008AC0CB /* UIAlertController+MKAdd.m */,
 				C56D30F41E23644900813D97 /* MKAlertView.h */,
 				C56D30F51E23644900813D97 /* MKAlertView.m */,
+				C57FE2FD1F306AE9008AC0CB /* UIAlertController+MKAdd.h */,
+				C57FE2FE1F306AE9008AC0CB /* UIAlertController+MKAdd.m */,
 			);
 			path = MKAlertView;
 			sourceTree = "<group>";
