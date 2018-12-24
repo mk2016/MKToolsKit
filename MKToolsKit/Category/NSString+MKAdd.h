@@ -17,15 +17,15 @@
 
 #pragma mark - ***** 字符串校验 *****
 /** 是否包含汉字 */
-- (BOOL)isIncludeChinese;
+- (BOOL)mk_isIncludeChinese;
 /** 是否全部为汉字 */
-- (BOOL)isChineseString;
+- (BOOL)mk_isChineseString;
 
 /** 邮箱格式检查 */
-- (BOOL)validateEmail;
+- (BOOL)mk_validateEmail;
 
 /** 简单身份证校验 */
-- (BOOL)validateIdentityCard;
+- (BOOL)mk_validateIdentityCard;
 
 #pragma mark - ***** 汉字 转 拼音 ******
 /** 获取中文名首个拼音字母 */
@@ -46,10 +46,6 @@
 
 /** 获取字符串的 Size */
 - (CGSize)mk_getContentSizeWithFont:(UIFont *)font width:(CGFloat)width;
-
-
-+ (NSString *)mk_stringWithInt:(int)i;
-+ (NSString *)mk_stringWithLongLong:(long long)i;
 
 @end
 

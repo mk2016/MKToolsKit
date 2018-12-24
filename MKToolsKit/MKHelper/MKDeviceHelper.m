@@ -39,6 +39,10 @@
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 }
 
++ (NSString *)appName{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+}
+
 + (int)appIntVersion{
     NSString *nowShotV = [self appBundleVersion];
     NSArray *numArray = [nowShotV componentsSeparatedByString:@"."];

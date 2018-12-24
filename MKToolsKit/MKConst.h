@@ -61,6 +61,7 @@
 //#define MK_SCREEN_SAFE_FRAME            CGRectMake(0, MK_SCREEN_IPHONEX_NAVGATION, MK_SCREEN_WIDTH, MK_SCREEN_MAIN_HEIGHT)
 
 #define MK_ONE_PIXEL_HEIGHT             (1.f/[UIScreen mainScreen].scale)
+#define IPHONEX_HEAD_MARGIN             (MK_IS_IPHONE_XX ? 24 : 0)
 
 /** 颜色 */
 #define MK_COLOR_RGB(r, g, b)        [UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1]
@@ -124,6 +125,7 @@ typedef void (^MKBlock)(id result);
 typedef void (^MKBoolBlock)(BOOL bRet);
 typedef void (^MKVoidBlock)(void);
 typedef void (^MKIntegerBlock)(NSInteger index);
+typedef void (^MKArrayBlock)(NSArray *array);
 
 /** 处理分割线没在最左边问题：ios8以后才有的问题 */
 #define MK_ADD_TABLEVIEW_SEPARATOR_ADJUST \

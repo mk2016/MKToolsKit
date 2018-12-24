@@ -16,7 +16,7 @@
  *  @param aKey   the key to search the property.
  *  @param aValue the object to bind to the instance.
  */
-- (void)bindPropertyWithKey:(NSString *)aKey value:(id)aValue;
+- (void)mk_bindPropertyWithKey:(NSString *)aKey value:(id)aValue;
 
 /**
  *  Get the object which is bind to a instance With key-value pair.
@@ -25,30 +25,30 @@
  *
  *  @return: the object to bind to the instance.
  */
-- (id)propertyValueForKey:(NSString *)aKey;
+- (id)mk_propertyValueForKey:(NSString *)aKey;
 
 /**
  *  Delete the property which is bind to the instance with the key.
  *
  *  @param aKey the key to search the property.
  */
-- (void)removePropertyWithKey:(NSString *)aKey;
+- (void)mk_removePropertyWithKey:(NSString *)aKey;
 
 /**
  *  Delete all properties which are bind to the instance.
  */
-- (void)removeAllBindProperty;
+- (void)mk_removeAllBindProperty;
 
 /**
  *  @return:  the object which is bind to the instance.
  */
-- (id)tagObj;
+- (id)mk_tagObj;
 
 /**
  *  Bind the object to the instance.
  *
  *  @param aTagObj the object which had binded to the instance.
  */
-- (void)setTagObj:(id)aTagObj;
+- (void)setMk_tagObj:(id)aTagObj;
 
 @end

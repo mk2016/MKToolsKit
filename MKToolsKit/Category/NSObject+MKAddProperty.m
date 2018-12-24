@@ -14,7 +14,7 @@ static const int tagObj_key;
 
 @implementation NSObject(MKAddProperty)
 
-- (void)bindPropertyWithKey:(NSString *)aKey value:(id)aValue{
+- (void)mk_bindPropertyWithKey:(NSString *)aKey value:(id)aValue{
     if (!aKey || !aKey.length || !aValue) {
         return;
     }
@@ -22,7 +22,7 @@ static const int tagObj_key;
     [dic setValue:aValue forKey:aKey];
 }
 
-- (id)propertyValueForKey:(NSString *)aKey{
+- (id)mk_propertyValueForKey:(NSString *)aKey{
     if (!aKey || !aKey.length) {
         return nil;
     }
@@ -30,7 +30,7 @@ static const int tagObj_key;
     return [dic valueForKey:aKey];
 }
 
-- (void)removePropertyWithKey:(NSString *)aKey{
+- (void)mk_removePropertyWithKey:(NSString *)aKey{
     if (!aKey || !aKey.length) {
         return;
     }
@@ -38,7 +38,7 @@ static const int tagObj_key;
     [dic removeObjectForKey:aKey];
 }
 
-- (void)removeAllBindProperty{
+- (void)mk_removeAllBindProperty{
     NSMutableDictionary *dic = [self _allProperties];
     [dic removeAllObjects];
 }
@@ -54,12 +54,12 @@ static const int tagObj_key;
     return allPropertiesDic;
 }
 
-- (id)tagObj{
+- (id)mk_tagObj{
     return objc_getAssociatedObject(self, &tagObj_key);
 }
 
 
-- (void)setTagObj:(id)aTagObj{
+- (void)setMk_tagObj:(id)aTagObj{
     if (!aTagObj) {
         return;
     }

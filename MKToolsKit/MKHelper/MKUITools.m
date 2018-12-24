@@ -8,6 +8,7 @@
 
 #import "MKUITools.h"
 #import <MessageUI/MessageUI.h>
+#import "UIView+Toast.h"
 
 @implementation MKUITools
 
@@ -30,6 +31,16 @@
 
 + (id)getVCFromStoryboard:(NSString *)storyboard identify:(NSString *)identify{
     return [[UIStoryboard storyboardWithName:storyboard bundle:nil] instantiateViewControllerWithIdentifier:identify];
+}
+
+
++ (void)delayTask:(float)time onTimeEnd:(void(^)(void))block{
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), block);
+}
+
++ (void)showToast:(NSString *)message{
+    [[self getCurrentWindow] makeToast:message];
 }
 
 #pragma mark - ***** top View ******
@@ -131,6 +142,16 @@
     NSArray *descArray = [NSArray arrayWithObject:desc];
     NSArray *sortArray = [tempDic.allValues sortedArrayUsingDescriptors:descArray];
     return sortArray;
+}
+
++ (void)exitApplication{
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    [UIView animateWithDuration:1.0f animations:^{
+        window.alpha = 0;
+        window.frame = CGRectMake(0, window.bounds.size.width, 0, 0);
+    } completion:^(BOOL finished) {
+        exit(0);
+    }];
 }
 
 @end

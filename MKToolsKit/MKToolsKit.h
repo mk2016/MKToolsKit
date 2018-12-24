@@ -13,21 +13,23 @@
     #import "MKCategoryHead.h"
 
     /** helper */
-    #import "MKHelper/MKDeviceAuthorizationHelper.h"
-    #import "MKHelper/MKDeviceHelper.h"
-    #import "MKHelper/MKFileHelper.h"
-    #import "MKHelper/MKImagePickerCtrHelper.h"
-    #import "MKHelper/MKUITools.h"
+    #import "MKDeviceAuthorizationHelper.h"
+    #import "MKDeviceHelper.h"
+    #import "MKFileHelper.h"
+    #import "MKImagePickerCtrHelper.h"
+    #import "MKUITools.h"
 
     /** subassembly 组件 */
-    #import "MKSubassembly/MKAlertView/MKAlertView.h"
-    #import "MKSubassembly/MKBaseWindowView/MKBaseWindowView.h"
-    #import "MKSubassembly/MKBlurView/MKBlurView.h"
-    #import "MKSubassembly/MKButton/MKVButton.h"
-    #import "MKSubassembly/MKButton/MKRightImageButton.h"
-    #import "MKSubassembly/MKDatePickerView/MKDatePickerView.h"
+    #import "MKAlertView.h"
+    #import "UIAlertController+MKAdd.h"
+    #import "MKBaseWindowView.h"
+    #import "MKBlurView.h"
+    #import "MKHyperlinkButton.h"
+    #import "MKVButton.h"
+    #import "MKRightImageButton.h"
+    #import "MKDatePickerView.h"
 
     /** Verdor */
-    #import "Vendor/GZIP/GZIP.h"
-    #import "Vendor/Toast/UIView+Toast.h"
+    #import "GZIP.h"
+    #import "UIView+Toast.h"
 #endif

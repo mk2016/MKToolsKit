@@ -51,6 +51,9 @@ typedef enum {
 - (void)mk_setToCircle;
 - (void)mk_setCornerWith:(UIRectCorner)corners radii:(CGSize)size;
 
+- (void)mk_addShadowWithColor:(UIColor *)color;
+- (void)mk_addShadowWithColor:(UIColor *)color size:(CGSize)size;
+
 #pragma mark - ***** 边框 ******
 - (void)mk_setBorderColor:(UIColor *)color;
 - (void)mk_setBorderWidth:(CGFloat)width andColor:(UIColor *)color;

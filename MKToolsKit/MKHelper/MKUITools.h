@@ -16,6 +16,8 @@
 
 + (id)getVCFromStoryboard:(NSString *)storyboard identify:(NSString *)identify;
 
++ (void)delayTask:(float)time onTimeEnd:(void(^)(void))block;
++ (void)showToast:(NSString *)message;
 #pragma mark - ***** top View ******
 + (UIView *)getTopView;
 
@@ -39,4 +41,5 @@
  */
 + (NSArray *)getNoRepeatSortLetterArray:(NSArray *)array letterKey:(NSString *)letterKey;
 
++ (void)exitApplication;
 @end

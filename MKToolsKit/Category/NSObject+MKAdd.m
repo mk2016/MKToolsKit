@@ -10,7 +10,7 @@
 
 @implementation NSObject (MKAdd)
 
-- (id)copySelfPerfect{
+- (id)mk_copySelfPerfect{
     if (self) {
         return [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyedArchiver archivedDataWithRootObject:self]];
     }else{

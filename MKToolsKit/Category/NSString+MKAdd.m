@@ -32,7 +32,7 @@
 
 #pragma mark - ***** 字符串校验 *****
 /** 是否包含汉字 */
-- (BOOL)isIncludeChinese{
+- (BOOL)mk_isIncludeChinese{
     for(int i = 0; i < [self length]; i++){
         unichar a = [self characterAtIndex:i];
         if ([self isChinese:a]) {
@@ -43,7 +43,7 @@
 }
 
 /** 全部汉字检查 */
-- (BOOL)isChineseString{
+- (BOOL)mk_isChineseString{
     for (int i = 0; i < [self length]; i++) {
         unichar a = [self characterAtIndex:i];
         if (![self isChinese:a]) {
@@ -62,14 +62,14 @@
 }
 
 /** 邮箱校验 */
-- (BOOL)validateEmail{
+- (BOOL)mk_validateEmail{
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:self];
 }
 
 /** 身份证校验 */
-- (BOOL)validateIdentityCard{
+- (BOOL)mk_validateIdentityCard{
     BOOL flag;
     if (self.length <= 0) {
         flag = NO;
@@ -161,12 +161,4 @@
     return size;
 }
 
-
-+ (NSString *)mk_stringWithInt:(int)i{
-    return [NSString stringWithFormat:@"%d", i];
-}
-
-+ (NSString *)mk_stringWithLongLong:(long long)i{
-    return [NSString stringWithFormat:@"%lld", i];
-}
 @end

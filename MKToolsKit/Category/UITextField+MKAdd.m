@@ -10,7 +10,7 @@
 
 @implementation UITextField (MKAdd)
 
-- (void)mk_constraintMoneyInputWithLength:(NSInteger)length{
+- (void)mk_constraintMoneyByIntegerLimit:(NSInteger)length{
     if (self.text.length > 1) {
         NSString *frist = [self.text substringToIndex:1];
         NSString *second = [self.text substringWithRange:NSMakeRange(1, 1)];
