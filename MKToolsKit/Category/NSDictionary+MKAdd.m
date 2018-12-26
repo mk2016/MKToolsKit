@@ -10,28 +10,42 @@
 
 @implementation NSDictionary (MKAdd)
 
-+ (NSDictionary *)mk_dictionaryWithJsonString:(id)json{
-    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
-    return [self mk_dictionaryWithJsonData:jsonData];
-}
-
-+ (NSDictionary *)mk_dictionaryWithJsonData:(NSData *)data{
-    NSError *error;
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    if (error) {
-        NSLog(@"json解析失败:%@",error);
++ (NSDictionary *)mk_dictionaryWithJson:(id)json{
+    if (!json || json == (id)kCFNull) {
         return nil;
     }
-    return dic;
-}
-
-+ (NSDictionary *)mk_dictionaryWithObject:(id)obj{
-    if ([obj isKindOfClass:[NSDictionary class]]) {
-        return obj;
-    }else if ([obj isKindOfClass:[NSString class]]){
-        return [self mk_dictionaryWithJsonString:obj];
-    }else if ([obj isKindOfClass:[NSData class]]){
-        return [self mk_dictionaryWithJsonData:obj];
+    if ([json isKindOfClass:[NSDictionary class]]) {
+        return json;
+    }
+    
+    NSData *jsonData = nil;
+    if ([json isKindOfClass:[NSString class]]){
+        if (((NSString *)json).length == 0){
+            return nil;
+        }
+        jsonData = [(NSString *)json dataUsingEncoding:NSUTF8StringEncoding];
+    }else if ([json isKindOfClass:[NSData class]]){
+        jsonData = json;
+    }
+    
+    NSDictionary *dic = nil;
+    if (jsonData){
+        NSError *error;
+        dic = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];   //NSJSONReadingMutableContainers
+        if (error){
+            dic = nil;
+            NSLog(@"json parsing fail : %@",error);
+        }
+    }
+    if (dic && [dic isKindOfClass:[NSDictionary class]]){
+        NSMutableDictionary *tempDic = dic.mutableCopy;
+        NSArray *valueAry = [tempDic allKeys];
+        for (NSString *key in valueAry) {
+            if ([[tempDic objectForKey:key] isEqual:[NSNull null]]){
+                [tempDic setObject:@"" forKey:key];
+            }
+        }
+        return tempDic.copy;
     }
     return nil;
 }

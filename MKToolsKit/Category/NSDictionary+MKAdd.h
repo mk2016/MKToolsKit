@@ -10,11 +10,6 @@
 
 @interface NSDictionary (MKAdd)
 
-
-+ (NSDictionary *)mk_dictionaryWithJsonString:(id)json;
-
-+ (NSDictionary *)mk_dictionaryWithJsonData:(NSData *)data;
-
-+ (NSDictionary *)mk_dictionaryWithObject:(id)obj;
++ (NSDictionary *)mk_dictionaryWithJson:(id)json;
 
 @end

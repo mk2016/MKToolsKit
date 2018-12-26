@@ -13,6 +13,7 @@
 		C508AFCF1D951C5A00852B87 /* UITabBar+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFCE1D951C5A00852B87 /* UITabBar+MKAdd.m */; };
 		C508AFD81D951D7C00852B87 /* UILabel+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFD51D951D7C00852B87 /* UILabel+MKAdd.m */; };
 		C508AFD91D951D7C00852B87 /* UINavigationController+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C508AFD71D951D7C00852B87 /* UINavigationController+MKAdd.m */; };
+		C50AFE7721D1029D00A150AB /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C50AFE7621D1029D00A150AB /* UILabel+YBAttributeTextTapAction.m */; };
 		C51317E61D93C97300EA9C9B /* MKToolsKit.h in Copy Files */ = {isa = PBXBuildFile; fileRef = C51317E31D93C97300EA9C9B /* MKToolsKit.h */; };
 		C515A5791D9CF24E00D7984E /* NSString+MKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A5781D9CF24E00D7984E /* NSString+MKAdd.m */; };
 		C515A5821D9CF33200D7984E /* Foundation+MKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = C515A57B1D9CF33200D7984E /* Foundation+MKLog.m */; };
@@ -79,6 +80,8 @@
 		C508AFD51D951D7C00852B87 /* UILabel+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+MKAdd.m"; sourceTree = "<group>"; };
 		C508AFD61D951D7C00852B87 /* UINavigationController+MKAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MKAdd.h"; sourceTree = "<group>"; };
 		C508AFD71D951D7C00852B87 /* UINavigationController+MKAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MKAdd.m"; sourceTree = "<group>"; };
+		C50AFE7521D1029D00A150AB /* UILabel+YBAttributeTextTapAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+YBAttributeTextTapAction.h"; sourceTree = "<group>"; };
+		C50AFE7621D1029D00A150AB /* UILabel+YBAttributeTextTapAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+YBAttributeTextTapAction.m"; sourceTree = "<group>"; };
 		C51317E01D93C97300EA9C9B /* libMKToolsKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMKToolsKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51317E31D93C97300EA9C9B /* MKToolsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKToolsKit.h; sourceTree = "<group>"; };
 		C515A5761D9CF0A600D7984E /* MKCategoryHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKCategoryHead.h; sourceTree = "<group>"; };
@@ -207,6 +210,15 @@
 				C508AFCB1D950F4500852B87 /* UIView+MKAdd.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		C50AFE7421D1029D00A150AB /* YBAttributeTextTapAction */ = {
+			isa = PBXGroup;
+			children = (
+				C50AFE7521D1029D00A150AB /* UILabel+YBAttributeTextTapAction.h */,
+				C50AFE7621D1029D00A150AB /* UILabel+YBAttributeTextTapAction.m */,
+			);
+			path = YBAttributeTextTapAction;
 			sourceTree = "<group>";
 		};
 		C51317D71D93C97300EA9C9B = {
@@ -350,6 +362,7 @@
 				C59DECD01DD01E5A00322D42 /* GZIP */,
 				C5BE6C3C20EA0FD70012A66D /* SAMKeychain */,
 				C59DECD61DD0213A00322D42 /* Toast */,
+				C50AFE7421D1029D00A150AB /* YBAttributeTextTapAction */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -459,6 +472,7 @@
 				C508AFD81D951D7C00852B87 /* UILabel+MKAdd.m in Sources */,
 				C5292F761E24748E00A752CC /* MKVButton.m in Sources */,
 				C5AF0D461DB6081B00928660 /* UINavigationBar+MKAdd.m in Sources */,
+				C50AFE7721D1029D00A150AB /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				C5BE6C4120EA0FD70012A66D /* SAMKeychainQuery.m in Sources */,
 				C515A5851D9CF33200D7984E /* UIImage+MKAdd.m in Sources */,
 				C5052D911E98BF93007F7657 /* UITextField+MKAdd.m in Sources */,

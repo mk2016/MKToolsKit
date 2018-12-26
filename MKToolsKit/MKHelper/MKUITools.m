@@ -9,6 +9,7 @@
 #import "MKUITools.h"
 #import <MessageUI/MessageUI.h>
 #import "UIView+Toast.h"
+#import "MKConst.h"
 
 @implementation MKUITools
 
@@ -40,7 +41,15 @@
 }
 
 + (void)showToast:(NSString *)message{
-    [[self getCurrentWindow] makeToast:message];
+    if ([message isEqual:[NSNull null]]){
+        return;
+    }
+    if (message == nil || message.length == 0){
+        return;
+    }
+    MK_DISPATCH_MAIN_ASYNC_SAFE(^{
+        [[self getCurrentWindow] makeToast:message];
+    })
 }
 
 #pragma mark - ***** top View ******

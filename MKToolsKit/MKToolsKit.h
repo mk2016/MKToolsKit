@@ -32,4 +32,5 @@
     /** Verdor */
     #import "GZIP.h"
     #import "UIView+Toast.h"
+    #import "UILabel+YBAttributeTextTapAction.h"
 #endif

@@ -11,25 +11,6 @@
 
 @implementation NSString(MKAdd)
 
-- (id)mk_jsonString2Dictionary{
-    NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error;
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-    if (error) {
-        NSLog(@"json解析失败:%@",error);
-        return nil;
-    }
-    return dic;
-}
-
-- (NSDictionary *)mk_dictionaryWithJsonString{
-    if (self.length == 0) {
-        return nil;
-    }
-    return [self mk_jsonString2Dictionary];
-}
-
-
 #pragma mark - ***** 字符串校验 *****
 /** 是否包含汉字 */
 - (BOOL)mk_isIncludeChinese{
