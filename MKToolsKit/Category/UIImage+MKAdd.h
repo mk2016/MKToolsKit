@@ -25,6 +25,7 @@
 + (UIImage *)mk_resizedImageWithName:(NSString *)name;
 /** 根据颜色生成图片 */
 + (UIImage *)mk_imageWithColor:(UIColor *)color;
++ (UIImage *)mk_imageWithColor:(UIColor *)color size:(CGSize)size;
 - (UIImage *)mk_imageFillColor:(UIColor *)color;
 
 /** 生成二维码图片 */

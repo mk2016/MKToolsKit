@@ -40,6 +40,12 @@
 }
 
 + (void)showToast:(NSString *)message{
+    if ([message isEqual:[NSNull null]]){
+        return;
+    }
+    if (message == nil || message.length == 0){
+        return;
+    }
     [[self getCurrentWindow] makeToast:message];
 }
 

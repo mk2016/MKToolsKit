@@ -52,4 +52,22 @@
         [[UINavigationBar appearance] setShadowImage:[UIImage mk_imageWithColor:[UIColor clearColor]]];
     }
 }
+
+/** 设置不透明的颜色背景图 */
+- (void)setBackgroundOpacityColor:(UIColor *)color{
+    UIImage *img = [UIImage mk_imageWithColor:color];
+    [self.navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
+}
+
+/** 自定义底部 线条 */
+- (void)setCustomNavigationBarBottomLineWithImageName:(NSString *)imageName hidden:(BOOL)hidden{
+    UIImageView *img = [self.navigationBar viewWithTag:888];
+    if (!img) {
+        img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 43, [UIScreen mainScreen].bounds.size.width, 1)];
+        img.image = [UIImage imageNamed:imageName];
+        img.tag = 888;
+        [self.navigationBar addSubview:img];
+    }
+    img.hidden = hidden;
+}
 @end

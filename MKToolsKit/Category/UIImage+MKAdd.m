@@ -53,8 +53,12 @@
     return [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
 }
 
-+ (UIImage *)mk_imageWithColor:(UIColor *)color;{
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
++ (UIImage *)mk_imageWithColor:(UIColor *)color{
+    return [self mk_imageWithColor:color size:CGSizeMake(1.f, 1.f)];
+}
+
++ (UIImage *)mk_imageWithColor:(UIColor *)color size:(CGSize)size{
+    CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
     // 开启位图上下文
     UIGraphicsBeginImageContext(rect.size);
     // 获取位图上下文
@@ -69,6 +73,9 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
+
+
 
 - (UIImage *)mk_imageFillColor:(UIColor *)color{
     UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
