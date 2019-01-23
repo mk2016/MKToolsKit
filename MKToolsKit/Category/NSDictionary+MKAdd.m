@@ -37,6 +37,9 @@
             NSLog(@"json parsing fail : %@",error);
         }
     }
+    if (dic && [dic isKindOfClass:[NSArray class]]) {
+        return dic;
+    }
     if (dic && [dic isKindOfClass:[NSDictionary class]]){
         NSMutableDictionary *tempDic = dic.mutableCopy;
         NSArray *valueAry = [tempDic allKeys];
