@@ -46,7 +46,9 @@
     if (message == nil || message.length == 0){
         return;
     }
-    [[self getCurrentWindow] makeToast:message];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[self getCurrentWindow] makeToast:message];
+    });
 }
 
 #pragma mark - ***** top View ******

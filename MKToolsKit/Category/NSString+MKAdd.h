@@ -11,10 +11,6 @@
 
 @interface NSString(MKAdd)
 
-/** jsonString 转 dictionary 或者 NSArray */
-- (id)mk_jsonString2Dictionary;
-- (NSDictionary *)mk_dictionaryWithJsonString;
-
 #pragma mark - ***** 字符串校验 *****
 /** 是否包含汉字 */
 - (BOOL)mk_isIncludeChinese;
