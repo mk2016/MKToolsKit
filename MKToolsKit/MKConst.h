@@ -122,6 +122,7 @@ static type *sharedInstance = nil;\
 /** block */
 #define MK_BLOCK_EXEC(block, ...) if (block) { block(__VA_ARGS__); };
 typedef void (^MKBlock)(id result);
+typedef void (^MKStringBlock)(NSString *result);
 typedef void (^MKBoolBlock)(BOOL bRet);
 typedef void (^MKVoidBlock)(void);
 typedef void (^MKIntegerBlock)(NSInteger index);
