@@ -58,6 +58,9 @@
     [btnView addSubview:btnConfirm];
     
     self.datePicker.frame = CGRectMake(0, 40, MK_SCREEN_WIDTH, 200);
+    if (@available(iOS 13.4, *)) {
+        self.datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+    }
     self.datePicker.datePickerMode = self.datePickerModel;
     self.datePicker.timeZone = self.timeZone;
     self.datePicker.minimumDate = self.minimumDate;
